@@ -1,0 +1,274 @@
+.ml-10{
+    margin-left: 30px;
+   
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: max-content;
+    padding-bottom: 40px;
+    /* filter:blur(3px); */
+}
+.details-container{
+    position: absolute;
+    top: 100px;
+}
+
+.company-deatils-conatiner{
+   
+    position: relative;
+    height: 220px;
+    width: 75vw;
+   
+}
+.company-logo-details{
+ 
+    vertical-align: top;
+    width: max-content;
+    background-color: rgb(218, 215, 215);
+    border-radius: 20px;
+    position: absolute;
+   
+}
+.deatils-logo{
+    width: 150px;
+    height: 130px;
+    margin: 10px;
+    object-fit: contain;
+}
+.company-details{
+    background-color: #f63107;
+    border-radius: 20px;
+    position: absolute;
+    z-index: -1;
+    height: 180px;
+    width: 80%;
+    left: 90px;
+    top: 30px;
+}
+.company-name-deatils{
+    font-size: 30px;
+    font-weight: 800;
+    color: white;
+    margin-left: 100px;
+}
+.about-company-deatils{
+    font-size: 20px;
+    color: white;
+    margin: 20px 100px;
+    /* margin-top: 20px; */
+    text-align: start;
+    text-overflow: ellipsis;
+}
+.job-details{
+    
+    width: 75vw;
+    margin-top: 200px;
+    padding: 10px 30px;
+    border-radius: 20px;
+    background-color: whitesmoke;
+    color: black;
+    margin-top: 24rem;
+}
+.location-details{
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+}
+.postedDate{
+    margin: 5px;
+}
+.get-candidates{
+    display: flex;
+    height: 80px;
+    
+    align-items: center;
+}
+.postDate{
+    margin-top: 5px;
+ display: flex;
+
+}
+.postDate p{
+    font-size: 15px;
+    padding: 5px;
+    background-color: rgb(209, 209, 209);
+    border: 1px solid black;
+    border-radius: 10px;
+
+}
+.type{
+    margin-left: 10px;
+}
+.details-line{
+    height: 1px;
+    width: 100%;
+    background-color: black;
+    margin-top: 10px;
+}
+.about-job-head{
+    font-weight: 800;
+    text-decoration: underline;
+}
+.job-des-del{
+    font-size: large;
+}
+.qualify-details{
+   
+    margin-top: 10px;
+   
+}
+.qualify-head{
+    text-decoration: underline;
+    font-weight: 800;
+}
+.under{
+    text-decoration: underline;
+    font-weight: 800;
+
+}
+.qualify-del{
+    font-size: large;
+}
+.apply-del{
+    font-size: large;
+}
+.apply-btn-div{
+    display: flex;
+    justify-content: center;
+}
+.apply-btn{
+    margin-top: 10px;
+    background-color: #d1d1d1;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 17px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    filter: drop-shadow(0px 0px 3px #747474);
+}
+.apply-btn:hover{
+    filter: drop-shadow(0px 0px 7px #747474);
+}
+
+.big-apply-container{
+    position: fixed;
+    top: 250px;
+    left: 370px;
+    background-color: #dad7d7;
+    width: 50%;
+    height: 50%;
+    padding: 20px;
+    border: 0.5px solid black;
+    border-radius: 10px;
+    display: none;
+}
+.cross-img-cv{
+    cursor: pointer;
+}
+.head-apply{
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.apply-inputs-user{
+    margin-top: 10px;
+    height: 40px;
+    outline: none;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    font-weight: 800;
+}
+.user-apply-div{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.apply-btn-at{
+    display: flex;
+    justify-content: center;
+}
+.apply-btn-input{
+    height: 30px;
+    width: 30vw;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-weight: 800;
+    filter: drop-shadow(0px 0px 3px #000000);
+}
+.apply-btn-input:hover{
+    filter: drop-shadow(0px 0px 7px #000000);
+}
+@media screen and (max-width: 689px){
+    .company-deatils-conatiner{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 280px;
+        width: 90vw;
+    }
+    .deatils-logo{
+        width: 100px;
+        height: 100px;
+    }
+    .company-details{
+        top: 50px;
+        left: 20px;
+        height: 220px;
+        width: 80vw;
+    }
+    .company-name-deatils{
+        margin-top: 70px;
+        margin-left: 7px;
+    }
+    .about-company-deatils{
+        margin: 10px 10px;
+    }
+    .get-candidates{
+        display: grid;
+        column-gap: 20px;
+        grid-template-columns: 110px 110px;
+        grid-template-rows: 110px 110px;
+        margin-left: -13px;
+        
+    }
+    .postDate{
+        margin-top: 147px;
+    }
+    
+    
+}
+@media screen and (max-width: 1162px) {
+    .big-apply-container{
+        left: 100px;
+        width: 70%;
+    }
+    
+}
+@media screen and (max-width: 553px) {
+    .big-apply-container{
+        left: 60px;
+        width: 70%;
+    }
+    
+}
+@media screen and (min-width: 1605px) {
+    .big-apply-container{
+        left: 250px;
+        width: 70%;
+    }
+    
+}

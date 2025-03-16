@@ -1,0 +1,343 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  :root {
+    --main-background-color: #fbfcf6;
+  }
+  body {
+    background-color: var(--main-background-color);
+  }
+  
+  header {
+    background-color: var(--main-background-color);
+    border-bottom: black 1px solid;
+    height: 11vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0px 0px 35px 35px;
+    box-shadow: 0px 10px 30px 20px rgba(0, 0, 0, 0.23);
+    
+  }
+  .hamburger {
+    display: none;
+  }
+  .side {
+    border: black solid 2px;
+    height: 100vh;
+    width: 300px;
+    position: absolute;
+    top: 0px;
+    background-color: #ececec;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1;
+    transform: translateX(-300px);
+    transition: transform 1s ease-in-out 0s;
+  }
+  .cross-div {
+    display: flex;
+    justify-content: end;
+  }
+  .cross {
+    width: 35px;
+    margin-right: 15px;
+  }
+  .side-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .side-links li {
+    list-style: none;
+    margin: 5px;
+    background-color: var(--main-background-color);
+    border-radius: 35px;
+    width: 95%;
+    padding: 10px;
+  }
+  .side-links a {
+    font-size: 20px;
+    font-weight: 800;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+  }
+  .user-side-li {
+    border: red solid 2px;
+    align-self: flex-end;
+  }
+  .my-acc {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    background-color: var(--main-background-color);
+    border-radius: 35px;
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  .my-acc a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: 800;
+    margin-left: 10px;
+  }
+  .my-acc h2 {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+  .side-user {
+    width: 50px;
+  }
+  
+  .logo {
+    border: 2px red solid;
+    height: 8vh;
+    margin-left: 75px;
+  }
+  .logo-link {
+    margin-top: 17px;
+    margin-left: 75px;
+  }
+  .logo-img {
+    width: 202px;
+    height: 108px;
+  }
+  
+  .nav-links {
+    display: flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 25px;
+    height: 9vh;
+  }
+  .nav-links li {
+    list-style: none;
+    margin: 0 15px;
+  }
+  .nav-links li a {
+    text-decoration: none;
+    color: Black;
+    font-size: 20px;
+    font-weight: bolder;
+  }
+  .user-li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .user-ico {
+    width: 45px;
+  }
+  @media screen and (max-width: 718px) {
+    header {
+      /* justify-content: center; */
+      align-items: center;
+    }
+    .hamburger {
+      display: block;
+      margin-left: 25px;
+    }
+    .logo {
+      align-self: center;
+    }
+    .logo-link {
+      margin-left: 0px;
+    }
+    .nav-links {
+      display: none;
+    }
+  }
+
+
+main{
+   position: relative;
+   height: 90vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.log-reg{
+   
+    width: 40vw;
+    
+    
+    padding: 15px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+    
+}
+.log-page{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+   
+}
+.upper-btns{
+    /* border: 2px solid black; */
+    display: flex;
+   
+    width: 39vw;
+    padding: 0px 0px;
+}
+.login-up-up-btn{
+    width: 50vh;
+    border: solid transparent;
+    border-radius: 11px 11px 0px 0px;;
+    border-bottom: none;
+    margin-left: 70px;
+    background-color: #f0f0f0;
+    
+
+}
+.login-up-up{
+    font-size: 27px;
+    
+}
+
+.log-in-user-value{
+    border: transparent solid 2px;
+    background-color: #f0f0f0;
+    
+    
+    width: 90%;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.log-email-div{
+    margin: 10px;
+    width: 80%;
+    
+}
+.log-email-logo{
+  margin-left: 20px;
+    width: 90px;
+    border-right: none;
+    background-color: white;
+    display: flex;
+    align-items: center;
+
+
+}
+.email-log-h1{
+    margin-left: 10px;
+    font-size: 20px
+    
+}
+.email-not-valid{
+    color: red;
+    margin-left: 20px;
+    display: none;
+    
+}
+.log-email-input{
+    padding: 15px;
+    border-radius:  20px;
+    width: 10vw;
+    width: 100%;
+    font-size: larger;
+  
+    
+}
+.log-email-input::placeholder{
+    color: black;
+    font-size: 20px;
+    align-self: center;
+}
+.log-email-div::selection{
+    border-color: aqua;
+
+}
+.log-password-div{
+    margin: 10px;
+    width: 80%;
+    
+    position: relative;
+}
+.log-password-logo{
+    margin-left: 20px;
+    margin-bottom: 2px;
+    
+    width: 90px;
+    border-right: none;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+.password-log-h1{
+    margin-left: 10px;
+    font-size: 20px;
+}
+.log-pass-eye{
+    position: absolute;
+    right: 7px;
+    top: 41px;
+    display: none;
+}
+.log-pass-eye-hidden{
+    position: absolute;
+    right: 7px;
+    top: 41px;
+    
+}
+
+.log-password-input{
+    padding: 15px;
+    border-radius:  20px;
+    width: 10vw;
+    width: 100%;
+    font-size: larger;
+}
+.log-submit{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+.log-submit-btn{
+    padding: 15px;
+    width: 80%;
+    font-size: larger;
+    font-weight: 600;
+    color: white;
+    border-radius: 20px;
+    background: rgb(181,10,45);
+    background-image: linear-gradient(to bottom, #f0340b, #ee4622, #ea5433, #e76143, #e26d52);
+}
+.log-submit-btn:hover{
+    background-image: linear-gradient(to top, #f0340b, #ee4622, #ea5433, #e76143, #e26d52);
+}
+@media screen and (max-width: 1451px) {
+    .login-up-up-btn{
+        width: 50%;
+    }
+
+    
+}
+@media screen and (max-width: 555px) {
+    .log-reg{
+        width: 70vw;
+    }
+    .login-up-up-btn{
+        margin-left: 30px;
+    }
+    .login-up-up-btn h1{
+        font-size: 20px;
+    }
+
+    
+}

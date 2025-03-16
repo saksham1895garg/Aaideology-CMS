@@ -1,0 +1,115 @@
+<main class="main-admin-post">
+    <div class="inputs-area">
+        <form action="/admin/edit-post/<%= admin._id %>?_method=PUT" method="post" enctype="multipart/form-data">
+
+            <div class="company-name-div m-10">
+                <div class="company-name-upper"> 
+                    <img width="27px" src="/photos/company-name.png" alt="">
+                    <label class="company-name" for="company-name">Edit Company Name</label>
+                </div>
+                <input type="text" placeholder="ex: tcs" name="companyname" id="companyname" value="<%= admin.companyname %>" required>
+            </div>
+
+            <div class="company-des-div m-10">
+                <div class="company-des-upper"> 
+                    <img width="27px" src="/photos/company-name.png" alt="">
+                    <label class="company-des" for="company-des">Edit Company Description</label>
+                </div>
+                <input type="text" placeholder="Company Description" name="companydes" value="<%= admin.companydes %>" class="input-div" id="companydes" required>
+            </div>
+
+
+            <div class="job-name-div m-10">
+                <div class="job-name-upper flex f-17 input-name-div">
+                    <img width="24px" src="/photos/job-name.png" alt="">
+                    <label class="job-name input-name" for="job-name">Edit Job Title</label>
+                </div>
+                <input type="text" placeholder="ex: ai development" value="<%= admin.jobname %>" name="jobname" class="input-div" id="jobname" required>
+            </div>
+
+            <div class="job-description-div m-10">
+                <div class="job-description-upper flex f-17 input-name-div">
+                    <img width="24px" src="/photos/job-description.png" alt="">
+                    <label class="job-description input-name" for="job-des">Edit Job Description</label>
+                </div>
+                <textarea placeholder="development of api's" class="input-div" id="jobdescription" name="jobdescription" cols="30" rows="10" required><%= admin.jobdescription %></textarea>
+            </div>
+
+            <div class="company-pic-div m-10">
+                <div class="company-upper flex f-17 input-name-div">
+                    <img width="24px" src="/photos/company-logo.png" alt="">
+                    <label class="company-logo input-name" for="company-logo">Edit Upload Company Logo</label>
+                </div>
+                <input type="file" value="<%= admin.companylogo %>" name="companylogo" id="companylogo" class="input-div" placeholder="Upload Logo">
+            </div>
+
+            <div class="location-div m-10">
+                <div class="location-upper flex f-17 input-name-div">
+                    <img width="22px" src="/photos/location.png" alt="">
+                    <label class="location input-name" for="location">Edit Location</label>
+                </div>
+                <input type="text" value="<%= admin.location %>" name="location" id="location" class="input-div" placeholder="Remote/Part time/ Full Time">
+            </div>
+
+            <div class="salary-div m-10">
+                <div class="salary-upper flex f-17 input-name-div">
+                    <img width="24px" src="/photos/salary1.png" alt="">
+                    <label class="salary input-name" for="location">Edit Salary</label>
+                </div>
+                <input type="text" value="<%= admin.salary %>" name="salary" id="salary" class="input-div" placeholder="3LPA">
+            </div>
+
+            <div class="duration-div m-10">
+                <div class="duration-upper flex f-17 input-name-div">
+                    <img width="24px" src="/photos/duration.png" alt="">
+                    <label class="duration input-name" for="duration">Edit Duration</label>
+                </div>
+                <input type="text" value="<%= admin.duration %>" name="duration" id="duration" class="input-div" placeholder="3 months">
+            </div>
+
+            <div class="requirements-div m-10">
+                <div class="requirements-upper flex f-17 input-name-div">
+                    <img width="24px" src="/photos/requirements.png" alt="">
+                    <label class="requirements input-name" for="requirements">Edit Candidates requirements</label>
+                </div>
+                <textarea cols="30" rows="20" name="requirements" id="requirements" class="input-div" placeholder="Must Have 3 Years degree"><%= admin.Requirements %></textarea>
+            </div>
+
+            <div class="responsibilities-div m-10">
+                <div class="responsibilities-upper flex f-17 input-name-div">
+                    <img width="24px" src="/photos/responsiblities.png" alt="">
+                    <label class="responsibilities input-name" for="responsibilities">Edit Responsibilities</label>
+                </div>
+                <textarea name="responsibilities" id="responsibilities" class="input-div textarea" placeholder="working with framework"><%= admin.responsiblities %></textarea>
+            </div>
+
+            <div class="opportunities-div m-10">
+                <div class="opportunities-upper flex f-17 input-name-div">
+                    <img width="24px" src="/photos/opportunity.png" alt="">
+                    <label class="opportunities input-name" for="opportunities">Edit Opportunities</label>
+                </div>
+                <textarea name="opportunities" id="opportunities" class="input-div textarea" placeholder="You Will get experience with certificate"><%= admin.opportunities %></textarea>
+            </div>
+
+            <div class="applyprocces-div m-10">
+                <div class="applyprocces-upper flex f-17 input-name-div">
+                    <img width="24px" src="/photos/apply.png" alt="">
+                    <label class="applyprocces input-name" for="applyprocces">Edit How to Apply</label>
+                </div>
+                <textarea name="applyproccess" id="applyproccess" class="input-div textarea" placeholder="Candidate must have Certificate in softcopy and Hardcopy"><%= admin.applyprocces %></textarea>
+            </div>
+
+            <div class="deadline-div m-10">
+                <div class="deadline-upper flex f-17 input-name-div">
+                    <img width="24px" src="/photos/deadline.png" alt="">
+                    <label class="deadline input-name" for="deadline">Edit Deadline</label>
+                </div>
+                <input type="date" name="deadline" value="<%= admin.deadline %>" id="deadline" class="input-div" placeholder="Deadline">
+            </div>
+
+            <div class="submit-div">
+                <button class="post-submit edit-submit" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</main>

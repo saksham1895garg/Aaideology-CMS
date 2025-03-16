@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+.m-10{
+    margin: 10px;
+}
+.flex{
+    display: flex;
+    align-items: center;
+}
+.f-17{
+    font-size: 17px;
+    font-weight: bold;
+
+}
+
+.input-div{
+    width: 50vw;
+    height: 40px;
+    border-radius: 11px;
+    border-color: rgb(228, 221, 221);
+    font-size: 18px;
+    font-weight: 600;
+    filter: drop-shadow(-1px 0px 6px #000000);
+}
+.input-div:focus{
+    outline: none;
+}
+.input-name-div{
+    margin-bottom: 2px;
+    margin-left: 14px;
+}
+.input-name{
+    margin-left: 5px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.inputs-area{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   border-radius: 20px;
+    height: max-content;
+    margin-top: 70.9rem;
+    margin-bottom: 20px;
+    background-color: rgba(226, 226, 226, 0.599);
+    padding: 25px;
+}
+.company-name-div{
+    display: flex;
+    flex-direction: column;
+}
+.company-name-upper{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+    margin-left: 14px;
+}
+.company-name{
+    margin-left: 5px;
+    font-size: 17px;
+    font-weight: bold;
+}
+#companyname{
+    width: 50vw;
+    height: 40px;
+    border-radius: 11px;
+    border-color: rgb(228, 221, 221);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#jobdescription{
+    height: 100px;
+}
+.company-logo{
+    border-radius: 0px !important;
+}
+
+.main-admin-post{
+   
+    
+   height: 87vh;
+  
+}
+.submit-div{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.post-submit{
+    background-color: orangered;
+    border-radius: 11px;
+    /* padding: 10px; */
+    height: 50px;
+   cursor: pointer;
+    color: white;
+    border-color: transparent;
+    font-size: 16px;
+    font-weight: 800;
+    filter: drop-shadow(-1px 0px 8px #ff513d);
+    width: 70%;
+    
+}
+.post-submit:hover{
+    filter: drop-shadow(-1px 0px 16px #ff513d);
+    
+}
+#requirements{
+    height: 120px;
+    font-weight: lighter
+}
+#requirements:focus{
+    border: none;
+    outline: none;
+}
+.textarea{
+    height: 120px;
+    font-weight: lighter
+}

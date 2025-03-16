@@ -1,0 +1,84 @@
+<main class="main">
+<div class="main-1"></div>
+<div class="main-2">
+    <div class="discription"><h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo sint dolores reiciendis laudantium nemo officia eos pariatur quidem libero. Numquam natus aperiam accusamus et expedita, laboriosam ipsa maxime vitae! Sed.</h1></div>
+    <div class="hiring-content">
+        <% admin.forEach((item) => { %>
+            
+        
+        <div class="cards">
+           <a href="/aaideology/<%= item._id %>" class="company-page"><div class="company-logo-div"><img class="company-logo" src="/uploads/<%= item.companylogo %>" alt="tcs"></div>
+            <div class="card-line"></div>
+            <div class="info">
+                 <h1><%= item.companyname %></h1>
+                <h2><%= item.jobname %></h2>
+                <p><%= item.jobdescription %></p>
+            </div> </a>
+        </div> 
+        <% }); %>
+        <!-- Additional cards can be added here -->
+    </div>
+</div>
+
+</main>
+
+<div class="review">
+    <div class="rev-head">
+        <h2>Reviews</h2>
+    </div>
+    <form class="post-rev">
+        
+        <div class="name-review">
+            <input type="text" name="name" class="review-name" id="name-rew" placeholder="Name">
+        </div>
+        <div class="stars">
+            
+            <input type="radio" name="star" id="star5"><label for="star5">&#9733</label>
+            <input type="radio" name="star" id="star4"><label for="star4">&#9733</label>
+            <input type="radio" name="star" id="star3"><label for="star3">&#9733</label>
+            <input type="radio" name="star" id="star2"><label for="star2">&#9733</label>
+            <input type="radio" name="star" id="star1"><label for="star1">&#9733</label>
+        </div>
+        <div class="rating-conditions">
+            <h5 class="very-bad">Very Bad</h5>
+            <h5 class="bad">Bad</h5>
+            <h5 class="good">Good</h5>
+            <h5 class="very-good">Very Good</h5>
+            <h5 class="excellent">Excellent</h5>
+        </div>
+        <div class="rev-comment">
+            <textarea placeholder="Comments" name="comment" id="comment" cols="30" rows="3"></textarea>
+        </div>
+        <div class="rev-sub">
+            <button type="submit" class="submit-rev">Submit</button>
+        </div>
+    </form>
+
+    <div class="all-reviews">
+        <div class="reviews-cards-container">
+            <% reviews.forEach((element) => { %>
+            <div class="review-cards">
+                <div class="head-all-rev">
+                    <h3 class="name-all-rev"><%= element.name %></h3>
+                    <img class="three" src="/photos/three.png" width="20px" alt="" srcset="">
+                    <div class="rev-edit-del">
+                        <div class="flex-btns">
+                            <button class="del-rev">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="stars">
+                    <% for (let i = 5; i >= 1; i--) { %>
+                        <input type="radio" name="star<%= element._id %>" id="star<%= i %>_<%= element._id %>" 
+                               <%= element.rating == i ? 'checked' : '' %> disabled>
+                        <label for="star<%= i %>_<%= element._id %>">&#9733</label>
+                    <% } %>
+                </div>
+                <div class="comment-all-rev">
+                    <p class="all-comment-rev"><%= element.comment %></p>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+</div>

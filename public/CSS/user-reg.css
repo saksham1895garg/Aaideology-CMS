@@ -1,0 +1,181 @@
+.user-reg {
+    height: 100vh;
+}
+.reg-inputs {
+    padding: 10px;
+    width: 35vw;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    outline: none;
+    height: 100%;
+    filter: none;
+}
+.reg-inputs:focus {
+    -webkit-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.75);
+}
+.reg-label {
+    width: 100px;
+    font-weight: 800;
+    font-size: 18px;
+}
+.reg-div {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+.user-reg {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.successerror{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 120px;
+}
+.success{
+    width: 30%;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: rgb(46, 218, 46);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.success-p{
+    font-weight: 800;
+    font-size: larger;
+    color: white;
+}
+.error{
+    width: 30%;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: rgb(218, 46, 46);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+.error-p{
+    font-weight: 800;
+    font-size: larger;
+    color: white; font-weight: 800;
+    font-size: larger;
+    color: white;
+}
+
+.reg-con-bcc {
+    margin: 20px;
+    height: 100%;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    background-position: center;
+    position: fixed;
+}
+.reg-con {
+    width: 95%;
+    height: max-content;
+    padding: 20px;
+    display: flex;
+    width: max-content;
+    flex-direction: column;
+    border-radius: 10px;
+    align-items: center;
+    background-color: rgb(246, 246, 246);
+    z-index: 100;
+}
+
+
+.reg-name-div {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+.reg-h {
+    width: 100px;
+    font-weight: 800;
+    font-size: 18px;
+}
+.reg-name-input {
+    padding: 10px;
+    width: 35vw;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    outline: none;
+    height: 100%;
+    filter: none;
+}
+.reg-name-input:focus {
+    -webkit-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.75);
+}
+.reg-submit-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+.reg-btn {
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 800;
+    width: 50%;
+    color: white;
+    filter: drop-shadow(0px 0px 8px #f63009);
+    background-color: #f63009;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.reg-btn:hover {
+    filter: drop-shadow(0px 0px 10px #f63009);
+}
+.reg-password-div {
+    position: relative;
+}
+.reg-eye-open {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: none;
+}
+.reg-eye-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.reg-confirm-pass {
+    position: relative;
+}
+.reg-con-eye-open {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: none;
+}
+.reg-con-eye-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}

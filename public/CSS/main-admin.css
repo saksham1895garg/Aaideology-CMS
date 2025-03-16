@@ -1,0 +1,227 @@
+.admin-main {
+  height: max-content;
+  width: max-content;
+  position: relative;
+}
+.table {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  border-collapse: collapse;
+  border: 2px solid black;
+  margin-top: 150px;
+  border-collapse: collapse;
+}
+
+th {
+  border: 2px black solid;
+  padding: 10px;
+  font-weight: 700;
+  font-size: large;
+  border-collapse: collapse;
+}
+td {
+  border: 1px black solid;
+  border-collapse: collapse;
+}
+#company-logo {
+  width: 110px;
+}
+#job {
+  width: 200px;
+}
+#action {
+  width: 130px;
+}
+#salary {
+  width: 100px;
+}
+.table-company-logo {
+  object-fit: contain;
+  width: 50px;
+}
+.edit {
+  margin-top: 10px;
+  width: 25px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+.del {
+  margin-top: 10px;
+  width: 27px;
+  margin-left: 5px;
+  cursor: pointer;
+  background-color: white;
+  border: none;
+}
+.warning {
+  background-color: rgba(255, 162, 162, 0.913);
+  position: absolute;
+  padding: 20px;
+  border-radius: 14px;
+  top: 300px;
+  display: none;
+}
+.delete-buttons {
+  display: flex;
+  justify-content: center;
+  margin: 50px 20px;
+  align-items: center;
+}
+.delete-warning {
+  color: rgb(236, 45, 45);
+}
+.cancel-btn {
+  width: 70px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  height: 37px;
+  color: rgb(0, 0, 0);
+  font-weight: 880;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 7px;
+  -webkit-box-shadow: 0px 0px 44px 6px rgba(0, 0, 0, 0.44);
+  -moz-box-shadow: 0px 0px 44px 6px rgba(0, 0, 0, 0.44);
+  box-shadow: 0px 0px 44px 6px rgba(0, 0, 0, 0.44);
+}
+.cancel-btn:hover {
+  -webkit-box-shadow: 0px 0px 63px 17px rgba(0, 0, 0, 0.44);
+  -moz-box-shadow: 0px 0px 63px 17px rgba(0, 0, 0, 0.44);
+  box-shadow: 0px 0px 63px 17px rgba(0, 0, 0, 0.44);
+}
+.delete-btn {
+  width: 70px;
+  background-color: rgb(255, 0, 0);
+  color: white;
+  border: none;
+  height: 37px;
+  margin-left: 20px;
+  cursor: pointer;
+  border-radius: 7px;
+  font-weight: 880;
+  font-size: 16px;
+  -webkit-box-shadow: 0px 0px 44px 6px rgba(0, 0, 0, 0.44);
+  -moz-box-shadow: 0px 0px 44px 6px rgba(0, 0, 0, 0.44);
+  box-shadow: 0px 0px 44px 6px rgba(0, 0, 0, 0.44);
+}
+
+.delete-btn:hover {
+  -webkit-box-shadow: 0px 0px 63px 17px rgba(0, 0, 0, 0.44);
+  -moz-box-shadow: 0px 0px 63px 17px rgba(0, 0, 0, 0.44);
+  box-shadow: 0px 0px 63px 17px rgba(0, 0, 0, 0.44);
+}
+.actions-td {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* main main admin page  */
+
+.alladmin {
+  height: 100vh;
+  overflow-y: scroll;
+  position: relative;
+}
+.alladmin-rel{
+  position: absolute;
+  top: 120px;
+   padding: 10px;
+  height: 100vh;
+}
+.admin-dashboard{
+  width: 98%;
+  display: flex;
+  justify-content: center;
+}
+.admin-dashboard-cards{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.admin-cards {
+  position: relative;
+  z-index: -99999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 280px;
+  object-fit: cover;
+  margin-left: 40px;
+  margin-top: 30px;
+}
+.jobs-img {
+  filter: drop-shadow(0px 0px 10px black);
+  opacity: 0.57;
+  border: 2px solid black;
+  border-radius: 7px;
+}
+.resume-admin-main:hover {
+  filter: drop-shadow(0px 0px 1px rgb(139, 139, 139));
+}
+.jobs-posting-h1 {
+  font-size: 80px;
+  position: absolute;
+  top: 85px;
+  left: 60px;
+  color: rgb(141, 32, 32);
+  font-weight: 900;
+}
+.jobs{
+    left:115px;
+}
+.job-rev-main-admin{
+  left:50px;  
+}
+
+.jobs-resumes-img{
+    height: 266px;
+}
+.job-user-main-admin{
+  left: 115px;
+}
+
+@media screen and (max-width: 936px) {
+  .admin-cards{
+    margin-left: 0px;
+    margin: 5px;
+  }
+  
+}
+@media screen and (max-width: 680px) {
+  .admin-dashboard-cards{
+    width: 94%;
+  }
+  .admin-cards{
+    margin-left: 0px;
+  }
+  
+}
+@media screen and (max-width: 446px) {
+  .admin-cards{
+    margin-left: 0px;
+  }
+  .jobs-img{
+    width: 300px;
+  }
+  .jobs-posting-h1{
+    left: 20px;
+  }
+  .jobs{
+    left: 60px;
+  }
+  .job-res-main-admin {
+    left: 20px;
+    font-size: 70px;
+  }
+  .job-rev-main-admin {
+    left: 5px;
+  }
+  .job-user-main-admin{
+    left: 65px;
+  }
+}

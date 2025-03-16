@@ -1,0 +1,101 @@
+<main class="details">
+    <div class="details-container">
+        <div class="company-deatils-conatiner">
+            <div class="company-logo-details">
+                <img class="deatils-logo" src="/uploads/<%= admin.companylogo %>" alt="">
+            </div>
+            <div class="company-details">
+                <h1 class="company-name-deatils"><%= admin.companyname %></h1>
+                <p class="about-company-deatils"><%= admin.companydes %></p>
+            </div>
+        </div>
+    </div>
+    <div class="job-details">
+        <div class="job-name-details">
+            <h2><%= admin.jobname %></h2> 
+        </div>
+        <div class="location-details">
+            <img src="/photos/location.png" alt="" class="location">
+            <p><%= admin.location %></p> 
+        </div>
+        <p class="postedDate">Posted On: <%= admin.posteddate.toLocaleDateString() %></p>
+        <div class="get-candidates">
+            <div class="applyby-del ml-10">
+                <img src="/photos/apply.png" alt="" class="applyby-details">
+                 <p><%= admin.deadline ? admin.deadline.toLocaleDateString() : 'No deadline set' %></p>
+
+            </div>
+            <div class="duration ml-10">
+                <img src="/photos/duration.png" alt="" class="duration">
+                <p><%= admin.duration %></p> 
+            </div>
+            <div class="salary-details ml-10">
+                <img src="/photos/salary1.png" alt="" class="salary">
+                <p><%= admin.salary %></p> 
+            </div>
+            <div class="startdate ml-10">
+                <img src="/photos/start.png" alt="" class="startdate">
+                <p><%= admin.posteddate.toLocaleDateString() %></p> 
+            </div>
+        </div>
+        <div class="postDate">
+            <p>Posted On: <%= admin.posteddate.toLocaleDateString() %></p>
+            <p class="type">Internship</p>     
+        </div>
+        <div class="details-line"></div>
+        <div class="main-job-details">
+            <div class="about-job">
+                <h3 class="about-job-head">About This Job</h3>
+                <p class="job-des-del"><%= admin.jobdescription %></p> 
+            </div>
+            <div class="qualify-details">
+                <h3 class="qualify-head">Candidate qualification</h3>
+                <p class="qualify-del"><%= admin.requirements %></p> 
+            </div>
+            <div class="job-res">
+                <h3 class="job-res-head under">Job Responsibilities</h3>
+                <p class="job-res-del"><%= admin.responsibilities %></p> 
+            </div>
+            <div class="apply-proccess">
+                <h3 class="apply-head under">Apply Process</h3>
+                <p class="apply-del"><%= admin.applyprocces %></p> 
+            </div>
+        </div>
+        <div class="apply-btn-resume">
+        <div class="apply-btn-div">
+            <div class="apply-btn">Upload</div>
+        </div>
+    </div>
+   
+    
+   
+</main>
+
+<div class="big-apply-container">
+    <div class="cross">
+        <img width="24px" src="/photos/cross.svg" alt="" class="cross-img-cv">
+    </div>
+    <div class="head-apply">
+        <h3>Apply Now</h3>
+        <p>for: <%= admin.jobname %></p>
+    </div>
+
+
+
+    <form action="/user/cv" method="post" enctype="multipart/form-data">
+
+        <div class="user-apply-div">
+        
+            <input type="text" name="name" id="user-name-apply" placeholder="Full Name" class="apply-inputs-user" required>
+            <input type="email" name="email" id="user-email-apply" placeholder="Email" class="apply-inputs-user" required>
+            <input type="tel" name="phone" id="user-phone-apply" placeholder="+91" class="apply-inputs-user" required>
+            <input type="file" name="cv" class="cv-upload apply-inputs-user" required>
+            <div class="apply-btn-at">
+                <input type="submit" value="Apply" class="apply-btn-input">
+            </div>
+    
+        </div>
+    </form>
+
+
+</div>

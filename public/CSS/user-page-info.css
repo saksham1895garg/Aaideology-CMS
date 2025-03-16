@@ -1,0 +1,221 @@
+.user-side {
+    height: 100vh;
+}
+.user-side-top {
+    background-color: whitesmoke;
+    color: rgb(72, 69, 69);
+    height: 220px;
+    position: relative;
+}
+.user-top {
+    position: absolute;
+    bottom: 5px;
+    display: flex;
+    align-content: last baseline;
+}
+.user-side-name {
+    color: rgb(243 48 6); 
+ background-image: linear-gradient(135deg, rgb(243 48 6) 27%, #ff9838 62%); 
+ -webkit-background-clip: text; 
+ -webkit-text-fill-color: transparent; 
+ background-clip: text; 
+}
+.wel-user{
+    
+    font-size: 30px;
+    font-weight: 900;
+    margin-left: 20px;
+}
+.main-user {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.user-info {
+    font-size: 13px;
+    width: 500px;
+}
+.user-info * {
+    margin: 10px;
+    
+    border: 1px solid #000000;
+    font-weight: 200;
+}
+.edit-password-user {
+    cursor: pointer;
+}
+.user-name-span {
+    border: none;
+    border-left: 1px solid #000000;
+    padding-left: 10px;
+}
+.user-password {
+    display: flex;
+    align-items: center ;
+    height: 35px;
+}
+.password-change-btn {
+    cursor: pointer;
+}
+.logout-btn {
+    margin-left: 29px;
+    margin-top: 20px;
+}
+.logout-btn-inner {
+    width: 415px;
+    height: 30px;
+    color: white;
+    font-weight: 850;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(128, 0, 0);
+    filter: drop-shadow(0px 0px 3px rgb(128, 0, 0));
+}
+.logout-btn-inner:hover {
+    background-color: rgb(128, 0, 0);
+    filter: drop-shadow(0px 0px 7px rgb(128, 0, 0));
+}
+.user-btns {
+    margin-left: 29px;
+    margin-top: 20px;
+    
+}
+.user-btn-inner {
+    width: 200px;
+    height: 30px;
+    color: white;
+    font-weight: 850;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    
+}
+.edit-user-btn {
+    background-color: green;
+    filter: drop-shadow(0px 0px 3px green);
+
+}
+.edit-user-btn:hover {
+    background-color: #015c01;
+    filter: drop-shadow(0px 0px 7px green);
+}
+.delete-user-btn {
+    background-color: red;
+    margin-left: 10px;
+    filter: drop-shadow(0px 0px 3px red);
+}
+.delete-user-btn:hover {
+    background-color: #ff0000;
+    filter: drop-shadow(0px 0px 7px red);
+}
+
+@media  screen and (max-width: 510px){
+    .user-info {
+        width: max-content;
+    }    
+    .user-btns {
+        display: flex;
+    }
+    .user-btn-inner {
+        width: 131px;
+    }
+}
+
+.password-change {
+    display: none;
+    position: absolute;
+    top: 200px;
+    left: 500px;
+    padding: 20px;
+    background-color: rgb(212, 212, 212);
+    width: 400px;
+    z-index: 9999;
+    border-radius: 10px;
+    width: 500px;
+}
+
+.password-change-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+.password-change-top h1{
+    color: rgb(35, 27, 27);
+    
+}
+.change-pass-form {
+    margin-top: 20px;
+    width: 100%;
+}
+.password-change-input {
+    margin-top: 4px;
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    filter: drop-shadow(0px 0px 3px black);
+    font-size: 15px;
+    padding-left: 15px;
+    font-weight: 700;
+}
+.password-change-input:focus {
+    outline: none;
+    border: none;
+    filter: drop-shadow(0px 0px 7px black);
+}
+.password-2 {
+    margin-top: 14px;
+}
+.btn-password {
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+}
+.password-submit-btn {
+    border: none;
+    width: 50%;
+    height: 30px;
+    margin-left: 5px;
+    border-radius: 10px;
+    font-weight: 800;
+    color: rgb(8, 5, 5);
+    filter: drop-shadow(0px 0px 3px black);
+}
+.password-submit-btn:hover {
+    filter: drop-shadow(0px 0px 7px black);
+
+}
+
+@media screen and (min-width: 1747px) {
+    .password-change {
+        left: 600px;
+    }
+    
+}
+@media screen and (min-width: 2078px) {
+    .password-change {
+        left: 800px;
+    }
+}
+
+@media screen and (min-width: 2469px) {
+    .password-change {
+        left: 1000px;
+    }
+}
+@media screen and (max-width: 1029px) {
+    .password-change {
+        left: 200px;
+    }
+    
+}
+@media screen and (max-width: 791px) {
+    .password-change {
+        left: 50px;
+    }
+    
+}

@@ -1,0 +1,142 @@
+<main class="user-reg">
+    <div class="successerror">
+        <div class="success" id="success">
+            <p class="success-p">You have successfully registered</p>
+        </div>
+        <div class="error">
+            <p class="error-p">Registration Failed. Try Again in sometime.</p>
+        </div>
+    </div>
+    <div class="reg-con-bcc">
+        <!-- only for image purpose -->
+    </div>
+    <div class="reg-con">
+        
+            <div class="reg-up-btn">
+                <h1 class="reg-up">Register Your Self</h1> 
+                <p style="color: red; display: none;" class="wrong">Email Invalid*</p>
+            </div>
+
+            
+           <form class="reg-form">
+
+                <div class="input-div-reg">
+                    <div class="reg-name-div">
+                        <label class="reg-h" for="name">Full Name*</label>
+                        <input type="text" autofocus autocomplete="off" name="username" id="name" class="reg-name-input" placeholder="John Doe">
+                    </div>
+                    <div class="reg-email-div reg-div">
+                        <label class="reg-email reg-label" for="regemail">Email*</label>
+                        <input type="email" autocomplete="off" name="email" id="email" class="reg-email-input reg-inputs" placeholder="john.doe@example.com" required>
+                    </div>
+
+                    <div class="reg-password-div reg-div">
+                        <img width="24px" class="reg-eye-close" src="/photos/hidden.png" alt="">
+                        <img width="24px" class="reg-eye-open" src="/photos/eye.png" alt="">
+                        <label class="reg-pass reg-label" for="regpass">Password*</label>
+                        <input type="password" autocomplete="off" name="regfirstpass" id="regfirstpass" class="reg-pass-input reg-inputs" placeholder="">
+                    </div>
+                    <div class="reg-confirm-pass reg-div">
+                        <img width="24px" class="reg-con-eye-close" src="/photos/hidden.png" alt="">
+                        <img width="24px" class="reg-con-eye-open" src="/photos/eye.png" alt="">
+                        <label class="reg-conpass reg-label" for="regconfirmpass">Confirm Password*</label>
+                        <input type="password" autocomplete="off" name="password" id="password" class="reg-con-pass-input reg-inputs" placeholder="" required>
+                    </div>
+                    <div class="reg-submit-div">
+                        <button type="submit" class="reg-btn">Submit</button>
+                    </div>
+                </div>
+            </form>
+    </div>  
+</main>
+
+<script>
+    const eyeClose = document.querySelector('.reg-eye-close');
+    const eyeOpen = document.querySelector('.reg-eye-open');
+    const password = document.querySelector('.reg-pass-input');
+  
+    
+    eyeClose.addEventListener('click', () => {
+        password.type = "text";
+        eyeClose.style.display = "none";
+        eyeOpen.style.display = "block";
+    });
+
+    eyeOpen.addEventListener('click', () => {
+        password.type = "password";
+        eyeClose.style.display = "block";
+        eyeOpen.style.display = "none";
+    });
+    const eyeOpen2 = document.querySelector(".reg-con-eye-close");
+    const eyeClose2 = document.querySelector(".reg-con-eye-open");
+    const confirmPassword = document.querySelector('.reg-con-pass-input');
+    eyeClose2.addEventListener('click', () => {
+        confirmPassword.type = "password";
+        eyeClose2.style.display = "none";
+        eyeOpen2.style.display = "block";
+    });
+
+    eyeOpen2.addEventListener('click', () => {
+        confirmPassword.type = "text";
+        eyeClose2.style.display = "block";
+        eyeOpen2.style.display = "none";
+    });
+
+    function validateEmail(email) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic regex for email validation
+        return email.length >= 5 && email.length <= 254 && emailPattern.test(email);
+    }
+    const a = document.querySelector(".wrong");
+    console.log(a);
+    
+    
+    const emailToValid = document.querySelector(".reg-email-input");
+    emailToValid.addEventListener("blur", () => {
+        const emailValue = emailToValid.value;
+        if (validateEmail(emailValue)) {
+            a.style.display = "none";
+        } else {
+            a.style.display = "block";
+        }
+    }); 
+
+    const form = document.querySelector('.reg-form');
+
+    form.addEventListener('submit', async(e)=> {
+        e.preventDefault();
+
+        // getting values
+        const username = document.querySelector('.reg-name-input').value;
+        const email = document.querySelector('.reg-email-input').value;
+        const password = document.querySelector('.reg-con-pass-input').value;
+        
+        try{
+            const res = await fetch("/user/register", {
+                method: 'POST',
+                body: JSON.stringify({username, email, password}),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const data = await res.json(); // Move this line up
+            
+
+          
+        }catch(error){
+            console.log(error);
+        }
+        
+
+    });
+
+
+
+
+
+
+  
+
+
+
+
+</script>

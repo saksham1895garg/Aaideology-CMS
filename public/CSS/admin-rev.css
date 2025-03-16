@@ -1,0 +1,51 @@
+.admin-rev {
+    height: 100vh;
+    position: relative;
+}
+.admin-review-container {
+    position: absolute;
+    top: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.admin-review-list {
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: whitesmoke;
+    padding: 15px;
+    height: 500px;
+    overflow-y: scroll;
+}
+.admin-rev-cards {
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: rgb(207, 207, 207);
+    border-radius: 10px;
+    padding: 15px;
+}
+.admin-rev-content {
+    margin-top: 10px;
+}
+.admin-rev-date {
+    margin-top: 10px;
+    color: grey;
+}
+.admin-rev-del {
+    margin-top: 10px;
+    display: flex;
+    justify-content: end;
+}
+.admin-rev-delete {
+    background-color: rgb(207, 207, 207);
+    border: none;
+    cursor: pointer;
+}

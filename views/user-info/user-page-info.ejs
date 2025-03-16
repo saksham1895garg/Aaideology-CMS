@@ -1,0 +1,117 @@
+<div class="user-side">
+    <div class="user-side-top">
+        <div class="user-top">
+            <% if (user) { %>
+                <h1 class="wel-user">Welcome, <span class="user-side-name" id="user-name"><%= user.username %></span> </h1>
+
+              <% } else { %>
+                <h1 class="wel-user">Welcome, <span class="user-side-name" id="user-name">User</span> </h1>
+              <% } %>
+             
+            
+        </div>
+    </div>
+
+    <% if (user) { %>
+
+    <div class="main-user">
+        <div class="user-info">
+            <h1>Name: <span class="user-name-span" id="user-full-name"><%= user.username %> %></span></h1>
+            <h1>Email: <span class="user-name-span" id="user-email"><%= user.email %> %></span></h1>
+            <h1 class="user-password">Password: <span class="user-name-span"><button type="submit" class="password-change-btn">Change</button></span></h1>
+        </div>
+    </div>
+    <div class="logout-btn">
+        <button class="logout-btn-inner"><a href="/user/logout" style="color: white; text-decoration: none">Logout</a></button>
+    </div>
+    <div class="info-resumes">
+        <h2>Resumes</h2>
+        <h4 style="color: red">Note: These resumes will be deleted after hiring is completed</h4>
+        <div class="info-resumes-card-container">
+<% resumes.forEach(function(resume) { %>
+    <div class="info-resumes-card">
+        <h3 id="resume-name"><%= resume.name %></h3> <!-- Assuming resume has a name property -->
+        <h3>Resume Date: <%= resume.date %></h3> <!-- Assuming resume has a date property -->
+        <h3>Resume Post: <%= resume.post %></h3> <!-- Assuming resume has a post property -->
+        <button type="submit" class="info-resumes-card-btn">Delete</button>
+    </div>
+<% }); %>
+
+        </div>
+    </div>
+    <!-- <div class="info-user-reviews">
+        <h2>User Reviews</h2>
+        <div class="info-user-reviews-card-container">
+            <div class="info-user-reviews-card">
+                <h3>Review Description</h3>
+                <h3>Review Rating</h3>
+                <h3>Review Date</h3>
+                <h3>Review Post</h3>
+
+                <button type="submit" class="info-user-reviews-card-btn">Delete</button>
+            </div>
+        </div>
+    </div> -->
+
+    <% } else { %>
+        <h1>No user data found...</h1>
+        <div class="user-info-login-signup">
+            <div class="info-login" ><a href="/user/login" >Login</a></div>
+            <div class="info-login" ><a href="/user/register" >Sign Up</a></div>
+        </div>
+        
+        
+        <% } %>
+
+
+
+
+    <!-- <div class="user-btns">
+        <button type="submit" class="user-btn-inner edit-user-btn">Edit</button>
+        <button type="submit" class="user-btn-inner delete-user-btn">Delete</button>
+    </div> -->
+</div>
+<div class="password-change">
+    <div class="password-change-top">
+        <h1>Change Password</h1>
+        <div class="change-pass-form">
+            <form id="user-form">
+                <div class="password-1">
+                    <label for="new-password">Password: </label>
+                    <input type="text" class="password-change-input" name="first-password" id="">
+                </div>
+                <div class="password-2">
+                    <label for="confirm-password">Confirm Password: </label>
+                    <input type="text" class="password-change-input main-password" name="password">
+                </div>
+                <div class="btn-password">
+                    <button type="submit" class="password-submit-btn efwsf" id="submit-password-change">Submit</button>
+                    <button type="button" class="password-cancel-btn password-submit-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    
+
+    const passwordChangeForm = document.querySelector('.password-change');
+    const mainUser = document.querySelector('.user-side');
+
+    passwordChangeButton.addEventListener('click', () => {
+        console.log("Change password button clicked"); // Log for debugging
+
+        passwordChangeForm.style.display = 'block';
+        console.log("Password change form displayed"); // Log for debugging
+
+        mainUser.style.filter = 'blur(5px)'; // Apply blur effect
+    });
+
+    const cancelButton = document.querySelector('.password-cancel-btn');
+    cancelButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent form submission
+        passwordChangeForm.style.display = 'none';
+        mainUser.style.filter = 'none'; // Remove blur effect
+    });
+</script>

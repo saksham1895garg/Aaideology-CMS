@@ -1,0 +1,93 @@
+.admin-resume{
+    width: 100%;
+    padding: 20px;
+    
+    height: max-content;
+}
+.admin-resumes-head{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 100px;
+}
+.resumes-list{
+    width: 95vw;
+}
+.resumes{
+    padding: 10px;
+    background-color: rgb(218, 218, 218);
+}
+
+.small-res{
+    display: flex;
+    color: black;
+    text-decoration: none;
+    font-size: 10px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: whitesmoke;
+    border-radius: 7px;
+    margin: 10px;
+    cursor: pointer;
+}
+@media screen and (max-width: 680px){
+    .small-res{
+        font-size: 5px;
+    }
+    
+}
+@media screen and (max-width: 445px){
+    .small-res{
+        font-size: 4px;
+    }
+}
+@media screen and (max-width: 375px){
+    .small-res{
+        font-size: 4px;
+        display: block;
+    }
+    .small-res *{
+        margin-left: 10px;
+        margin-top: 5px;
+    } 
+    
+}
+.cv-des{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.big-res{
+    background-color: white;
+    padding: 10px;
+    width: 70%;
+    border-radius: 10px;
+    display: none;
+    
+    
+}
+.big-img-res{
+    object-fit: contain;
+    background-color: rgb(218, 218, 218);
+
+}
+.del-btn-cv{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.cv-delete{
+    background-color: red;
+    color: white;
+    font-weight: 900;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    width: 40vw;
+    filter: drop-shadow(0px 0px 3px rgb(255, 0, 0));
+}
+.cv-delete:hover{
+    filter: drop-shadow(0px 0px 7px red);
+    
+}

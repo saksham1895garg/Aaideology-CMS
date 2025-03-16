@@ -1,0 +1,84 @@
+<main class="admin-resume">
+    <div class="container-resumes">
+        <div class="admin-resumes-head">
+            <h1>All Resumes</h1>
+        </div>
+               
+             
+             
+        
+        <div class="resumes-list">
+            <div class="resumes">
+                <% userres.forEach((element) => { %>
+                <div class="cv-des">
+                    
+                    <div class="small-res">
+                        
+                         
+                        
+                        <h1 class="user-name"><%= element.name %></h1>
+                        <h1 class="user-email"><%= element.email %></h1>
+                        <h1 class="user-phone">+91<%= element.phone %></h1>
+                        <img width="100px" src="/photos/interview-cuate.png" alt="">
+                    </div>
+                    <div class="big-res">
+                        <img width="95%" src="<%= element.resume %>" alt="" class="big-img-res">
+                        <!-- <iframe  src="" frameborder="0" class="big-img-res"></iframe> -->
+                        <div class="cv-buttons">
+                            <div class="del-btn-cv">
+                                <form action="/admin/cv-delete/<%= element._id %>" method="POST">
+                                    <input type="hidden" name="X-HTTP-Method-Override" value="DELETE">
+
+
+
+                                <button type="submit" class="cv-delete">Delete</button>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <% }) %>
+
+                
+
+               
+            </div>
+        </div>
+        
+    
+
+    </div>
+</main>
+
+<script>
+    let smallRes = document.querySelectorAll('.small-res');
+    let bigRes = document.querySelectorAll('.big-res');
+
+    smallRes.forEach((small, index) => {
+        small.addEventListener('click', () => {
+            // Hide all other big-res elements
+            bigRes.forEach((big, i) => {
+                if (i !== index) {
+                    big.style.display = 'none';
+                }
+            });
+            // Toggle the clicked big-res
+            if (bigRes[index].style.display === 'block') {
+                bigRes[index].style.display = 'none';
+            } else {
+                bigRes[index].style.display = 'block';
+            }
+        });
+    });
+
+
+    console.log(smallRes);
+    console.log(bigRes);
+
+
+
+
+
+   
+</script>

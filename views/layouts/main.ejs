@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- locals.title %></title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/admin-auth.css">
+    <link rel="stylesheet" href="/CSS/post-admin.css">
+    <link rel="stylesheet" href="/CSS/main-admin.css">
+    <link rel="stylesheet" href="/CSS/details.css">
+    <link rel="stylesheet" href="/CSS/user-reg.css">
+    <link rel="stylesheet" href="/CSS/resumes-admin.css">
+    <link rel="stylesheet" href="/CSS/reviews.css">
+    <link rel="stylesheet" href="/CSS/user-page-info.css">
+    <link rel="stylesheet" href="/CSS/user-details.css">
+    <link rel="stylesheet" href="/CSS/admin-rev.css">
+
+    <style>
+        .main-1{
+            background-image: url(/photos/hr-illu.svg);
+        }
+        .edit-submit{
+            background-color: greenyellow !important;
+            filter: drop-shadow(-1px 0px 8px rgb(156, 231, 43) )!important;
+        }
+        .edit-submit:hover{
+            filter: drop-shadow(-1px 0px 8px rgb(153, 255, 0) )!important;
+        }
+        .reg-con-bcc{
+            background-image: url(/photos/reg-illu.jpg) !important;
+            
+           
+        }
+    </style>
+</head>
+<body>
+    <!-- header  -->
+     <%- include("../partials/header.ejs") %>
+
+
+    <%- body %>
+
+    <%- include("../partials/footer.ejs") %>
+
+    <script src="/Javascript/index.js"></script>
+    <script src="/Javascript/details.js"></script>
+    <script src="/Javascript/main.js"></script> <!-- Added main.js -->
+
+</body>
+</html>

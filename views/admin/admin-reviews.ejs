@@ -1,0 +1,19 @@
+<main class="admin-rev">
+    <div class="admin-review-container">
+        <h1 class="admin-review-title">Admin Reviews</h1>
+        <div class="admin-review-list">
+            <% reviews.forEach((review) => { %>
+            <div class="admin-rev-cards">
+                <h2 class="admin-rev-name">Name: <%= review.name %></h2>
+                <h3 class="admin-rev-stars">Stars Given: <%= review.rating %></h3>
+                <p class="admin-rev-content"><%= review.comment %></p>
+                <p class="admin-rev-date">Post Date: <%= review.date %></p>
+                <div class="admin-rev-del">
+                    <button class="admin-rev-delete"><img width="25px" class="admin-rev-delete-img" src="/photos/delete.png" alt="Delete"></button>
+                </div>
+            </div>
+            <% }) %>
+          <h3 style="font-weight: 100; font-size: small; margin-left: 300px; opacity: 0.7;"><<<<<<<<<<<<<<  end >>>>>>>>>>>>>></h3>
+        </div>
+    </div>
+</main>

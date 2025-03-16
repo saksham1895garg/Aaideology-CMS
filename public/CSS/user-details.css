@@ -1,0 +1,107 @@
+.user-details {
+  height: 100vh;
+  position: relative;
+}
+.table-user {
+  border: 2px solid red;
+  height: 500px;
+  position: absolute;
+  top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+  margin-top: 20px;
+  width: 100%;
+}
+.user-table {
+  width: 80vw;
+  border-collapse: collapse;
+}
+.down-users td {
+  padding: 10px;
+  font-weight: 700;
+  background-color: whitesmoke;
+}
+.user-delete-btn {
+  background-color: rgb(255, 0, 0);
+  color: white;
+  font-weight: 900;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 3px red);
+}
+.user-delete-btn:hover {
+  filter: drop-shadow(0px 0px 7px red);
+}
+.user-info-login-signup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+}
+.info-login {
+  
+  border-radius: 10px;
+  margin-top: 40px;
+  margin-left: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 320px;
+  height: 40px;
+  background-color: rgb(190, 188, 188);
+  filter: drop-shadow(0px 0px 3px rgb(0, 0, 0));
+}
+.info-login a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-weight: 900;
+  font-size: 24px;
+}
+.info-login:hover {
+  filter: drop-shadow(0px 0px 7px black);
+}
+.info-resumes{
+    margin-left: 25px;
+    margin-top: 20px;
+    background-color: rgb(185, 185, 185);
+    width: 50%;
+}
+.info-resumes h2, h4{
+    margin-left: 10px;
+}
+.info-resumes-card-container{
+    background-color: rgb(165, 163, 163);
+    overflow-y: auto;
+}
+.info-resumes-card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px;
+    
+}
+.info-resumes-card h3{
+    color: whitesmoke;
+}
+#resume-name{
+    width: 160px;
+    height: 30px;
+    overflow: hidden;
+}
+.info-resumes-card-btn{
+    background-color: red;
+    color: white;
+    font-weight: 800;
+    font-size: 16px;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    cursor: pointer;
+
+
+}
