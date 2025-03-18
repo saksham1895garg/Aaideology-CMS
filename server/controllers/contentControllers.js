@@ -248,7 +248,7 @@ exports.adminpostdelete = async(req, res) => {
         
         if (fs.existsSync(imagePath)) {
             fs.unlinkSync(imagePath);
-        } else {
+        } else { 
             console.log(`File not found: ${imagePath}`);
         }
         
@@ -330,7 +330,7 @@ exports.userInfo = async(req, res) => {
     try {
          // Use the user ID from the authenticated user
 
-    const user = locals.user; // Use the user object from locals
+    const user = res.locals.user; // Use the user object from locals
         console.log('User data:', user); // Log user data for debugging
         const resumes = user && user.resumes ? await UserRes.find({ _id: { $in: user.resumes } }) : []; // Fetch resumes associated with the user
 
