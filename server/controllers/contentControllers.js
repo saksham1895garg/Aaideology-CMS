@@ -445,7 +445,7 @@ exports.userInfo = async(req, res) => {
 };
 
 exports.userInfoProfile = async(req, res) => {
-    const locals = {
+    const locals = { 
         title: 'Aaideology || User Info'
     }
     res.render('admin/user-details', locals);

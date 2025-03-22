@@ -1,5 +1,5 @@
 .user-reg {
-    height: 100vh;
+    height: 110vh;
 }
 .reg-inputs {
     padding: 10px;
@@ -89,6 +89,7 @@
     opacity: 0.4;
     background-position: center;
     position: fixed;
+    z-index: -99;
 }
 .reg-con {
     width: 95%;
@@ -100,7 +101,7 @@
     border-radius: 10px;
     align-items: center;
     background-color: rgb(246, 246, 246);
-    z-index: 100;
+    z-index: 1;
 }
 
 
@@ -178,4 +179,36 @@
     position: absolute;
     right: 10px;
     top: 10px;
+}
+@media screen and (max-width: 619px) {
+    .reg-name-div{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .reg-div{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .reg-h{
+        margin-left: 15px;
+    }
+    .reg-label{
+        margin-left: 15px;
+        width: 100px;
+    }
+    .first-pass{
+        top: 30px;
+    }
+    .second-pass{
+        top: 52px;
+    }
+    .reg-btn{
+        width: 80%;
+    }
+    .reg-eye-close{
+        top: 29px;
+    }
+    .reg-eye-open{
+        top: 29px;
+    }
 }
