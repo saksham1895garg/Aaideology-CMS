@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
+// Set default options for Mongoose
+mongoose.set('bufferTimeoutMS', 30000); // Increase timeout to 30 seconds
+
 const userSchema = new mongoose.Schema({
     resumes: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -42,6 +45,8 @@ const userSchema = new mongoose.Schema({
     }
 });
 
+
+
 userSchema.pre('save', async function(next) {
     // Only hash password if it's modified
     if (!this.isModified('password')) return next();
@@ -55,5 +60,9 @@ userSchema.pre('save', async function(next) {
     }
 });
 
-const User = new mongoose.model('User', userSchema); 
+const User = new mongoose.model('User', userSchema);
+
+// Ensure indexes are created
+User.ensureIndexes().catch(err => console.error('Error creating indexes:', err));
+
 module.exports = User;
