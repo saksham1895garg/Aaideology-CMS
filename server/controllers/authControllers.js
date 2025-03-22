@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const User = require('../models/userSchema');
 const sendPasswordEmail = require('../middlewares/email');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 
 // admin login
