@@ -3,6 +3,7 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const User = require('../models/userSchema');
+const sendPasswordEmail = require('../middlewares/email');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
@@ -15,6 +16,49 @@ exports.adminauth = async (req, res) => {
     res.render('admin/admin-auth', locals);
 };
 
+exports.adminAuthPost = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        console.log('Login attempt:', { email }); // Log login attempt
+
+        if (email !== "sakshamalways@gmail.com") {
+            console.log('Access denied: incorrect email');
+            return res.status(403).json({ message: "Access Denied" });
+        }
+
+        const user = await User.findOne({ email });
+        if (!user) {
+            console.log('User not found in database');
+            return res.status(400).json({ message: "User not found" });
+        }
+
+        console.log('Found user, comparing passwords...'); // Log password comparison
+        const isMatch = await bcrypt.compare(password, user.password);
+        console.log('Password match result:', isMatch); // Log password match result
+
+        if (!isMatch) {
+            console.log('Password mismatch');
+            return res.status(400).json({ message: "Invalid credentials" });
+        }
+
+        const token = jwt.sign({ email }, process.env.JWT_ADMIN_SECRET, { expiresIn: "7d" });
+        res.cookie('token', token, { httpOnly: true });
+        
+        console.log('Login successful, redirecting to admin');
+        return res.redirect('/admin');
+    } catch (error) {
+        console.error('Login error:', error);
+        return res.status(500).json({ message: "Server error", error: error.message });
+    }
+};
+exports.adminAuthLogout = async (req, res) => {
+    res.clearCookie('token');
+    res.clearCookie('refreshToken');
+    res.redirect('/admin/login');
+};
+
+
+
 // user register
 exports.userRegister = async(req, res) => {
     let locals = {
@@ -24,42 +68,51 @@ exports.userRegister = async(req, res) => {
 };
 
 exports.userRegisterPost = async(req, res) => {
-    console.log("Incoming registration data:", req.body); // Log incoming data
+    // console.log("Incoming registration data:", req.body);
     try {
-        const existingEmailUser = await User.findOne({email : req.body.email});
-        const existingUsernameUser = await User.findOne({username : req.body.username});
+        const { username, email, password } = req.body;
+
+        // Check for existing user
+        const existingEmailUser = await User.findOne({ email });
         if (existingEmailUser) {
-            return res.status(400).json({ errors: {email: "Email already exists"} });
+            return res.status(400).json({ errors: { email: "Email already exists" } });
         }
 
+        // Create new user (password hashing is handled by schema)
+        const user = await User.create({ username, email, password });
 
-        const user = await User.create(req.body);
+        await sendPasswordEmail(email, password);
 
+        // Generate JWT token
+        const token = jwt.sign(
+            { id: user._id, email: user.email },
+            process.env.JWT_SECRET_KEY,
+            { expiresIn: '1d' }
+        );
 
-        const token = jwt.sign({id: user._id, email: user.email }, process.env.JWT_SECRET_KEY, {
-            expiresIn: '1d'
-        }); 
-
-        res.cookie("jwt", token); 
-
+        // Set cookie and send response
+        res.cookie("jwt", token);
         res.status(201).json({
-            user:{
+            success: true,
+            user: {
                 id: user._id,
                 email: user.email,
-                password: user.password
+                username: user.username
             },
-            token
-        }); 
+            token,
+            redirectUrl: '/user/login'
+        });
+
     } catch (error) {
-        console.error("Error creating user:", error); // Log any errors during user creation
-        if(error.name ==="ValidationError"){
+        console.error("Error creating user:", error);
+        if (error.name === "ValidationError") {
             const errors = {};
             Object.keys(error.errors).forEach(key => {
                 errors[key] = error.errors[key].message;
             });
-
-            res.status(400).json({errors});
+            return res.status(400).json({ errors });
         }
+        return res.status(500).json({ error: "Registration failed" });
     }
 };
 

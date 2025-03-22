@@ -18,12 +18,13 @@
                         
                         <h1 class="user-name"><%= element.name %></h1>
                         <h1 class="user-email"><%= element.email %></h1>
-                        <h1 class="user-phone">+91<%= element.phone %></h1>
+                        <h1 class="user-phone">| +91<%= element.phone %></h1>
+                        <h1 class="user-phone">| <%= element.jobname2 %></h1>
                         <img width="100px" src="/photos/interview-cuate.png" alt="">
                     </div>
                     <div class="big-res">
-                        <img width="95%" src="<%= element.resume %>" alt="" class="big-img-res">
-                        <!-- <iframe  src="" frameborder="0" class="big-img-res"></iframe> -->
+                        <a href="/<%= element.resume %>" download="/<%= element.name %>" style="text-decoration: none; font-size: 10px; margin: 10px;" ><span style="color: black;">Download </span> <%= element.resume %></a>
+                        <iframe  src="/<%= element.resume %>" frameborder="0" width="100%" height="1000px" class="big-img-res"></iframe>
                         <div class="cv-buttons">
                             <div class="del-btn-cv">
                                 <form action="/admin/cv-delete/<%= element._id %>" method="POST">

@@ -1,5 +1,5 @@
 .user-side {
-    height: 100vh;
+    height: 180vh;
 }
 .user-side-top {
     background-color: whitesmoke;
@@ -53,9 +53,7 @@
     align-items: center ;
     height: 35px;
 }
-.password-change-btn {
-    cursor: pointer;
-}
+
 .logout-btn {
     margin-left: 29px;
     margin-top: 20px;
@@ -118,6 +116,9 @@
     }
     .user-btn-inner {
         width: 131px;
+    }
+    .logout-btn-inner{
+        width: 200px;
     }
 }
 
@@ -218,4 +219,40 @@
         left: 50px;
     }
     
+}
+.info-user-reviews{
+    margin-top: 20px;
+    border: 2px black solid;
+    padding: 10px;
+    background-color: whitesmoke;
+}
+.info-user-reviews-card-container{
+    display: flex;
+    padding: 20px;
+    overflow-x: scroll;
+}
+.info-user-reviews-card{
+    border: 1px black solid;
+   height: 290px;
+   width: 300px;
+   padding: 8px;
+   border-radius: 10px;
+   background-color: white;
+    margin-right: 20px;
+}
+.info-user-reviews-card-btn{
+    margin: 20px;
+    cursor: pointer;
+    height: 35px;
+    width: 200px;
+    font-size: larger;
+    font-weight: 800;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(237, 15, 15, 0.808);
+    filter: drop-shadow(0px 0px 3px rgba(237, 15, 15, 0.808));
+}
+.info-user-reviews-card-btn:hover{
+    filter: drop-shadow(0px 0px 7px rgba(237, 15, 15, 0.808));
 }

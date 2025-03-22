@@ -276,7 +276,7 @@ header {
     flex-wrap: nowrap;
   }
   .cards {
-    border: red 2px solid;
+    border: black 1px solid;
     width: 85vw;
     height: 200px;
     display: flex;
@@ -441,6 +441,7 @@ header {
   width: max-content;
   padding: 10px;
   background-color: rgb(155, 155, 155);
+  scrollbar-width: thin;
 }
 .reviews-cards-container {
   display: flex;
@@ -448,10 +449,10 @@ header {
   width: 95vw;
   overflow-x: scroll;
   padding: 10px;
+  scrollbar-width: thin;
+  
 }
-/* .reviews-cards-container::-webkit-scrollbar {
-  display: none;
-} */
+
 .review-cards {
   border-radius: 5px;
   padding: 20px;

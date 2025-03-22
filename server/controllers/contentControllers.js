@@ -52,20 +52,20 @@ exports.uploadResume = multer({
         }
         cb(null, true);
     }
-})
+});
 
 // services
 exports.homepage = async (req, res) => {
     
     const locals = { 
-        title: 'Aaideology || The Perfect Source',
-        user: req.user // Include user object here 
+        title: 'Aaideology || The Perfect Source'
     } 
     
     try {
         let reviews = await Review.find({});
         const admin = await Admin.find({});
-        res.render('index', { locals, admin, reviews }); // Ensure locals is passed here
+        const user = res.locals.user;
+        res.render('index', { locals, admin, reviews, user }); // Ensure locals is passed here
     } catch (error) {
         console.error('Error fetching admin data:', error);
         res.status(500).send('Internal Server Error');
@@ -74,26 +74,37 @@ exports.homepage = async (req, res) => {
 
 exports.postReviewHomepage = async(req, res) => {
     try {
-        const { rating, name, comment } = req.body;
+        let userReview = new Review({
+            rating: req.body.rating,
+            name: req.body.name,
+            comment: req.body.comment,
+            rating: req.body.rating,
+            userId: res.locals.user._id
+        })
+        const user = res.locals.user; // Access user from locals
         
-        if (!rating || !name || !comment) {
+        if (!req.body.rating || !req.body.comment) {
+
             return res.status(400).json({ 
                 success: false,
                 message: 'Please provide all required fields' 
             });
-        }  
-
-        const newReview = new Review({
-            rating,
-            name,
-            comment,
-            date: new Date()
-        });
-
-        await newReview.save();
-        res.status(201).json({ 
+        } 
+        await Review.create(userReview);
+        if (user && user.reviews) {
+            user.reviews.push(userReview._id); // Add the review reference
+            await user.save(); // Save the user document
+        } else {
+            console.error('User or user.reviews is undefined:', user);
+            return res.status(500).json({
+                success: false,
+                message: 'Error saving review data: User data is incomplete'
+            });
+        }
+        
+        res.status(201).json({
             success: true,
-            message: 'Review submitted successfully' 
+            message: 'Review submitted successfully'
         });
     } catch (error) {
         console.error('Error saving review:', error);
@@ -103,6 +114,31 @@ exports.postReviewHomepage = async(req, res) => {
         });
     } 
 }; 
+
+exports.deleteUserReview = async(req, res) => {
+
+    try {
+        const review = await Review.findById(req.params.id);
+        if (!review) {
+            return res.status(404).json({ success: false, message: 'No Reviews Found' });
+        }
+
+        // New logic to delete the resume ID from the user's document
+        const user = await User.findById(review.userId);
+        if (user) {
+            user.reviews.pull(review._id); // Remove the resume ID from the user's resumes array
+            await user.save(); // Save the updated user document
+        }
+
+        await Review.findByIdAndDelete(req.params.id);
+        
+        res.redirect('/user/profile/');
+    } catch (error) {
+        console.error('Error deleting Review:', error);
+        res.status(500).json({ success: false, message: 'Error deleting Review' });
+    }
+    
+};
 
 // admin review page
 exports.adminUserReview = async(req, res) => {
@@ -117,7 +153,28 @@ exports.adminUserReview = async(req, res) => {
         res.status(500).send('Internal Server Error');
     }
 };
+exports.deleteAdminUserReview = async(req, res) => {
+    try {
+        const review = await Review.findById(req.params.id);
+        if (!review) {
+            return res.status(404).json({ success: false, message: 'No Reviews Found' });
+        }
 
+        // New logic to delete the resume ID from the user's document
+        const user = await User.findById(review.userId);
+        if (user) {
+            user.reviews.pull(review._id); // Remove the resume ID from the user's resumes array
+            await user.save(); // Save the updated user document
+        }
+
+        await Review.findByIdAndDelete(req.params.id);
+        
+        res.redirect('/admin/user/review'); 
+    } catch (error) {
+        console.error('Error deleting Review:', error);
+        res.status(500).json({ success: false, message: 'Error deleting Review' });
+    }
+};
 // admin pages
 exports.adminpage = async (req, res) => {
     const locals = {
@@ -127,7 +184,7 @@ exports.adminpage = async (req, res) => {
 };
 
 // post content admin page
-exports.postadminpage = async (req, res) => {
+exports.postadminpage = async (req, res) => { 
     console.log('Form submitted:', req.body);
     let newAdmin = new Admin({
         companyname: req.body.companyname,
@@ -144,15 +201,14 @@ exports.postadminpage = async (req, res) => {
         applyprocces: req.body.applyprocces,
         qualifications: req.body.qualifications,
         responsibilities: req.body.responsibilities, 
-        duration: req.body.duration,
-        postedBy: req.user.userId
+        duration: req.body.duration
     });
    
     console.log('Company Name:', newAdmin.companyname);
 
     try { 
         await Admin.create(newAdmin);
-        res.redirect('/admin');
+        res.redirect('/admin/posted/');
     } catch (error) { 
         console.error('Error saving admin:', error);
         res.status(500).send('Error saving admin data');
@@ -211,7 +267,7 @@ exports.admineditput = async(req, res) => {
         }
 
         await Admin.findByIdAndUpdate(req.params.id, updateData); 
-        res.redirect("/admin");
+        res.redirect("/admin/posted");
     } catch (error) {
         console.error('Error updating admin:', error);  
         res.status(500).send('Error updating admin data');
@@ -252,7 +308,7 @@ exports.adminpostdelete = async(req, res) => {
             console.log(`File not found: ${imagePath}`);
         }
         
-        res.redirect('/admin');
+        res.redirect('/admin/posted');
     } catch (error) {
         console.error('Error deleting admin:', error);
         res.status(500).send('Error deleting admin data');
@@ -260,7 +316,7 @@ exports.adminpostdelete = async(req, res) => {
 }
 
 // resumes details page
-exports.userResumeDetails = async(req, res) => {
+exports.userResumeDetails = async(req, res) => { 
     try {
         let userres = await UserRes.find({});
         res.render('resumes-admin', { userres });
@@ -269,6 +325,7 @@ exports.userResumeDetails = async(req, res) => {
         res.status(500).send('Internal Server Error');
     }
 };
+
 
 // resumes post details page
 exports.deleteResume = async(req, res) => {
@@ -282,7 +339,16 @@ exports.deleteResume = async(req, res) => {
         if (fs.existsSync(filePath)) {
             fs.unlinkSync(filePath);
         }
+
+        // New logic to delete the resume ID from the user's document
+        const user = await User.findById(resume.userId);
+        if (user) {
+            user.resumes.pull(resume._id); // Remove the resume ID from the user's resumes array
+            await user.save(); // Save the updated user document
+        }
+
         await UserRes.findByIdAndDelete(req.params.id);
+        
         res.redirect('/admin/cv');
     } catch (error) {
         console.error('Error deleting resume:', error);
@@ -299,21 +365,19 @@ exports.userResumeDetailsPost = async(req, res) => {
     } 
 
     try {
-        let newUserRes = new UserRes({
+        let newUserRes = new UserRes({ 
             name: req.body.name,
             email: req.body.email,
             phone: req.body.phone,
+            jobname2: req.body.jobname2,
             resume: req.file.filename, 
             resumedate: req.body.resumedate,
             userId: res.locals.user._id,
-            jobId: req.params.jobId 
-
-
+            jobId: req.params.jobId
         }); 
-        const newjobname = await Admin.findById(req.params.jobId);
         
         const user = res.locals.user; // Access user from locals
-
+        
         await UserRes.create(newUserRes);
         user.resumes.push(newUserRes._id); // Add the resume reference
         await user.save(); // Save the user document
@@ -325,25 +389,55 @@ exports.userResumeDetailsPost = async(req, res) => {
     }
 }; 
 
+exports.userResumeDelete = async(req, res) => {
+    try {
+        const resume = await UserRes.findById(req.params.id);
+        if (!resume) {
+            return res.status(404).json({ success: false, message: 'Resume not found' });
+        }
+
+        const filePath = path.join(__dirname, '../../uploads', resume.resume);
+        if (fs.existsSync(filePath)) {
+            fs.unlinkSync(filePath);
+        }
+
+        // New logic to delete the resume ID from the user's document
+        const user = await User.findById(resume.userId);
+        if (user) {
+            user.resumes.pull(resume._id); // Remove the resume ID from the user's resumes array
+            await user.save(); // Save the updated user document
+        }
+
+        await UserRes.findByIdAndDelete(req.params.id);
+        res.redirect('/user/profile');
+    } catch (error) {
+        console.error('Error deleting resume:', error);
+        res.status(500).json({ success: false, message: 'Error deleting resume' });
+    }
+};
 
 // user management system
 exports.userInfo = async(req, res) => {
 
     const locals = {
-        title: 'Aaideology || User Info'
+        title: `Aaideology || User Profile` 
     }
     
     try {
          // Use the user ID from the authenticated user
 
-        const user = res.locals.user; // Use the user object from locals
-        console.log('User data:', user); // Log user data for debugging
-        const resumes = user && user.resumes ? await UserRes.find({ _id: { $in: user.resumes } }) : []; // Fetch resumes associated with the user
+        const user = res.locals.user; 
+        const resumes = user && user.resumes ? await UserRes.find({ _id: { $in: user.resumes } }) : []; 
+        const reviews = user && user.reviews ? await Review.find({ _id: { $in: user.reviews } }) : []; 
         
+    
 
-    res.render('user-info/user-page-info', { locals, user, resume }); // Pass resumes to the view
+        // const userResume = resumes.length > 0 ? resumes[0] : null; 
+        // const jobId = userResume ? userResume.jobId : null;
+        // const job = jobId ? await Admin.findOne({ _id: jobId }) : null; 
+        // const jobName = job ? job.jobname : 'Job not found'; 
 
-
+        res.render('user-info/user-page-info', { locals, user, resumes, reviews });
     } catch (error) {
         console.error('Error fetching user info:', error);
         res.status(500).send('Internal Server Error');

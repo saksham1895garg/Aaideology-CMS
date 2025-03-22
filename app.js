@@ -53,7 +53,7 @@ app.use(session({
     resave: false, 
     saveUninitialized: true,
     cookie: { secure: false }  // Set secure to false for development environment
-}));
+})); 
 
 
 
@@ -62,6 +62,8 @@ app.use(session({
 
  
 app.use('/',  require("./server/routes/content"));
+app.use('/', require("./server/routes/auth")); // Added authentication routes
+
 
 app.get('*', (req, res) => {
     res.status(404).render('404');

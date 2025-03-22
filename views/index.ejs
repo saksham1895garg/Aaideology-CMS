@@ -26,10 +26,17 @@
     <div class="rev-head">
         <h2>Reviews</h2>
     </div>
+    
+        
+     
+        
+    <% if (user) { %>
+        
+      
     <form class="post-rev">
         
         <div class="name-review">
-            <input type="text" name="name" class="review-name" id="name-rew" placeholder="Name">
+            <input type="hidden" name="name" class="review-name" value="<%= user.username %>" id="name-rew" placeholder="Name">
         </div>
         <div class="stars">
             
@@ -48,12 +55,16 @@
         </div>
         <div class="rev-comment">
             <textarea placeholder="Comments" name="comment" id="comment" cols="30" rows="3"></textarea>
-        </div>
+        </div> 
         <div class="rev-sub">
             <button type="submit" class="submit-rev">Submit</button>
         </div>
     </form>
-
+    <% } else { %>
+        <h3 class="login-to-review" style="font-size: 25px;">Login to review</h3>
+      <% } %>
+    
+    
     <div class="all-reviews">
         <div class="reviews-cards-container">
             <% reviews.forEach((element) => { %>
@@ -61,11 +72,7 @@
                 <div class="head-all-rev">
                     <h3 class="name-all-rev"><%= element.name %></h3>
                     <img class="three" src="/photos/three.png" width="20px" alt="" srcset="">
-                    <div class="rev-edit-del">
-                        <div class="flex-btns">
-                            <button class="del-rev">Delete</button>
-                        </div>
-                    </div>
+                   
                 </div>
                 <div class="stars">
                     <% for (let i = 5; i >= 1; i--) { %>

@@ -1,4 +1,4 @@
-@import "tailwindcss";
+
 
 .m-10{
     margin: 10px;
@@ -81,7 +81,7 @@
 .main-admin-post{
    
     
-   height: 87vh;
+   height: 100vh;
   
 }
 .submit-div{

@@ -18,7 +18,7 @@
         <div class="user-info">
             <h1>Name: <span class="user-name-span" id="user-full-name"><%= user.username %> %></span></h1>
             <h1>Email: <span class="user-name-span" id="user-email"><%= user.email %> %></span></h1>
-            <h1 class="user-password">Password: <span class="user-name-span"><button type="submit" class="password-change-btn">Change</button></span></h1>
+            <h1 class="user-password">Password: <span style="font-size: 16px;" class="user-name-span">Your Password is sent to Your Gamil</span></h1>
         </div>
     </div>
     <div class="logout-btn">
@@ -30,28 +30,43 @@
         <div class="info-resumes-card-container">
 <% resumes.forEach(function(resume) { %>
     <div class="info-resumes-card">
-        <h3 id="resume-name"><%= resume.resume %></h3> <!-- Assuming resume has a name property -->
+        <h3 id="resume-name"><a href="/<%= resume.resume %>" download="<%= resume.resume %>" target="_blank %>"><%= resume.resume %></a></h3> <!-- Assuming resume has a name property -->
+
         <h3>Resume Date: <%= resume.resumedate.toLocaleDateString() %></h3> <!-- Assuming resume has a date property -->
-        <h3>Resume Post: <%=  %></h3> <!-- Assuming resume has a post property -->
-        <button type="submit" class="info-resumes-card-btn">Delete</button>
+        <h3>Resume Post: <%= resume.jobname2 %></h3> <!-- Display the fetched job name -->
+
+        <form action="/user/cv/delete/<%= resume._id %>?_method=DELETE" method="POST">
+        <button type="submit" class="info-resumes-card-btn">Delete</button></form>
     </div>
 <% }); %>
 
         </div>
     </div>
-    <!-- <div class="info-user-reviews">
-        <h2>User Reviews</h2>
+    <div class="info-user-reviews">
+        <h2 style="font-weight: 900; text-align: center; font-size: 30px;">Reviews</h2>
         <div class="info-user-reviews-card-container">
+            
+                
+             
+                <% reviews.forEach(function(review) { %>
             <div class="info-user-reviews-card">
-                <h3>Review Description</h3>
-                <h3>Review Rating</h3>
-                <h3>Review Date</h3>
-                <h3>Review Post</h3>
+                <h3>Review Description: %></h3>
+                <p><%= review.comment %> %></p>
+                <h3>Review Rating: <%= review.rating %>/5</h3>
+                <h3>Review Date: <%= review.date.toLocaleDateString() %> %></h3>
 
+                <form action="/user/review/delete/<%= review._id %>?_method=DELETE" method="POST">
                 <button type="submit" class="info-user-reviews-card-btn">Delete</button>
+                </form>
             </div>
+            <% }); %>
+
+            
+              
+            
+
         </div>
-    </div> -->
+    </div>
 
     <% } else { %>
         <h1>No user data found...</h1>

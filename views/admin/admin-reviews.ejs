@@ -9,11 +9,13 @@
                 <p class="admin-rev-content"><%= review.comment %></p>
                 <p class="admin-rev-date">Post Date: <%= review.date %></p>
                 <div class="admin-rev-del">
-                    <button class="admin-rev-delete"><img width="25px" class="admin-rev-delete-img" src="/photos/delete.png" alt="Delete"></button>
+                    <form action="/admin/delete/review/<%= review.id %>?_method=DELETE" method="POST">
+                     <button class="admin-rev-delete"><img width="25px" class="admin-rev-delete-img" src="/photos/delete.png" alt="Delete"></button>
+                    </form>
                 </div>
             </div>
             <% }) %>
-          <h3 style="font-weight: 100; font-size: small; margin-left: 300px; opacity: 0.7;"><<<<<<<<<<<<<<  end >>>>>>>>>>>>>></h3>
+          <h3 style="font-weight: 100; font-size: small; margin-left: 300px; opacity: 0.7; align-self: center;"><<<<<<<<<<<<<<  end >>>>>>>>>>>>>></h3>
         </div>
     </div>
 </main>

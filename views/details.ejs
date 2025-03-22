@@ -62,14 +62,26 @@
             </div>
         </div>
         <div class="apply-btn-resume">
+            <% if (user) { %>
         <div class="apply-btn-div">
-            <div class="apply-btn">Upload</div>
+            <div style="cursor: pointer;" class="apply-btn">Upload</div>
         </div>
+        <% } else { %>
+            <div style="display: flex; flex-direction: column; align-items: center" class="upload-login-btn-div">
+                <h2 style="font-weight: 900; ">Login to Apply</h2>
+                <a class="upload-login-btn" href="/user/login" >Login</a>
+            </div>
+            <% } %>
+          
+          
+          
     </div>
    
     
    
 </main>
+
+<% if (user) { %>
 
 <div class="big-apply-container">
     <div class="cross">
@@ -90,6 +102,7 @@
             <input type="text" name="name" id="user-name-apply" placeholder="Full Name" class="apply-inputs-user" required>
             <input type="email" name="email" id="user-email-apply" placeholder="Email" class="apply-inputs-user" required>
             <input type="tel" name="phone" id="user-phone-apply" placeholder="+91" class="apply-inputs-user" required>
+            <input type="hidden" name="jobname2" value="<%= admin.jobname %>">
             <input type="file" name="cv" class="cv-upload apply-inputs-user" required>
             <div class="apply-btn-at">
                 <input type="submit" value="Apply" class="apply-btn-input">
@@ -100,3 +113,5 @@
 
 
 </div>
+<% } else { %>
+    <% } %>

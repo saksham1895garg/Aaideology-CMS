@@ -2,38 +2,43 @@ const express = require('express');
 const router = express.Router();
 const contentControllers = require('../controllers/contentControllers');
 const authControllers = require('../controllers/authControllers');
-const { uploadLogo, uploadResume } = require('../controllers/contentControllers');
-// const { requireAuth } = require('../middlewares/authMiddleware'); 
+const { uploadLogo, uploadResume } = contentControllers;
+const { adminAuth } = require('../middlewares/authMiddleware');
 
-// Customer routes 
+
+// Customer routes  
 
 // main service page
-router.get('/', contentControllers.homepage);
+router.get('/', contentControllers.homepage); 
 // admin content post page
-router.get('/admin/post', contentControllers.adminpage); 
+router.get('/admin/post', contentControllers.adminpage);   
 
 // main admin page 
-router.get('/admin', contentControllers.alladminpage); 
+router.get('/admin', adminAuth, contentControllers.alladminpage); 
+router.get('/admin/logout', authControllers.adminAuthLogout);
 router.post('/admin', uploadLogo.single('companylogo'), contentControllers.postadminpage); 
-router.get('/admin/posted', contentControllers.mainadminpage);
+router.get('/admin/posted', adminAuth, contentControllers.mainadminpage);
 
 // admin edit post page
-router.get('/admin/edit-post/:id', contentControllers.admineditpost);
+router.get('/admin/edit-post/:id', adminAuth, contentControllers.admineditpost);
 router.post('/admin/edit-post/:id', uploadLogo.single('companylogo'), contentControllers.admineditput);
 router.put('/admin/edit-post/:id', uploadLogo.single('companylogo'), contentControllers.admineditput);
 
 router.post('/admin/delete-post/:id', contentControllers.adminpostdelete);
-router.post('/admin/cv-delete/:id', contentControllers.deleteResume);
+router.post('/admin/cv-delete/:id', contentControllers.deleteResume); 
 
 router.get('/aaideology/:id', contentControllers.aaideologydetails);
-router.get('/admin/cv', contentControllers.userResumeDetails);
+router.get('/admin/cv', adminAuth, contentControllers.userResumeDetails);
 router.post('/user/cv/:jobId', uploadResume.single('cv'), contentControllers.userResumeDetailsPost);
+router.post("/user/cv/delete/:id", contentControllers.userResumeDelete)
 
 
 
 // user review system
 router.post('/user/review', contentControllers.postReviewHomepage);
 router.get('/admin/user/review', contentControllers.adminUserReview);
+router.post('/admin/delete/review/:id', contentControllers.deleteAdminUserReview);
+router.post('/user/review/delete/:id', contentControllers.deleteUserReview);
 
 const { checkUser } = require('../middlewares/authMiddleware'); // Import the checkUser middleware
 
@@ -47,6 +52,7 @@ router.get('/admin/user/profile', contentControllers.userInfoProfile);
  
 // admin authentication routes
 router.get('/admin/login', authControllers.adminauth);  
+router.post('/admin/login', authControllers.adminAuthPost);
 
 // User authentication routes
 router.get('/user/register', authControllers.userRegister)

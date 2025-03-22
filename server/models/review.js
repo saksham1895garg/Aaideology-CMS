@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
-    // name: {
+   name: {
+        type: String,
+        required: true
+   },
 
-    //     type: String,
-    //     required: true
-    // }
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",

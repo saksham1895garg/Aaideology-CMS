@@ -82,6 +82,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 7px;
+    overflow-y: scroll;
     
 }
 .info-resumes-card h3{

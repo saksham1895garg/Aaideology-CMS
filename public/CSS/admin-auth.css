@@ -164,180 +164,41 @@ main{
    justify-content: center;
    align-items: center;
 }
-.log-reg{
-   
-    width: 40vw;
-    
-    
-    padding: 15px;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    
-    
+.main-admin-con{
+  width: 85vw;
+  padding: 20px;
+  background-color: rgb(229, 229, 229);
+  border-radius: 10px;
 }
-.log-page{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 20px;
-   
+.admin-login-input{
+  width: 100%;
+  height: 50px;
+  padding-left: 5px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: white;
 }
-.upper-btns{
-    /* border: 2px solid black; */
-    display: flex;
-   
-    width: 39vw;
-    padding: 0px 0px;
+.admin-login-input:focus{
+  outline: none;
 }
-.login-up-up-btn{
-    width: 50vh;
-    border: solid transparent;
-    border-radius: 11px 11px 0px 0px;;
-    border-bottom: none;
-    margin-left: 70px;
-    background-color: #f0f0f0;
-    
-
+.admin-login-btn-div{
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
 }
-.login-up-up{
-    font-size: 27px;
-    
+.admin-login-btn{
+  font-weight: 900;
+  font-size: larger;
+  width: 90%;
+  height: 40px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background-image: linear-gradient(to left top, #f62f04, #f04927, #e85c3f, #df6d55, #d37c6a);
+  filter: drop-shadow(0px 0px 3px #f62f04);
 }
-
-.log-in-user-value{
-    border: transparent solid 2px;
-    background-color: #f0f0f0;
-    
-    
-    width: 90%;
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.log-email-div{
-    margin: 10px;
-    width: 80%;
-    
-}
-.log-email-logo{
-  margin-left: 20px;
-    width: 90px;
-    border-right: none;
-    background-color: white;
-    display: flex;
-    align-items: center;
-
-
-}
-.email-log-h1{
-    margin-left: 10px;
-    font-size: 20px
-    
-}
-.email-not-valid{
-    color: red;
-    margin-left: 20px;
-    display: none;
-    
-}
-.log-email-input{
-    padding: 15px;
-    border-radius:  20px;
-    width: 10vw;
-    width: 100%;
-    font-size: larger;
-  
-    
-}
-.log-email-input::placeholder{
-    color: black;
-    font-size: 20px;
-    align-self: center;
-}
-.log-email-div::selection{
-    border-color: aqua;
-
-}
-.log-password-div{
-    margin: 10px;
-    width: 80%;
-    
-    position: relative;
-}
-.log-password-logo{
-    margin-left: 20px;
-    margin-bottom: 2px;
-    
-    width: 90px;
-    border-right: none;
-    background-color: white;
-    display: flex;
-    align-items: center;
-}
-.password-log-h1{
-    margin-left: 10px;
-    font-size: 20px;
-}
-.log-pass-eye{
-    position: absolute;
-    right: 7px;
-    top: 41px;
-    display: none;
-}
-.log-pass-eye-hidden{
-    position: absolute;
-    right: 7px;
-    top: 41px;
-    
-}
-
-.log-password-input{
-    padding: 15px;
-    border-radius:  20px;
-    width: 10vw;
-    width: 100%;
-    font-size: larger;
-}
-.log-submit{
-    width: 90%;
-    display: flex;
-    justify-content: center;
-}
-.log-submit-btn{
-    padding: 15px;
-    width: 80%;
-    font-size: larger;
-    font-weight: 600;
-    color: white;
-    border-radius: 20px;
-    background: rgb(181,10,45);
-    background-image: linear-gradient(to bottom, #f0340b, #ee4622, #ea5433, #e76143, #e26d52);
-}
-.log-submit-btn:hover{
-    background-image: linear-gradient(to top, #f0340b, #ee4622, #ea5433, #e76143, #e26d52);
-}
-@media screen and (max-width: 1451px) {
-    .login-up-up-btn{
-        width: 50%;
-    }
-
-    
-}
-@media screen and (max-width: 555px) {
-    .log-reg{
-        width: 70vw;
-    }
-    .login-up-up-btn{
-        margin-left: 30px;
-    }
-    .login-up-up-btn h1{
-        font-size: 20px;
-    }
-
-    
+.admin-login-btn:hover{
+  filter: drop-shadow(0px 0px 5px #f62f04);
+  background-image: linear-gradient(to right bottom, #f62f04, #f04927, #e85c3f, #df6d55, #d37c6a);
 }

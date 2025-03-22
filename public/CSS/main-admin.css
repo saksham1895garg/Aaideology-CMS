@@ -209,17 +209,19 @@ td {
     width: 300px;
   }
   .jobs-posting-h1{
-    left: 20px;
+    left: 10px;
+    font-size: 70px;
   }
   .jobs{
     left: 60px;
   }
   .job-res-main-admin {
-    left: 20px;
-    font-size: 70px;
+    left: 10px;
+    font-size: 60px;
   }
   .job-rev-main-admin {
-    left: 5px;
+    left: 0px;
+    font-size: 70px;
   }
   .job-user-main-admin{
     left: 65px;

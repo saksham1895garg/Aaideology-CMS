@@ -23,6 +23,10 @@ const userRes = new Schema({
         type: Date,
         default: Date.now
     },
+    jobname2: {
+        type: String,
+        required: true
+    },
 
     userId: {
         type: mongoose.Schema.Types.ObjectId,

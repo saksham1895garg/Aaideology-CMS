@@ -206,11 +206,31 @@
     border: none;
     outline: none;
     border-radius: 10px;
+    cursor: pointer;
     font-weight: 800;
     filter: drop-shadow(0px 0px 3px #000000);
 }
 .apply-btn-input:hover{
     filter: drop-shadow(0px 0px 7px #000000);
+}
+.upload-login-btn{
+    margin-top: 10px;
+    background-color: #d1d1d1;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: 900;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 17px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    filter: drop-shadow(0px 0px 3px #747474);
+}
+.upload-login-btn:hover{
+    filter: drop-shadow(0px 0px 7px #747474);
 }
 @media screen and (max-width: 689px){
     .company-deatils-conatiner{

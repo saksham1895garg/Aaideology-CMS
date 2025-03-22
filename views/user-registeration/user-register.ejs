@@ -35,6 +35,7 @@
                         <img width="24px" class="reg-eye-open" src="/photos/eye.png" alt="">
                         <label class="reg-pass reg-label" for="regpass">Password*</label>
                         <input type="password" autocomplete="off" name="regfirstpass" id="regfirstpass" class="reg-pass-input reg-inputs" placeholder="">
+                        
                     </div>
                     <div class="reg-confirm-pass reg-div">
                         <img width="24px" class="reg-con-eye-close" src="/photos/hidden.png" alt="">
@@ -42,6 +43,8 @@
                         <label class="reg-conpass reg-label" for="regconfirmpass">Confirm Password*</label>
                         <input type="password" autocomplete="off" name="password" id="password" class="reg-con-pass-input reg-inputs" placeholder="" required>
                     </div>
+                    <p style="color: red; display: none;" class="password-mismatch">Passwords do not match!</p>
+                    <p style="color: red; display: none;" class="password-requirements">Password must be at least 6 characters with 1 capital letter and 1 special character</p>
                     <div class="reg-submit-div">
                         <button type="submit" class="reg-btn">Submit</button>
                     </div>
@@ -100,10 +103,54 @@
         }
     }); 
 
+    const firstPassword = document.querySelector('#regfirstpass');
+    const conpass = document.querySelector('#password');
+    const passwordMismatch = document.querySelector('.password-mismatch');
+
+    // Check passwords match on input
+    conpass.addEventListener('input', validatePasswords);
+    firstPassword.addEventListener('input', validatePasswords);
+
+    function validatePasswords() {
+        if (firstPassword.value !== conpass.value) {
+            passwordMismatch.style.display = 'block';
+            conpass.style.borderColor = 'red';
+            return false;
+        } else {
+            passwordMismatch.style.display = 'none';
+            conpass.style.borderColor = '';
+            return true;
+        }
+    }
+
+    function validatePasswordStrength(password) {
+        const minLength = 6;
+        const hasUpperCase = /[A-Z]/.test(password);
+        const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+        
+        return password.length >= minLength && hasUpperCase && hasSpecialChar;
+    }
+
+    firstPassword.addEventListener('input', () => {
+        const passwordRequirements = document.querySelector('.password-requirements');
+        if (!validatePasswordStrength(firstPassword.value)) {
+            passwordRequirements.style.display = 'block';
+            firstPassword.style.borderColor = 'red';
+        } else {
+            passwordRequirements.style.display = 'none';
+            firstPassword.style.borderColor = '';
+        }
+        validatePasswords();
+    });
+
     const form = document.querySelector('.reg-form');
 
     form.addEventListener('submit', async(e)=> {
         e.preventDefault();
+
+        if (!validatePasswords() || !validatePasswordStrength(firstPassword.value)) {
+            return; // Stop form submission if passwords don't match or strength requirements not met
+        }
 
         // getting values
         const username = document.querySelector('.reg-name-input').value;
@@ -118,25 +165,12 @@
                     'Content-Type': 'application/json'
                 }
             });
-            const data = await res.json(); // Move this line up
-            
-
-          
+            const data = await res.json();
+            if(data.success) {
+                window.location.href = '/user/login';
+            }
         }catch(error){
             console.log(error);
         }
-        
-
     });
-
-
-
-
-
-
-  
-
-
-
-
 </script>
