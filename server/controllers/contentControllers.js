@@ -62,7 +62,7 @@ exports.homepage = async (req, res) => {
     } 
     
     try {
-        let reviews = await Review.find({});
+        const reviews = await Review.find({});
         const admin = await Admin.find({});
         const user = res.locals.user;
         res.render('index', { locals, admin, reviews, user }); // Ensure locals is passed here
