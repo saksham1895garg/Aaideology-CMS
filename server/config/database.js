@@ -10,10 +10,11 @@ const connectDB = async () => {
         });
         
         console.log(`MongoDB Connected: ${conn.connection.host}`);
+        return conn;
     } catch (error) {
         console.error(`Error: ${error.message}`);
         process.exit(1);
     }
 };
 
-module.exports = connectDB;
+module.exports = { connectDB, mongoose };
