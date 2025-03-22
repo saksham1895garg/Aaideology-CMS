@@ -3,7 +3,7 @@ const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
 // Set default options for Mongoose
-mongoose.set('bufferTimeoutMS', 30000); // Increase timeout to 30 seconds
+mongoose.set('bufferTimeoutMS', 50000); // Increase timeout to 30 seconds
 
 const userSchema = new mongoose.Schema({
     resumes: [{
@@ -62,7 +62,6 @@ userSchema.pre('save', async function(next) {
 
 const User = new mongoose.model('User', userSchema);
 
-// Ensure indexes are created
-User.ensureIndexes().catch(err => console.error('Error creating indexes:', err));
+
 
 module.exports = User;
