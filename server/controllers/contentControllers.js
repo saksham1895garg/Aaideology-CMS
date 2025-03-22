@@ -440,7 +440,7 @@ exports.userInfo = async(req, res) => {
         res.render('user-info/user-page-info', { locals, user, resumes, reviews });
     } catch (error) {
         console.error('Error fetching user info:', error);
-        res.status(500).send('Internal Server Error');
+        res.status(500).send('Internal Server Error'); 
     }
 };
 
