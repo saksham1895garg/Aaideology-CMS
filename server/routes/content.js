@@ -27,7 +27,9 @@ router.post('/admin/cv-delete/:id', contentControllers.deleteResume);
 
 router.get('/aaideology/:id', contentControllers.aaideologydetails);
 router.get('/admin/cv', contentControllers.userResumeDetails);
-router.post('/user/cv', uploadResume.single('cv'), contentControllers.userResumeDetailsPost);
+router.post('/user/cv/:jobId', uploadResume.single('cv'), contentControllers.userResumeDetailsPost);
+
+
 
 // user review system
 router.post('/user/review', contentControllers.postReviewHomepage);

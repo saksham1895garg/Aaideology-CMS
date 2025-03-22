@@ -30,9 +30,9 @@
         <div class="info-resumes-card-container">
 <% resumes.forEach(function(resume) { %>
     <div class="info-resumes-card">
-        <h3 id="resume-name"><%= resume.name %></h3> <!-- Assuming resume has a name property -->
-        <h3>Resume Date: <%= resume.date %></h3> <!-- Assuming resume has a date property -->
-        <h3>Resume Post: <%= resume.post %></h3> <!-- Assuming resume has a post property -->
+        <h3 id="resume-name"><%= resume.resume %></h3> <!-- Assuming resume has a name property -->
+        <h3>Resume Date: <%= resume.resumedate.toLocaleDateString() %></h3> <!-- Assuming resume has a date property -->
+        <h3>Resume Post: <%=  %></h3> <!-- Assuming resume has a post property -->
         <button type="submit" class="info-resumes-card-btn">Delete</button>
     </div>
 <% }); %>

@@ -303,17 +303,23 @@ exports.userResumeDetailsPost = async(req, res) => {
             name: req.body.name,
             email: req.body.email,
             phone: req.body.phone,
-            resume: req.file.filename
+            resume: req.file.filename, 
+            resumedate: req.body.resumedate,
+            userId: res.locals.user._id,
+            jobId: req.params.jobId 
+
+
         }); 
+        const newjobname = await Admin.findById(req.params.jobId);
         
-        const user = locals.user; // Access user from locals
+        const user = res.locals.user; // Access user from locals
 
         await UserRes.create(newUserRes);
         user.resumes.push(newUserRes._id); // Add the resume reference
         await user.save(); // Save the user document
 
         res.redirect('/');
-    } catch (error) {
+    } catch (error) { 
         console.error('Error saving resume:', error);
         res.status(500).send('Error saving resume data');
     }
@@ -330,12 +336,12 @@ exports.userInfo = async(req, res) => {
     try {
          // Use the user ID from the authenticated user
 
-    const user = res.locals.user; // Use the user object from locals
+        const user = res.locals.user; // Use the user object from locals
         console.log('User data:', user); // Log user data for debugging
         const resumes = user && user.resumes ? await UserRes.find({ _id: { $in: user.resumes } }) : []; // Fetch resumes associated with the user
+        
 
-
-    res.render('user-info/user-page-info', { locals, user, resumes }); // Pass resumes to the view
+    res.render('user-info/user-page-info', { locals, user, resume }); // Pass resumes to the view
 
 
     } catch (error) {
