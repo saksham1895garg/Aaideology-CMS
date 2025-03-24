@@ -56,6 +56,17 @@ app.use(session({
 })); 
 
 
+//extra middleware for session
+app.set('trust proxy', 1); // trust first proxy
+
+
+app.use(function(req,res,next){
+    if(!req.session){
+        return next(new Error('Oh no')) //handle error
+    }
+    next() //otherwise continue
+    });
+
 
 
 
