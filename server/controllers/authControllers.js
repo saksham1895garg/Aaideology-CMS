@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const User = require('../models/userSchema');
+const User = require('../models/userSchema'); 
 const sendPasswordEmail = require('../middlewares/email');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
@@ -116,7 +116,7 @@ exports.userRegisterPost = async(req, res) => {
     }
 };
 
-exports.userLoginPost = async(req, res, next) => {
+exports.userLoginPost = async(req, res) => {
     const { email, password } = req.body;
     try {
         const user = await User.findOne({ email });
@@ -142,18 +142,18 @@ exports.userLoginPost = async(req, res, next) => {
                 })
 
             }else{
-                return res.status(400).json({message: "Incorrect Email and Password"})
+                return res.status(400).json({message: "Incorrect Email and Password", alert: "Please enter correct email and password"})
             }
             
         }else{
-            return res.status(400).json({message: "User not found"});
+            return res.status(400).json({message: "User not found", alert: "User not found"});
         }
 
     } catch (error) {
-        res.status(500).json({ message: "Login failed", error });
+        res.status(500).json({ message: "Login failed", error, alert: "Invalid Creadentials"});
         console.log(error);
     }
-    next()
+    // next()
 }; 
 
 exports.userLogin = async (req, res) => {

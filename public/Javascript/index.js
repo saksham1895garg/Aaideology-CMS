@@ -60,7 +60,7 @@ stars.forEach(star => {
 });
 
 
-const texts = ["I am Saksham", "I am a boy"]; // Sentences to display
+const texts = ["A Perfect Source!", "You are already hired..."]; // Sentences to display
 const textContainer = document.querySelector(".discription"); // Use class name
 
 let currentIndex = 0;

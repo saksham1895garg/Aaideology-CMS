@@ -192,11 +192,20 @@ header {
 .discription {
   position: relative;
   white-space: nowrap;
-  transition: opacity 1s ease-in-out;
-  border: #000000 2px solid;
+  /* transition: opacity 1s ease-in-out; */
+  /* border: #000000 2px solid; */
   height: 50px;
   margin-top: 9rem;
-  font-size: larger;
+  font-size: 30px;
+  font-weight: 900;
+  font-family: "Roboto", sans-serif;
+  background: #F73105;
+  padding-left: 80px;;
+background: linear-gradient(to right, #F73105 34%, #FF6736 50%, #C8563A 93%);
+
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
 
 }
 .hidden{
