@@ -135,6 +135,11 @@ header {
   font-size: 20px;
   font-weight: bolder;
 }
+
+.red-link-top:hover{
+  color: rgb(0, 0, 0) !important;
+  filter: drop-shadow(0px 0px 1px rgb(174, 89, 68));
+}
 .user-li {
   display: flex;
   align-items: center;
@@ -143,6 +148,40 @@ header {
 .user-ico {
   width: 45px;
 }
+.user-hover-div{
+  border: #000000 solid 2px;
+  padding: 5px 10px;
+  position: absolute;
+  top: 83px;
+  right: 10px;
+  background-color: white;
+  display: none;
+}
+.main-hover-div{
+  display: flex;
+  flex-direction: column;
+}
+.user-hover-a{
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.user-hover-a:hover{
+  color: rgb(112, 103, 103);
+
+
+}
+#hello-user{
+  font-size: 22px !important;
+}
+#resumes-hover{
+  margin-top: 10px;
+
+}
+
+
 @media screen and (max-width: 718px) {
   header {
     /* justify-content: center; */
@@ -235,6 +274,11 @@ background-clip: text;
   margin: 10px;
   background-color: #ececec;
   margin: 40px 20px;
+  filter: drop-shadow(0px 0px 5px #000000);
+}
+.cards:hover{
+  transform: scale(1.05);
+  filter: drop-shadow(0px 0px 3px #000000);
 }
 .company-page {
   display: flex;

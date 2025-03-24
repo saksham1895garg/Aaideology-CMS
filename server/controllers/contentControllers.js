@@ -202,14 +202,14 @@ exports.postadminpage = async (req, res) => {
         location: req.body.location,
         salary: req.body.salary,
         companylogo: req.file.filename,
-
         deadline: req.body.deadline,
         posteddate: Date.now(),
         opportunities: req.body.opportunities,
         requirements: req.body.requirements,
         applyprocces: req.body.applyprocces,
         qualifications: req.body.qualifications,
-        responsibilities: req.body.responsibilities
+        responsibilities: req.body.responsibilities,
+        duration: req.body.duration
     });
    
     console.log('Company Name:', newAdmin.companyname);

@@ -46,6 +46,7 @@
     margin-bottom: 20px;
     background-color: rgba(226, 226, 226, 0.599);
     padding: 25px;
+    
 }
 .company-name-div{
     display: flex;
@@ -79,8 +80,6 @@
 }
 
 .main-admin-post{
-   
-    
    height: 100vh;
   
 }
