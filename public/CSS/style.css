@@ -190,9 +190,17 @@ header {
   left: 0;
 }
 .discription {
-  
+  position: relative;
+  white-space: nowrap;
+  transition: opacity 1s ease-in-out;
+  border: #000000 2px solid;
+  height: 50px;
   margin-top: 9rem;
+  font-size: larger;
 
+}
+.hidden{
+  opacity: 0;
 }
 .discription h1 {
   font-family: "Inter", serif;

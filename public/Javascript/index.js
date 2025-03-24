@@ -1,4 +1,15 @@
 console.log("Starting")
+
+
+
+
+
+
+
+
+
+
+
 document.querySelector(".hamburger").addEventListener("click", () => {
     document.querySelector(".side").style.transform = "translateX(0)";
 })
@@ -47,6 +58,51 @@ stars.forEach(star => {
         }
     });
 });
+
+
+const texts = ["I am Saksham", "I am a boy"]; // Sentences to display
+const textContainer = document.querySelector(".discription"); // Use class name
+
+let currentIndex = 0;
+
+function displayCharacterByCharacter(text, callback) {
+    textContainer.innerHTML = ""; // Clear the container
+    let index = 0;
+
+    let interval = setInterval(() => {
+        if (index < text.length) {
+            textContainer.innerHTML += text[index]; // Add next character
+            index++;
+        } else {
+            clearInterval(interval);
+            setTimeout(() => {
+                textContainer.classList.add("hidden"); // Hide text
+                setTimeout(() => {
+                    textContainer.classList.remove("hidden"); // Show new text
+                    callback();
+                }, 1000);
+            }, 1000); // Wait before hiding
+        }
+    }, 200); // Speed of character appearing
+}
+
+function startAnimation() {
+    displayCharacterByCharacter(texts[currentIndex], () => {
+        currentIndex = (currentIndex + 1) % texts.length; // Loop back to first text
+        startAnimation();
+    });
+}
+
+startAnimation();
+
+
+
+
+
+
+
+
+
 
 // Handle form submission
 document.querySelector('.post-rev').addEventListener('submit', function(e) {
