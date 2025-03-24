@@ -2,28 +2,7 @@ console.log("Starting")
 
 
 
-const userHover = document.getElementsByClassName("user-li");
-const hoveredDiv = document.getElementsByClassName("user-hover-div");
-console.log(userHover, hoveredDiv);
 
-userHover.addEventListener("mouseenter", () => {
-    userHover.style.borderBottom = "6px solid black";
-    hoveredDiv.style.display = "block";
-
-});
-
-hoveredDiv.addEventListener("mouseenter", () => {
-    hoveredDiv.style.display = "block";
-
-});
-
-document.addEventListener('mousemove', (e) => {
-    if(!userHover.contains(e.target)&& !hoveredDiv.contains(e.target)){
-        userHover.style.borderBottom = "6px solid black";
-        hoveredDiv.style.display = "none";
-    }
-
-})
 
 
 

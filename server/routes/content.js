@@ -9,7 +9,7 @@ const { adminAuth } = require('../middlewares/authMiddleware');
 // Customer routes  
 
 // main service page
-router.get('/', contentControllers.homepage); 
+router.get('/services', contentControllers.homepage); 
 // admin content post page
 router.get('/admin/post', adminAuth, contentControllers.adminpage);   
 
