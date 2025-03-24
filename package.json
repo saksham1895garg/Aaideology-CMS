@@ -25,6 +25,7 @@
     "express-session": "^1.18.1",
     "fs": "^0.0.1-security",
     "jsonwebtoken": "^9.0.2",
+    "memorystore": "^1.6.7",
     "method-override": "^3.0.0",
     "mongodb": "^6.13.0",
     "mongoose": "^8.9.6",

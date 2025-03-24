@@ -11,6 +11,8 @@ const multer = require('multer');
 const path = require('path');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken'); 
+const MongoStore = require('connect-mongo');
+const MemoryStore = require('memorystore')(session)
 const {requireAuth, checkUser} = require('./server/middlewares/authMiddleware');
 
 
@@ -50,6 +52,9 @@ app.use(express.static('uploads')); // for image upload
 // sessions
 app.use(session({
     secret: process.env.SESSION_SECRET,
+    store: new MemoryStore({
+        checkPeriod: 86400000 * 7 // prune expired entries every 24h
+      }),
     resave: false, 
     saveUninitialized: true,
     cookie: { secure: false }  // Set secure to false for development environment
