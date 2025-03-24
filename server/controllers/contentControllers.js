@@ -209,8 +209,7 @@ exports.postadminpage = async (req, res) => {
         requirements: req.body.requirements,
         applyprocces: req.body.applyprocces,
         qualifications: req.body.qualifications,
-        responsibilities: req.body.responsibilities, 
-        duration: req.body.duration
+        responsibilities: req.body.responsibilities
     });
    
     console.log('Company Name:', newAdmin.companyname);
