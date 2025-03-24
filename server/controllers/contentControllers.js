@@ -186,6 +186,14 @@ exports.adminpage = async (req, res) => {
 // post content admin page
 exports.postadminpage = async (req, res) => { 
     console.log('Form submitted:', req.body);
+    
+    if (!req.file) {
+        return res.status(400).json({
+            success: false,
+            message: 'No file uploaded. Please upload a company logo.'
+        });
+    }
+
     let newAdmin = new Admin({
         companyname: req.body.companyname,
         companydes: req.body.companydes,
@@ -194,6 +202,7 @@ exports.postadminpage = async (req, res) => {
         location: req.body.location,
         salary: req.body.salary,
         companylogo: req.file.filename,
+
         deadline: req.body.deadline,
         posteddate: Date.now(),
         opportunities: req.body.opportunities,

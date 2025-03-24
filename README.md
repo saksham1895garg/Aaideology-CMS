@@ -1,5 +1,7 @@
 Author - Saksham Garg
-I'm working on Hr consultancy website and this is my day by day progress
+I'm working on Hr consultancy website
 </br>
-Firstly I worked on frontend and then on backend
-Then on backend
+Admin actions can be taken from /admin/login to access all admin pages.
+-Admin email:- sakshamalways@gmail.com 
+-Admin Password:- Sakshama!1
+
