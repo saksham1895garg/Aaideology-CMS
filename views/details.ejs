@@ -18,7 +18,7 @@
             <img src="/photos/location.png" alt="" class="location">
             <p><%= admin.location %></p> 
         </div>
-        <p class="postedDate">Last Submission Date: <%= admin.deadline.toLocaleDateString() %></p>
+        <p class="postedDate">Last Submission Date: <%= admin.deadline ? admin.deadline.toLocaleDateString() : "No deadline set" %></p>
         <div class="get-candidates">
             <div class="applyby-del ml-10">
                 <img src="/photos/apply.png" alt="" class="applyby-details">

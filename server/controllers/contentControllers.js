@@ -284,8 +284,10 @@ exports.admineditput = async(req, res) => {
 
 // details page
 exports.aaideologydetails = async(req, res) => {
+
+    // const linkname = await Admin.findOne({ jobname })
     const locals = {
-        title: `Admin Details`
+        title: `Job Page Details `
     }
 
     try {
