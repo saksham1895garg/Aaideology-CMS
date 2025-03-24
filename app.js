@@ -11,7 +11,6 @@ const multer = require('multer');
 const path = require('path');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken'); 
-const MongoStore = require('connect-mongo');
 const MemoryStore = require('memorystore')(session)
 const {requireAuth, checkUser} = require('./server/middlewares/authMiddleware');
 
