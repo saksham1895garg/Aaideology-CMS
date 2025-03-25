@@ -10,6 +10,7 @@ const requireAuth = (req, res, next) => {
             if (err) {
                 console.error('JWT verification error:', err);
                 return res.status(401).json({ message: 'Token has expired. Please log in again.' });
+                // return next(); // Allow request to continue to 404 handler
             }
             const isValid = decoded ? true : false;
 
@@ -38,7 +39,7 @@ const checkUser = (req, res, next) => {
                 return next(); // Proceed without user data
             }
 
-    const user = await User.findById(decoded.id); // Retrieve user from database
+            const user = await User.findById(decoded.id); // Retrieve user from database
 
             res.locals.user = user;
             next();
@@ -63,7 +64,7 @@ const refreshToken = (req, res) => {
 
 
 // admin middleware for authentication
-const adminAuth = async(req, res, next ) => {
+const adminAuth = async(req, res, next) => {
     try {
         const token = req.cookies.token; // Changed from jwt to token
         res.locals.user = null; 

@@ -6,6 +6,7 @@ const UserRes = require('../models/resumes')
 const Review = require('../models/review');
 const User = require('../models/userSchema');
 const mongoose = require('mongoose');
+const { render } = require('ejs');
 
 // Storage for company logos
 var logoStorage = multer.diskStorage({
@@ -53,6 +54,20 @@ exports.uploadResume = multer({
         cb(null, true);
     }
 });
+
+// main site page for displaying
+exports.getMainPage = async(req, res) => {
+    const locals = {
+        title: 'Aaideology || The Perfect Source'
+    }
+    res.render("Aaideology", locals);
+    
+};
+
+
+
+
+
 
 // services
 exports.homepage = async (req, res) => {

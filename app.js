@@ -76,13 +76,14 @@ app.use(function(req,res,next){
 
 
  
-app.use('/',  require("./server/routes/content"));
+app.use('/', require("./server/routes/content"));
 app.use('/', require("./server/routes/auth")); // Added authentication routes
 
-
+// 404 handler should be placed after all other routes
 app.get('*', (req, res) => {
     res.status(404).render('404');
 });
+ 
 
 app.listen(port, () => {
     console.log(`listening on http://localhost:${port}`);

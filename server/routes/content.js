@@ -6,7 +6,8 @@ const { uploadLogo, uploadResume } = contentControllers;
 const { adminAuth } = require('../middlewares/authMiddleware');
 
 
-// Customer routes  
+// main web page 
+router.get('/', contentControllers.getMainPage);
 
 // main service page
 router.get('/services', contentControllers.homepage); 
