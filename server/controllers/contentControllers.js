@@ -60,7 +60,7 @@ exports.getMainPage = async(req, res) => {
     const locals = {
         title: 'Aaideology || The Perfect Source'
     }
-    res.render("Aaideology", locals);
+    res.render("aaideology", locals);
     
 };
 
