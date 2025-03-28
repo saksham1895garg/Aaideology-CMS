@@ -61,7 +61,7 @@ exports.getMainPage = async(req, res) => {
     }
     try {
         const reviews = await Review.find({});
-        res.render("Aaideology", {locals, reviews});
+        res.render("aaideology", {locals, reviews});
     } catch (error) {
         console.log("Error: " + error)
         res.status(500).send('Internal Server Error');
