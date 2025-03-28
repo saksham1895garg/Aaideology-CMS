@@ -33,6 +33,10 @@ router.get('/admin/cv', adminAuth, contentControllers.userResumeDetails);
 router.post('/user/cv/:jobId', uploadResume.single('cv'), contentControllers.userResumeDetailsPost);
 router.post("/user/cv/delete/:id", contentControllers.userResumeDelete)
 
+// admin user page
+router.get('/admin/user', adminAuth, contentControllers.userInfoProfile);
+router.post('/admin/user/delete/:id', adminAuth, contentControllers.userAdminInfoProfileDelete)
+
 
 
 // user review system

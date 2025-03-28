@@ -5,8 +5,7 @@ const Admin = require('../models/adminSchema');
 const UserRes = require('../models/resumes')
 const Review = require('../models/review');
 const User = require('../models/userSchema');
-const mongoose = require('mongoose');
-const { render } = require('ejs');
+const mongoose = require('mongoose'); 
 
 // Storage for company logos
 var logoStorage = multer.diskStorage({
@@ -25,13 +24,13 @@ var resumeStorage = multer.diskStorage({
     },
     filename: (req, file, cb) => { 
         cb(null, Date.now() + '-' + file.originalname);
-    }
+    } 
 });
 
 exports.uploadLogo = multer({
     storage: logoStorage, 
     limits: { fileSize: 1000000 * 2 }, // 2MB limit
-    fileFilter: function (req, file, cb) {
+    fileFilter: function (req, file, cb) { 
         const allowedExtensions = /\.(png|jpe?g|gif)$/i;
         const allowedMimeTypes = ['image/png', 'image/jpeg', 'image/gif'];
         if (!allowedExtensions.test(file.originalname) || !allowedMimeTypes.includes(file.mimetype)) {
@@ -60,7 +59,14 @@ exports.getMainPage = async(req, res) => {
     const locals = {
         title: 'Aaideology || The Perfect Source'
     }
-    res.render("Aaideology", locals);
+    try {
+        const reviews = await Review.find({});
+        res.render("Aaideology", {locals, reviews});
+    } catch (error) {
+        console.log("Error: " + error)
+        res.status(500).send('Internal Server Error');
+    }
+    
     
 };
 
@@ -407,7 +413,7 @@ exports.userResumeDetailsPost = async(req, res) => {
         user.resumes.push(newUserRes._id); // Add the resume reference
         await user.save(); // Save the user document
 
-        res.redirect('/');
+        res.redirect('/services');
     } catch (error) { 
         console.error('Error saving resume:', error);
         res.status(500).send('Error saving resume data');
@@ -473,8 +479,28 @@ exports.userInfoProfile = async(req, res) => {
     const locals = { 
         title: 'Aaideology || User Info'
     }
-    res.render('admin/user-details', locals);
+    try {
+        let user = await User.find({});
+        res.render('admin/user-details', {locals, user});
+    } catch (error) {
+        console.log(error);
+        res.status(404).send('Internal Server Error');
+    }
 }
+exports.userAdminInfoProfileDelete = async(req, res) => {
+    try {
+        const user = await User.findById(req.params.id);
+        if (!user) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+
+        await User.findByIdAndDelete(req.params.id);
+        res.redirect('/admin/user');
+
+    } catch (error) {
+        
+    }
+};
 
 exports.alladminpage = async(req, res) => {
     let locals = {

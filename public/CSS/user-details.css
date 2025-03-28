@@ -1,22 +1,29 @@
 .user-details {
   height: 100vh;
   position: relative;
+
 }
 .table-user {
-  border: 2px solid red;
   height: 500px;
   position: absolute;
-  top: 200px;
+  top: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow-y: scroll;
+  overflow-x: scroll;
   margin-top: 20px;
   width: 100%;
+  padding: 20px;
+
 }
 .user-table {
   width: 80vw;
   border-collapse: collapse;
+  overflow-y: scroll;
+  margin: 10px;
+  overflow-x: scroll;
+  margin-top: 340px;
 }
 .down-users td {
   padding: 10px;
@@ -107,4 +114,17 @@
     cursor: pointer;
 
 
+}
+@media screen and (max-width: 461px) {
+  .table-user{
+    top: 90px;
+  }
+  #name-user-admin-table{
+    overflow-x: scroll;
+  }
+  .user-table{
+    margin-left: 135px;
+  }
+  
+  
 }

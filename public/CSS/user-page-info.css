@@ -25,6 +25,7 @@
     font-size: 30px;
     font-weight: 900;
     margin-left: 20px;
+    font-family: var(--main-font);
 }
 .main-user {
     margin-left: 20px;
@@ -36,9 +37,9 @@
 }
 .user-info * {
     margin: 10px;
-    
+    font-family: var(--main-font);
     border: 1px solid #000000;
-    font-weight: 200;
+    font-weight: 400;
 }
 .edit-password-user {
     cursor: pointer;
@@ -62,12 +63,13 @@
     width: 415px;
     height: 30px;
     color: white;
-    font-weight: 850;
+    font-weight: 900;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     background-color: rgb(128, 0, 0);
     filter: drop-shadow(0px 0px 3px rgb(128, 0, 0));
+    font-family: var(--main-font);
 }
 .logout-btn-inner:hover {
     background-color: rgb(128, 0, 0);
@@ -220,11 +222,15 @@
     }
     
 }
+.info-resumes{
+    font-family: var(--main-font);
+}
 .info-user-reviews{
     margin-top: 20px;
     border: 2px black solid;
     padding: 10px;
     background-color: whitesmoke;
+    font-family: var(--main-font);
 }
 .info-user-reviews-card-container{
     display: flex;

@@ -162,12 +162,96 @@ body::-webkit-scrollbar{
     font-size: 20px;
     margin-top: 20px;
     margin-left: 10px;
+    font-weight: bold;
 }
 .main-center-top-text-div-2 p::first-line{
     color: rgb(246 47 4);
+    font-weight: bolder;
 }
 .tried{
     margin-left: 20px;
+}
+.main-site-reviews{
+    padding: 20px;
+    background-color: rgb(210, 210, 210);
+    width: 100%;
+}
+.reviews-head{
+    font-size: 30px;
+    font-weight: 700;
+    font-family: var(--main-font);
+}
+
+.main-site-reviews-container-con{
+    margin-top: 10px;
+    height: 290px;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 10px;
+    overflow-x: scroll; /* Change to hidden for animation */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+
+
+
+
+
+
+
+@keyframes reviews-ani{
+    from{
+        transform: translateX(0px);
+    }
+    to{
+        transform: translateX(-100px);
+    }
+}
+
+.main-site-reviews-cards{
+    background-color: whitesmoke;
+    padding: 5px;
+    width: 240px;
+    height: 250px;
+    border-radius: 10px;
+    overflow-y: hidden;
+    margin-left: 20px;
+    font-family: var(--main-font);
+    flex: 0 0 auto; /* Prevent shrinking */
+   
+}
+
+
+
+/* .main-site-reviews-cards{
+    border: 2px solid green;
+    padding: 5px;
+    width: 240px;
+    height: 250px;
+    border-radius: 10px;
+    overflow-y: hidden;
+    margin-left: 20px;
+    font-family: var(--main-font);
+} */
+.main-site-reviews-cards h2{
+    font-weight: bolder;
+
+}
+.main-site-reviews-cards h3{
+    margin-top: 5px;
+
+}
+.main-site-reviews-cards p::first-line{
+    color: rgb(246 47 4);
+    font-weight: bolder;
+    margin-top: 4px;
+}
+.stars-given{
+    color: rgb(246 47 4);
+    font-size: 20px;
 }
 
 
@@ -183,6 +267,10 @@ body::-webkit-scrollbar{
     .main-site-top-text h4{
         font-size: 25px;
     }
+    .main-center-top-container{
+        padding: 20px 5px;
+
+    }
 }
 @media screen and (max-width: 921px){
     .main-site-top-text{
@@ -196,6 +284,11 @@ body::-webkit-scrollbar{
     .main-site-top-text h4{
         font-size: 20px;
     }
+    .main-center-top-text-div-1{
+        margin-right: 20px;
+        width: 400px;
+    }
+    
 }
 @media screen and (max-width: 752px){
     .main-site-top-text{
@@ -213,6 +306,15 @@ body::-webkit-scrollbar{
         width: 180px;
         height: 40px;
         font-size: 15px;
+    }
+    .main-center-site{
+        margin-top: 35rem;
+    }
+    .main-center-top-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0px;
     }
 }
 @media screen and (max-width: 635px){
@@ -250,6 +352,9 @@ body::-webkit-scrollbar{
         height: 30px;
         font-size: 12px;
     }
+    .main-center-site{
+        margin-top: 25rem;
+    }
 }
 @media screen and (max-width: 435px){
     .main-site-top-text{
@@ -267,6 +372,18 @@ body::-webkit-scrollbar{
         width: 135px;
         height: 30px;
         font-size: 10px;
+    }
+    .main-center-site{
+        margin-top: 20rem;
+    }
+    .main-center-top-text-div-1{
+        padding: 12px;
+    }
+    .main-center-top-img-rel{
+        width: 330px;
+    }
+    .main-center-top-text-div-1{
+        width: 300px;
     }
 }
 @media screen and (max-width: 1055px) {

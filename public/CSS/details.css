@@ -17,7 +17,7 @@
 }
 
 .company-deatils-conatiner{
-   
+   font-family: var(--main-font);
     position: relative;
     height: 220px;
     width: 75vw;
@@ -71,6 +71,7 @@
     background-color: whitesmoke;
     color: black;
     margin-top: 24rem;
+    font-family: var(--main-font);
 }
 .location-details{
     display: flex;

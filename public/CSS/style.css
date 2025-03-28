@@ -596,11 +596,15 @@ footer {
 }
 .about-main h1{
   font-size: 50px;
+  font-family: var(--main-font);
+  font-weight: 800;
 
 }
 .about-main p{
   font-size: 17px;
   margin-top: 20px;
+  font-family: var(--main-font);
+  font-weight: 600;
 }
 
 
@@ -613,14 +617,20 @@ footer {
 }
 .main-contact-upper h1{
   font-size: 50px;
+  font-family: var(--main-font);
+  font-weight: 800;
 }
 .main-contact-upper p{
   font-size: 22px;
   margin-top: 10px;
+  font-family: var(--main-font);
+  font-weight: 600;
 }
 .contact-map {
   width: 100%;
   margin-top: 40px;
+  font-family: var(--main-font);
+  font-weight: 600;
 }
 .map-head {
   font-size: 30px;
@@ -654,6 +664,14 @@ footer {
 }
 .contact-links{
   margin-top: 20px;
+}
+.links-head{
+  font-size: 25px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  font-family: var(--main-font);
+  margin-left: 20px;
 }
 
 .con-ul{
