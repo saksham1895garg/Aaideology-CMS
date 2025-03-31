@@ -10,7 +10,7 @@
 }
 .about-main{
     padding: 20px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     width: 100vw;
     margin-top: 10px;
     display: flex;
@@ -20,7 +20,7 @@
    
 }
 .about-main-sec-1{
-    border: 2px solid black;
+    /* border: 2px solid black; */
     width: 60%;
 
 }
@@ -78,7 +78,7 @@
 @media screen and (max-width: 1049px) {
     .about{
         height: 110vh;
-        border: red solid 2px;
+        /* border: red solid 2px; */
     }
     .about-abso{
         padding: 0;
@@ -128,8 +128,8 @@
 }
 @media screen and (max-width: 570px){
     .about-main-sec-1{
-        width: 80%;
-        left: 10%;
+        width: 95%;
+        left: 3%;
     }
     .about-main-sec-2{
         left: 15%;
@@ -140,8 +140,8 @@
 }
 @media screen and (max-width: 396px) {
     .about-main-sec-1{
-        left: 7%;
-        width: 85%;
+        left: 2%;
+        width: 95%;
     }
     .about-side-img{
         height: 250px;

@@ -578,7 +578,9 @@ footer {
   color: white;
 }
 @media screen and (max-width: 718px) {
-  
+  #discription{
+    padding-left: 0px;
+  }
   .reviews-cards-container {
     width: 92vw;
   }
