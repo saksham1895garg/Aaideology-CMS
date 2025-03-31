@@ -172,7 +172,6 @@ body::-webkit-scrollbar{
     margin-left: 20px;
 }
 .industries-div{
-    margin-bottom: 10px;
     padding: 10px;
     background-color: whitesmoke;
 }
@@ -214,6 +213,176 @@ body::-webkit-scrollbar{
     font-family: var(--main-font);
     font-size: 20px;
 }
+.why-with-us{
+    /* border: black solid 2px; */
+    padding: 10px;
+    background-color: whitesmoke;
+    width: 100%;
+}
+.why-head{
+    font-family: var(--main-font);
+    font-size: 25px;  
+    font-weight: 800;
+    margin-top: 10px;
+    margin-left: 20px;
+    text-decoration: underline;
+}
+.why-with-us-text{
+    font-family: var(--main-font);
+    font-size: 20px;
+    font-weight: 600;
+}
+.why-with-us-text-span{
+    font-size: 22px;
+    color: rgb(246 47 4);
+}
+#why-text{
+    margin-top: 10px;
+}
+.why-choose-us{
+    /* border: black solid 2px; */
+    padding: 10px;
+    background-color: whitesmoke;
+    width: 100%;
+}
+.why-choose-us-text{
+    font-family: var(--main-font);
+    font-size: 20px;
+    font-weight: 600;
+}
+.how-we-work{
+    /* border: black solid 2px; */
+    padding: 10px;
+    background-color: whitesmoke;
+    width: 100%;
+}
+.how-head{
+    font-family: var(--main-font);
+    font-size: 25px;  
+    font-weight: 800;
+    margin-top: 10px;
+    margin-left: 20px;
+    text-decoration: underline;
+}
+.how-we-work-container{
+    margin-left: 15px;
+    margin-top: 5px;
+}
+.how-we-work-text{
+    font-family: var(--main-font);
+    font-size: 22px;
+    font-weight: 600;
+    color: rgb(246 47 4);
+
+}
+.how-do-we-work-li{
+    font-size: 20px;
+    font-family: var(--main-font);
+    margin-left: 20px;
+}
+.upli{
+    margin-top: 10px;
+}
+.job-description-text{
+    font-family: var(--main-font);
+    font-size: 22px;
+    font-weight: 600;
+    color: rgb(246 47 4);
+}
+.key-factors{
+    margin-top: 5px;
+    font-family: var(--main-font);
+    font-size: 20px;
+    font-weight: 600;
+}
+.job-ul{
+    margin-left: 40px;
+}
+.job-li{
+    list-style: upper-roman;
+    font-family: var(--main-font);
+    font-size: 18px;
+    font-weight: 600;
+}
+.skill-text{
+    font-family: var(--main-font);
+    font-size: 22px;
+    font-weight: 600;
+    color: rgb(246 47 4);
+}
+.skill-text-2{
+    font-family: var(--main-font);
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+.why-aaideology{
+    font-family: var(--main-font);
+    /* border: 2px black solid; */
+    padding: 10px;
+    background-color: whitesmoke;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.why-aadi-inner{
+    padding: 5px 10px;
+    height: 300px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color: rgb(188, 188, 188)
+}
+.aadi{
+    margin-left: 0px !important;
+    text-decoration: none !important;
+    font-weight: 900;
+}
+.why-aaid-ul-div{
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+}
+.why-aadi-ul li{
+    list-style: none;
+    font-family: var(--main-font);
+    font-size: 20px;;
+}
+.aadi-li{
+    font-size: 22px;
+    color: rgb(246 47 4);
+}
+.oppo-btn{
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.oppo-btn-link{
+    text-decoration: none;
+    color: white;
+    font-weight: 800;
+    font-size: 20px;
+    background-color: rgb(246 47 4);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 168px;
+    filter: drop-shadow(0px 0px 3px rgb(246 47 4));
+
+}
+.oppo-btn-link:hover{
+    filter: drop-shadow(0px 0px 7px rgb(246 47 4));
+}
+
 .main-site-reviews{
     padding: 20px;
     background-color: rgb(210, 210, 210);
