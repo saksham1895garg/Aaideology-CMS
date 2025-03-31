@@ -1,0 +1,150 @@
+.about{
+    height: 130vh;
+     position: relative;
+}
+.about-abso {
+    top: 50px;
+    padding: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+.about-main{
+    padding: 20px;
+    border: 2px solid black;
+    width: 100vw;
+    margin-top: 10px;
+    display: flex;
+    filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0));
+    width: 100%;
+    
+   
+}
+.about-main-sec-1{
+    border: 2px solid black;
+    width: 60%;
+
+}
+.company-overview-h{
+    font-family: var(--main-font);
+    font-size: 35px;
+    font-weight: bolder;
+
+}
+.company-overview-p{
+    font-family: var(--main-font);
+    font-size: 18px;    
+    margin-top: 5px;
+}
+.company-overview-p::first-line{
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(246 47 4);
+    margin-left: 5px;
+
+}
+.employer-service-p{
+    font-family: var(--main-font);
+    font-size: 18px;
+    margin-top: 15px;
+    
+}
+.benefits-out{
+    margin-top: 15px;
+}
+
+.benefits-out-p{
+    font-size: 22px;
+    font-weight: 700;
+    color: rgb(246 47 4);
+    margin-left: 5px;
+}
+.benefits-inner{
+    margin-top: 10px;
+    margin-left: 30px;
+}
+.employer-service-span{
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(246 47 4);
+}
+.about-main-sec-2{
+    width: 40%;
+}
+.about-side-img{
+    height: 450px;
+    width: auto;
+}
+
+@media screen and (max-width: 1049px) {
+    .about{
+        height: 110vh;
+        border: red solid 2px;
+    }
+    .about-abso{
+        padding: 0;
+    }
+    .about-main{
+        position: relative;
+        height: 94vh;
+    }
+    .about-main-sec-1{
+        position: absolute;
+        top: 50px;
+        left: 20%;
+        top: 50px;
+        height: 560px;
+        overflow-y: scroll;
+    }
+    .company-overview-h{
+        font-weight: 900;
+    }
+    .company-overview-p{
+        font-weight: bolder;
+    }
+    .employer-service-p{
+        font-weight: bolder;
+    }
+    .about-main-sec-2{
+        position: absolute;
+        left: 25%;
+        z-index: -1;
+        top: 121px;
+        opacity: 0.60;
+    }
+    .about-side-img{
+        height: 500px;
+    }
+    
+}
+@media screen and (max-width: 893px){
+    .about-side-img{
+        height: 400px;
+    }
+}
+@media screen and (max-width: 700px){
+    .about-side-img{
+        height: 300px;
+    }
+}
+@media screen and (max-width: 570px){
+    .about-main-sec-1{
+        width: 80%;
+        left: 10%;
+    }
+    .about-main-sec-2{
+        left: 15%;
+    }
+    .about-side-img{
+        height: 300px;
+    }
+}
+@media screen and (max-width: 396px) {
+    .about-main-sec-1{
+        left: 7%;
+        width: 85%;
+    }
+    .about-side-img{
+        height: 250px;
+    }
+    
+}

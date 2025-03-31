@@ -587,25 +587,7 @@ footer {
 
 
 
-/* about page css */
 
-.about-abso {
-  top: 110px;
-  padding: 20px;
-  padding-bottom: 20px;
-}
-.about-main h1{
-  font-size: 50px;
-  font-family: var(--main-font);
-  font-weight: 800;
-
-}
-.about-main p{
-  font-size: 17px;
-  margin-top: 20px;
-  font-family: var(--main-font);
-  font-weight: 600;
-}
 
 
 /* contact page */
@@ -660,6 +642,10 @@ footer {
     height: 250px;
     width: 250px;
   }
+  .discription{
+    padding: 0;
+  }
+
   
 }
 .contact-links{

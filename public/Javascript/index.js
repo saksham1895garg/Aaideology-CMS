@@ -4,12 +4,6 @@ console.log("Starting")
 
 
 
-
-
-
-
-
-
 document.querySelector(".hamburger").addEventListener("click", () => {
     document.querySelector(".side").style.transform = "translateX(0)";
 })

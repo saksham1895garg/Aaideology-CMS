@@ -226,16 +226,7 @@ body::-webkit-scrollbar{
 
 
 
-/* .main-site-reviews-cards{
-    border: 2px solid green;
-    padding: 5px;
-    width: 240px;
-    height: 250px;
-    border-radius: 10px;
-    overflow-y: hidden;
-    margin-left: 20px;
-    font-family: var(--main-font);
-} */
+
 .main-site-reviews-cards h2{
     font-weight: bolder;
 
@@ -355,7 +346,55 @@ body::-webkit-scrollbar{
     .main-center-site{
         margin-top: 25rem;
     }
-}
+    .main-center-top-img-rel{
+        height: 20px;
+        height: 412px;
+    }
+    .main-center-top-red-box-ab{
+        left: 67px;
+        width: 55%;
+        height: 69%;
+    }
+    .main-center-top-img-ab-div{
+        left: 53px;
+        top: 17px;
+    }
+    .main-center-top-img-ab{
+        height: 294px;
+        left: 5px;
+    }
+    .main-center-top-text-div-1{
+        height: 280px;
+    }
+    .main-center-top-text-div-2{
+        margin-top: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .main-center-top-text-div-2 h2{
+        font-size: 30px;
+    }
+    .main-center-top-text-div-2 p{
+        font-size: 16px;
+    }
+    .reviews-head{
+        font-size: 24px;
+        font-weight: 850;
+    }
+    .main-site-reviews-container-con{
+        height: 158px;
+    }
+    .main-site-reviews-cards{
+        height: 134px;
+    }
+    .main-site-reviews-cards h2{
+        font-size: 20px;
+    }
+    }
+   
+
 @media screen and (max-width: 435px){
     .main-site-top-text{
         top: 90px;
@@ -384,6 +423,12 @@ body::-webkit-scrollbar{
     }
     .main-center-top-text-div-1{
         width: 300px;
+    }
+    .main-center-top-red-box-ab{
+        left: 88px;
+    }
+    .main-center-top-text-div-2 h2{
+        font-size: 27px;
     }
 }
 @media screen and (max-width: 1055px) {

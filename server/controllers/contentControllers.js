@@ -350,7 +350,7 @@ exports.adminpostdelete = async(req, res) => {
 exports.userResumeDetails = async(req, res) => { 
     try {
         let userres = await UserRes.find({});
-        res.render('resumes-admin', { userres });
+        res.render('admin/resumes-admin', { userres });
     } catch (error) {
         console.error('Error fetching resume data:', error);
         res.status(500).send('Internal Server Error');
