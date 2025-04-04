@@ -3,8 +3,8 @@ require('dotenv').config();
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
+    port: 587,
+    secure: false,
     auth: {
         user: process.env.EMAIL,
         pass: process.env.APP_PASSWORD  // Use APP_PASSWORD instead of PASSWORD
@@ -26,4 +26,32 @@ const sendPasswordEmail = async(toEmail, password) => {
         console.error('Error sending password email:', error);
     }
 };
+
+const verifyPassword = async(email, subject, text) => {
+    try{
+        const transporter = nodemailer.createTransport({
+            host:'smtp.gmail.com',
+            port:process.env.PORT,
+            auth: {
+                user: process.env.EMAIL,
+                pass: process.env.APP_PASSWORD  
+            }
+
+        });
+        await transporter.sendMail({
+            from: process.env.EMAIL,
+            to: email,
+            subject: subject,
+            text: text
+        })
+        console.log("Email sent successfully")
+    }catch(error){
+        console.log("Email not sent successfully");
+        console.error(error);
+    }
+}
+
+
+
+
 module.exports = sendPasswordEmail;

@@ -15,6 +15,7 @@ const MemoryStore = require('memorystore')(session)
 const {requireAuth, checkUser} = require('./server/middlewares/authMiddleware');
 
 
+
 const app = express(); 
 const port = process.env.PORT || 3000;
 
@@ -40,6 +41,7 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(checkUser);
+app.use(cors());
 // set engine
 app.use(expressLayout); 
 app.set('layout', './layouts/main');

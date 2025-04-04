@@ -61,6 +61,7 @@ router.post('/admin/login', authControllers.adminAuthPost);
 
 // User authentication routes
 router.get('/user/register', authControllers.userRegister)
+// router.get('/:id/verify/:token', authControllers.userVerify)
 router.post('/user/register', authControllers.userRegisterPost)
 router.get('/user/login', authControllers.userLogin)
 router.post('/user/login', authControllers.userLoginPost)

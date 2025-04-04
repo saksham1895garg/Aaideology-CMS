@@ -3,9 +3,10 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const User = require('../models/userSchema'); 
-const sendPasswordEmail = require('../middlewares/email').default || require('../middlewares/email');
+const sendPasswordEmail = require('../middlewares/email');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+
 
 // admin login
 exports.adminauth = async (req, res) => {
@@ -56,6 +57,8 @@ exports.adminAuthLogout = async (req, res) => {
     res.redirect('/admin/login');
 };
 
+
+
 // user register
 exports.userRegister = async(req, res) => {
     let locals = {
@@ -65,44 +68,30 @@ exports.userRegister = async(req, res) => {
 };
 
 exports.userRegisterPost = async(req, res) => {
+    // console.log("Incoming registration data:", req.body);
     try {
         const { username, email, password } = req.body;
-        
+
+        // Check for existing user
         const existingEmailUser = await User.findOne({ email });
         if (existingEmailUser) {
             return res.status(400).json({ errors: { email: "Email already exists" } });
         }
 
+        // Create new user (password hashing is handled by schema)
         const user = await User.create({ username, email, password });
 
-        try {
-            await sendPasswordEmail(email, password);
-        } catch (emailError) {
-            console.error("Error sending email:", emailError);
-        }
+        await sendPasswordEmail(email, password);
 
+        // Generate JWT token
         const token = jwt.sign(
             { id: user._id, email: user.email },
             process.env.JWT_SECRET_KEY,
-            { expiresIn: '30d' }  // Increased to 30 days
+            { expiresIn: '1d' }
         );
 
-        const refreshToken = jwt.sign(
-            { id: user._id, email: user.email },
-            process.env.JWT_SECRET_KEY,
-            { expiresIn: '60d' }  // 60 days for refresh token
-        );
-
-        // Set cookies with extended expiry
-        res.cookie("jwt", token, { 
-            httpOnly: true,
-            maxAge: 30 * 24 * 60 * 60 * 1000 // 30 days
-        });
-        res.cookie("refreshToken", refreshToken, {
-            httpOnly: true,
-            maxAge: 60 * 24 * 60 * 60 * 1000 // 60 days
-        });
-
+        // Set cookie and send response
+        res.cookie("jwt", token);
         res.status(201).json({
             success: true,
             user: {
@@ -111,9 +100,9 @@ exports.userRegisterPost = async(req, res) => {
                 username: user.username
             },
             token,
-            refreshToken,
             redirectUrl: '/user/login'
         });
+
     } catch (error) {
         console.error("Error creating user:", error);
         if (error.name === "ValidationError") {
@@ -137,72 +126,35 @@ exports.userLoginPost = async(req, res) => {
                 const token = jwt.sign({
                     id: user._id,
                     email: user.email
-                }, process.env.JWT_SECRET_KEY, {
-                    expiresIn: '30d'  // Increased to 30 days
+                 }, process.env.JWT_SECRET_KEY, {
+                    expiresIn: '1d'
                 });
+                res.cookie("jwt", token);
 
-                const refreshToken = jwt.sign({
-                    id: user._id,
-                    email: user.email
-                }, process.env.JWT_SECRET_KEY, {
-                    expiresIn: '60d'  // 60 days for refresh token
-                });
-
-                // Set cookies with extended expiry
-                res.cookie("jwt", token, { 
-                    httpOnly: true,
-                    maxAge: 30 * 24 * 60 * 60 * 1000 // 30 days
-                });
-                res.cookie("refreshToken", refreshToken, {
-                    httpOnly: true,
-                    maxAge: 60 * 24 * 60 * 60 * 1000 // 60 days
-                });
 
                 res.status(201).json({
                     user:{
                         id: user._id,
-                        email: user.email
+                        email: user.email,
+                        password: user.password
                     },
-                    token,
-                    refreshToken
-                });
-            } else {
+                    token
+                })
+
+            }else{
                 return res.status(400).json({message: "Incorrect Email and Password", alert: "Please enter correct email and password"})
             }
-        } else {
+            
+        }else{
             return res.status(400).json({message: "User not found", alert: "User not found"});
         }
+
     } catch (error) {
         res.status(500).json({ message: "Login failed", error, alert: "Invalid Creadentials"});
         console.log(error);
     }
-};
-
-exports.refreshToken = async(req, res) => {
-    const refreshToken = req.cookies.refreshToken;
-    
-    if (!refreshToken) {
-        return res.status(401).json({ message: "No refresh token" });
-    }
-
-    try {
-        const decoded = jwt.verify(refreshToken, process.env.JWT_SECRET_KEY);
-        const newToken = jwt.sign(
-            { id: decoded.id, email: decoded.email },
-            process.env.JWT_SECRET_KEY,
-            { expiresIn: '30d' }
-        );
-
-        res.cookie("jwt", newToken, { 
-            httpOnly: true,
-            maxAge: 30 * 24 * 60 * 60 * 1000
-        });
-
-        res.json({ success: true, token: newToken });
-    } catch (error) {
-        res.status(401).json({ message: "Invalid refresh token" });
-    }
-};
+    // next()
+}; 
 
 exports.userLogin = async (req, res) => {
     let locals = {

@@ -329,7 +329,7 @@ body::-webkit-scrollbar{
 }
 .why-aadi-inner{
     padding: 5px 10px;
-    height: 300px;
+    height: 323px;
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -350,11 +350,13 @@ body::-webkit-scrollbar{
 .why-aadi-ul li{
     list-style: none;
     font-family: var(--main-font);
-    font-size: 20px;;
+    font-size: 20px;
+    font-weight: bold;
 }
 .aadi-li{
     font-size: 22px;
     color: rgb(246 47 4);
+    font-weight: bolder;
 }
 .oppo-btn{
     width: 100%;
@@ -474,6 +476,16 @@ body::-webkit-scrollbar{
         padding: 20px 5px;
 
     }
+    .why-aadi-inner{
+        height: 400px;
+        padding: 10px;
+    }
+    .why-aadi-ul li{
+        font-size: 16px;
+    }
+    .why-aadi-ul li{
+        font-size: 18px;
+    }
 }
 @media screen and (max-width: 921px){
     .main-site-top-text{
@@ -519,6 +531,15 @@ body::-webkit-scrollbar{
         align-items: center;
         padding: 20px 0px;
     }
+    .why-aadi-inner{
+        height: 400px;
+    }
+    .why-aadi-ul li{
+        font-size: 14px;
+    }
+    .aadi-li{
+        font-size: 16px;
+    }
 }
 @media screen and (max-width: 635px){
     .main-site-top-text{
@@ -537,6 +558,11 @@ body::-webkit-scrollbar{
         height: 30px;
         font-size: 12px;
     }
+    .why-aadi-inner{
+        /* height: 350px; */
+        width: 85%;
+    }
+    
 }
 @media screen and (max-width: 525px){
     .main-site-top-text{
@@ -604,6 +630,15 @@ body::-webkit-scrollbar{
     .main-site-reviews-cards h2{
         font-size: 20px;
     }
+    .why-aadi-inner{
+        width: 85%;
+        height: 360px;
+    }
+    .oppo-btn-link{
+        font-size: 15px;
+        height: 40px;
+        width: 131px;
+    }
     }
    
 
@@ -641,6 +676,10 @@ body::-webkit-scrollbar{
     }
     .main-center-top-text-div-2 h2{
         font-size: 27px;
+    }
+    .why-aadi-inner{
+        width: 85%;
+        height: 410px;;
     }
 }
 @media screen and (max-width: 1055px) {
