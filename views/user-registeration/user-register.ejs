@@ -43,8 +43,11 @@
                         <label class="reg-conpass reg-label" for="regconfirmpass">Confirm Password*</label>
                         <input type="password" autocomplete="off" name="password" id="password" class="reg-con-pass-input reg-inputs" placeholder="" required>
                     </div>
-                    <p style="color: red; display: none;" class="password-mismatch">Passwords do not match!</p>
-                    <p style="color: red; display: none;" class="password-requirements">Password must be at least 6 characters with 1 capital letter and 1 special character</p>
+                    <div class="warning-box">
+                        <p style="color: red; display: none;" class="password-mismatch">Passwords do not match!</p>
+                        <p style="color: red; display: none;" class="password-requirements">Password must be at least 6 characters with 1 capital letter and 1 special character</p>
+                    </div>
+                   
                     <div class="reg-submit-div">
                         <button type="submit" class="reg-btn">Submit</button>
                     </div>

@@ -92,11 +92,10 @@
     z-index: -99;
 }
 .reg-con {
-    width: 95%;
+    width: 53vw;
     height: max-content;
     padding: 20px;
     display: flex;
-    width: max-content;
     flex-direction: column;
     border-radius: 10px;
     align-items: center;
@@ -109,6 +108,10 @@
     margin-top: 20px;
     display: flex;
     align-items: center;
+}
+.reg-up{
+    font-family: var(--main-font);
+    font-weight: 800;
 }
 .reg-h {
     width: 100px;
@@ -180,6 +183,9 @@
     right: 10px;
     top: 10px;
 }
+.warning-box{
+    width: 90%;
+}
 @media screen and (max-width: 619px) {
     .reg-name-div{
         flex-direction: column;
@@ -211,4 +217,39 @@
     .reg-eye-open{
         top: 29px;
     }
+    .warning-box{
+        width: 80%;
+    }
+}
+@media screen and (max-width: 566px) {
+    .reg-con{
+        width: 76vw;
+    }
+    .reg-name-input{
+        width: 66vw;
+    }
+    .reg-inputs{
+        width: 66vw;
+    }
+    
+}
+@media screen and (max-width: 508px) {
+    .reg-name-input{
+        width: 58vw;
+    }
+    .reg-inputs{
+        width: 58vw;
+    }
+    .warning-box{
+        width: 90%;
+    }
+    
+}
+@media screen and (max-width: 340px) {
+    .reg-up{
+        font-size: 22px;
+        font-family: var(--main-font);
+        font-weight: 800;
+    }
+    
 }
