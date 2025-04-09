@@ -222,7 +222,7 @@ exports.postadminpage = async (req, res) => {
         jobdescription: req.body.jobdescription,
         location: req.body.location,
         salary: req.body.salary,
-        companylogo: `/uploads/${req.file.filename}`, // Ensure the path is relative to 'public'
+        companylogo:req.file.filename, // Add /uploads/ prefix to the path
         deadline: req.body.deadline,
         posteddate: Date.now(),
         opportunities: req.body.opportunities,

@@ -7,7 +7,7 @@
             
         
         <div class="cards">
-           <a href="/aaideology/<%= item._id %>" class="company-page"><div class="company-logo-div"><img class="company-logo" src="<%= process.env.NODE_ENV === 'production' ? '/public/uploads/' : '/uploads/' %><%= item.companylogo %>" alt=""></div>
+           <a href="/aaideology/<%= item._id %>" class="company-page"><div class="company-logo-div"><img class="company-logo" src="<%= item.companylogo %>" alt="<%= item.companyname %>"></div>
             <div class="card-line"></div>
             <div class="info">
                  <h1><%= item.companyname %></h1>
