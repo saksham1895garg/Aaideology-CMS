@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 // Storage for company logos
 var logoStorage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname, '../../public/uploads'));
+        cb(null, path.join(__dirname, '../../public/uploads')); // Ensure this path exists
     },
     filename: (req, file, cb) => {
         cb(null, Date.now() + '-' + file.originalname);
@@ -29,7 +29,7 @@ var resumeStorage = multer.diskStorage({
 
 exports.uploadLogo = multer({
     storage: logoStorage, 
-    limits: { fileSize: 1000000 * 2 }, // 2MB limit
+    limits: { fileSize: 1000000 * 4 }, // 4MB limit
     fileFilter: function (req, file, cb) { 
         const allowedExtensions = /\.(png|jpe?g|gif)$/i;
         const allowedMimeTypes = ['image/png', 'image/jpeg', 'image/gif'];
@@ -222,7 +222,7 @@ exports.postadminpage = async (req, res) => {
         jobdescription: req.body.jobdescription,
         location: req.body.location,
         salary: req.body.salary,
-        companylogo: req.file.filename,
+        companylogo: `/uploads/${req.file.filename}`, // Ensure the path is relative to 'public'
         deadline: req.body.deadline,
         posteddate: Date.now(),
         opportunities: req.body.opportunities,
@@ -328,16 +328,27 @@ exports.adminpostdelete = async(req, res) => {
             return res.status(404).send('Admin not found');
         }
 
-        await Admin.findByIdAndDelete({ _id: id }); 
-
-        let imagePath = path.join(__dirname, '../../public/uploads/', adminToDelete.companylogo);
-        console.log(imagePath);
+        // Get the filename from the stored path
+        const filename = adminToDelete.companylogo.split('/').pop();
+        // Construct the correct absolute path
+        const imagePath = path.join(__dirname, '../../public/uploads', filename);
         
-        if (fs.existsSync(imagePath)) {
-            fs.unlinkSync(imagePath);
-        } else { 
-            console.log(`File not found: ${imagePath}`);
+        console.log('Attempting to delete file:', imagePath);
+        
+        // Delete the file first
+        try {
+            if (fs.existsSync(imagePath)) {
+                fs.unlinkSync(imagePath);
+                console.log('File deleted successfully');
+            } else {
+                console.log('File not found at path:', imagePath);
+            }
+        } catch (fileError) {
+            console.error('Error deleting file:', fileError);
         }
+
+        // Delete the database record
+        await Admin.findByIdAndDelete(id);
         
         res.redirect('/admin/posted');
     } catch (error) {

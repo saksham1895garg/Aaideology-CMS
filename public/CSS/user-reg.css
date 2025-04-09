@@ -142,8 +142,9 @@
 }
 .reg-btn {
     padding: 10px;
-    font-size: 15px;
-    font-weight: 800;
+    font-size: 16px;
+    font-family: var(--main-font);
+    font-weight: 900;
     width: 50%;
     color: white;
     filter: drop-shadow(0px 0px 8px #f63009);
