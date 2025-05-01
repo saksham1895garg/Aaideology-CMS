@@ -89,13 +89,17 @@ header {
 }
 .my-acc {
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin: 5px;
-  background-color: var(--main-background-color);
-  border-radius: 35px;
-  width: 95%;
+  background-color: #ffffff; 
+  border: #000000 2px solid;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  width: 100%;
   padding: 10px;
-  margin-bottom: 20px;
+  margin: 0 !important;
+  border-radius: 0% !important;
 }
 .my-acc a {
   text-decoration: none;

@@ -17,8 +17,15 @@
         </div>
        
         <div class="my-acc">
-            <a href="/user/profile/"><img class="side-user" src="/photos/user.svg" alt="My Account"></a>
-           <a href=""><h2>My Account</h2></a> 
+            <% if (user) { %>
+                <!-- Code to be executed if the condition is true -->
+                <li class="user-li"><a href="/user/profile/"><img class="user-ico" src="/<%= user.profilePicFile %>" alt="My Account"></a></li>
+              <% } else { %>
+                <a href="/user/login" class="login-link-header in-header">Sign in</a>
+                <a href="/user/register" class="login-link-header up-header">Sign Up</a>
+              <% } %>
+            <!-- <a href="/user/profile/"><img class="side-user" src="/photos/user.svg" alt="My Account"></a>
+           <a href=""><h2>My Account</h2></a>  -->
         </div>
     </div>
     <a href="/" class="logo-link"> <img class="logo-img" src="/photos/logo.png" alt="Aadiology"></a>
@@ -28,21 +35,22 @@
         <li><a href="/services">Services</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
+        <li><a href="/contact">Blogs</a></li>
         
     </ul>
     
 
     
 </div>
-    <div class="in-up-div">
-        <% if (user) { %>
-            <!-- Code to be executed if the condition is true -->
-            <li class="user-li"><a href="/user/profile/"><img class="user-ico" src="/<%= user.profilePicFile %>" alt="My Account"></a></li>
-        <% } else { %>
-            <!-- Code to be executed if the condition is false -->
+<div class="in-up-div">
+    <% if (user) { %>
+        <!-- Code to be executed if the condition is true -->
+        <li class="user-li"><a href="/user/profile/"><img class="user-ico" src="/<%= user.profilePicFile %>" alt="My Account"></a></li>
+    <% } else { %>
+        <!-- Code to be executed if the condition is false -->
 
-            <a href="/user/login" class="login-link-header in-header">Sign in</a>
-            <a href="/user/register" class="login-link-header up-header">Sign Up</a>
-        <% } %>    
-    </div>
+        <a href="/user/login" class="login-link-header in-header">Sign in</a>
+        <a href="/user/register" class="login-link-header up-header">Sign Up</a>
+    <% } %>    
+</div>
 </header>
