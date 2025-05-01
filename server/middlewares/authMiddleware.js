@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/userSchema');
 const { getMaxListeners } = require('../models/adminSchema');
 
+
 const requireAuth = (req, res, next) => {
     const { jwt: token } = req.cookies;
     // check json web token exists & is verified

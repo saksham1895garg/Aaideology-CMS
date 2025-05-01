@@ -13,6 +13,12 @@ const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken'); 
 const MemoryStore = require('memorystore')(session)
 const {requireAuth, checkUser} = require('./server/middlewares/authMiddleware');
+const { Auth } = require('@auth/core');
+const { ExpressAdapter } = require('@auth/express');
+const GitHub = require('@auth/core/providers/github');
+
+
+
 
 
 
@@ -48,7 +54,8 @@ app.set('layout', './layouts/main');
 app.set('view engine', 'ejs');
 // static files
 app.use(express.static('public'));
-app.use(express.static('uploads')); // for image upload 
+app.use(express.static('uploads'));
+app.use(express.static('profilepic')) // for image upload 
 
 // sessions
 app.use(session({
@@ -72,6 +79,7 @@ app.use(function(req,res,next){
     }
     next() //otherwise continue
     });
+
 
 
 

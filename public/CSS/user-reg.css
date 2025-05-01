@@ -103,6 +103,67 @@
     z-index: 1;
 }
 
+.user-profile-pic-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    padding: 10px;
+    position: relative;
+    height: 100px;
+}
+.user-pic-img{
+    border-radius: 100%;
+    padding: 20px;
+    border: black 2px solid;
+    cursor: pointer;
+    position: absolute;
+    z-index: -9999;
+}
+.plus-div-outer{
+    position: absolute;
+    z-index: 10;
+    opacity: 0.0125;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: auto;
+}
+.plus-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 85px;
+    width: 85px;
+    border-radius: 100%;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.067);
+    cursor: pointer;
+    position: relative;
+    z-index: -1;
+}
+.horizontal-div{
+    background-color: rgb(9, 1, 1);
+    width: 50px;
+    height: 10px;
+    position: absolute;
+}
+.vertical-div{
+    background-color: rgb(6, 0, 0);
+    width: 10px;
+    height: 50px;
+    position: absolute;
+}
+#profilepic{
+    height: 90px;
+    width: 90px;
+    border-radius: 100px;
+    position: absolute;
+    z-index: 9999999;
+    opacity: 0;
+    cursor: pointer;
+}
+
 
 .reg-name-div {
     margin-top: 20px;
@@ -187,7 +248,15 @@
 .warning-box{
     width: 90%;
 }
+@media screen and (max-width: 1400px) {
+    .user-reg{
+        height: 180vh;
+    }
+}
 @media screen and (max-width: 619px) {
+    .user-reg{
+        height: 200vh;
+    }
     .reg-name-div{
         flex-direction: column;
         align-items: flex-start;

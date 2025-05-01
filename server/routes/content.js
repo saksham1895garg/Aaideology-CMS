@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const contentControllers = require('../controllers/contentControllers');
 const authControllers = require('../controllers/authControllers');
+const { userpic } = require('../controllers/authControllers');
 const { uploadLogo, uploadResume } = contentControllers;
 const { adminAuth } = require('../middlewares/authMiddleware');
 
@@ -62,7 +63,7 @@ router.post('/admin/login', authControllers.adminAuthPost);
 // User authentication routes
 router.get('/user/register', authControllers.userRegister)
 // router.get('/:id/verify/:token', authControllers.userVerify)
-router.post('/user/register', authControllers.userRegisterPost)
+router.post('/user/register', userpic.single('profilepic'), authControllers.userRegisterPost)
 router.get('/user/login', authControllers.userLogin)
 router.post('/user/login', authControllers.userLoginPost)
 

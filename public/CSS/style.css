@@ -18,6 +18,12 @@ body::-webkit-scrollbar{
   display: none;
 }
 
+
+
+/* header css styles  */
+
+
+
 header {
   background-color: var(--main-background-color);
   border-bottom: black 1px solid;
@@ -119,7 +125,41 @@ header {
   width: 202px;
   height: 108px;
 }
+.nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.login-link-header{
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: var(--main-font);
+  border: 1px solid rgb(246, 48, 4);
+  padding: 5px 8px;
+  border-radius: 10px;
+  color: rgb(245 50 0);
+}
+.in-up-div{
+  width: 16%;
+  display: flex;
+  justify-content: flex-end;
+}
 
+.up-header{
+  background-color: rgba(246, 48, 4, 0.094);
+  margin-right: 25px;
+}
+.up-header:hover{
+  background-color: rgba(246, 48, 4, 0.149);
+}
+.in-header{
+  margin-right: 10px;
+}
+.in-header:hover{
+  background-color: rgba(246, 48, 4, 0.051);
+}
 .nav-links {
   display: flex;
   display: flex;
@@ -139,11 +179,12 @@ header {
   font-weight: bolder;
   font-family: var(--main-font);  
 }
-
-.red-link-top:hover{
-  color: rgb(0, 0, 0) !important;
-  filter: drop-shadow(0px 0px 1px rgb(174, 89, 68));
+.nav-links li a:hover {
+  color: rgb(246, 48, 4);
+  transition: all 0.2s ease-in-out;
 }
+
+
 .user-li {
   display: flex;
   align-items: center;
@@ -151,6 +192,15 @@ header {
 }
 .user-ico {
   width: 45px;
+  margin-right: 45px;
+  border: 2px solid rgb(246, 48, 4);
+  border-radius: 100%;
+  height: 40px;
+  width: 40px;
+}
+.user-ico:hover {
+  
+  opacity: 0.89;
 }
 
 
@@ -170,6 +220,9 @@ header {
     margin-left: 0px;
   }
   .nav-links {
+    display: none;
+  }
+  .in-up-div {
     display: none;
   }
 }

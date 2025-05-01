@@ -14,6 +14,10 @@ const userSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Review' 
     }],
+    profilePicFile: {
+        type: String,
+        default: 'default.jpg' // Default profile picture
+    },
 
     email: {
         type: String,

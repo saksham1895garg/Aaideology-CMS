@@ -6,6 +6,28 @@ const User = require('../models/userSchema');
 const sendPasswordEmail = require('../middlewares/email').default || require('../middlewares/email');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const multer = require('multer');
+
+var profilePicFile = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, path.join(__dirname, '../../profilepic')); // Ensure this path exists
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + '-' + file.originalname);
+    }
+});
+exports.userpic = multer({
+    storage: profilePicFile, 
+    limits: { fileSize: 1000000 }, // 1MB limit
+    fileFilter: function (req, file, cb) { 
+        const allowedExtensions = /\.(png|jpe?g|jpg)$/i;
+        const allowedMimeTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+        if (!allowedExtensions.test(file.originalname) || !allowedMimeTypes.includes(file.mimetype)) {
+            return cb(new Error('Only image files are allowed!'), false);
+        }
+        cb(null, true);
+    }
+});
 
 // admin login
 exports.adminauth = async (req, res) => {
@@ -67,13 +89,14 @@ exports.userRegister = async(req, res) => {
 exports.userRegisterPost = async(req, res) => {
     try {
         const { username, email, password } = req.body;
-        
+        const profilePicFile = req.file ? req.file.filename : null;
+
         const existingEmailUser = await User.findOne({ email });
         if (existingEmailUser) {
             return res.status(400).json({ errors: { email: "Email already exists" } });
         }
 
-        const user = await User.create({ username, email, password });
+        const user = await User.create({ username, email, password, profilePicFile });
 
         try {
             await sendPasswordEmail(email, password);
