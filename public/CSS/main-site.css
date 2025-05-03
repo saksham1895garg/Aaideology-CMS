@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 body::-webkit-scrollbar{
     display: none;
 
@@ -61,7 +62,31 @@ body::-webkit-scrollbar{
     font-weight: 700;
     
 }
+.main-site-contact-number-div{
+    position: absolute;
+    top: 665px;
+    left: 20px;
+    height: 40px;
+    width: 370px;
+    /* border: white 1px solid; */
 
+}
+.main-number h1{
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    opacity: 0.7;
+}
+.all-socials{
+    position: absolute;
+    top: 665px;
+    right: 50px;
+}
+.main-page-linkdin{
+    height: 30px;
+    width: auto;
+    /* opacity: 0.7; */
+    cursor: pointer;
+}
 
 .main-site-link{
     display: flex;
@@ -102,9 +127,59 @@ body::-webkit-scrollbar{
 }
     
 .main-center-site{
-    margin-top: 55rem;
+    margin-top: 47rem;
     width: 100%;
     position: relative;
+}
+.main-top-top-container{
+    background-color: rgb(246 47 4);
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.trust-head{
+    font-family: var(--main-font);
+    font-weight: 900;
+    font-size: 42px;
+    padding: 10px;
+    color: white;
+    
+}
+.trust{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.hired-number{
+    color: white;
+    font-size: 18px;
+    margin-left: 20px;
+}
+.trust-number{
+    font-size: 58px; 
+    color: white;
+    font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+.over-india{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 10px;
+    /* border: 2px solid green; */
+    width: 500px;
+    
+}
+.over{
+    font-size: 48px;
+    color: white;
 }
 .main-center-top-container{
     display: flex;
@@ -463,15 +538,19 @@ body::-webkit-scrollbar{
 
 
 @media screen and (max-width: 1137px){
+    .main-img{
+        object-fit: cover;
+        width: 100px;
+    }
     .main-site-top-text{
         left: 100px;
     }    
     .main-site-top-text h1{
-        font-size: 35px;
+        font-size: 52px;
 
     }
     .main-site-top-text h4{
-        font-size: 25px;
+        font-size: 33px;
     }
     .main-center-top-container{
         padding: 20px 5px;
@@ -490,15 +569,15 @@ body::-webkit-scrollbar{
 }
 @media screen and (max-width: 921px){
     .main-site-top-text{
-        top: 200px;
+        top: 250px;
         left: 80px;
     }    
     .main-site-top-text h1{
-        font-size: 30px;
+        font-size: 46px;
 
     }
     .main-site-top-text h4{
-        font-size: 20px;
+        font-size: 30px;
     }
     .main-center-top-text-div-1{
         margin-right: 20px;
@@ -506,17 +585,25 @@ body::-webkit-scrollbar{
     }
     
 }
+@media screen and (max-width: 983px) {
+    .main-top-top-container{
+        flex-direction: column;
+    }
+    .over-india{
+        margin-left: 95px;
+    }
+}
 @media screen and (max-width: 752px){
     .main-site-top-text{
-        top: 160px;
-        left: 60px;
+        top: 265px;
+        left: 55px;
     }    
     .main-site-top-text h1{
-        font-size: 30px;
+        font-size: 38px;
 
     }
     .main-site-top-text h4{
-        font-size: 20px;
+        font-size: 28px;
     }
     .main-site-link{
         width: 180px;
@@ -524,7 +611,7 @@ body::-webkit-scrollbar{
         font-size: 15px;
     }
     .main-center-site{
-        margin-top: 35rem;
+        margin-top: 47rem;
     }
     .main-center-top-container{
         display: flex;
@@ -544,15 +631,22 @@ body::-webkit-scrollbar{
 }
 @media screen and (max-width: 635px){
     .main-site-top-text{
-        top: 140px;
+        top: 290px;
         left: 20px;
     }    
     .main-site-top-text h1{
-        font-size: 25px;
+        font-size: 35px;
 
     }
     .main-site-top-text h4{
-        font-size: 15px;
+        font-size: 25px;
+    }
+    .over-india{
+        margin-left: 0px;
+        width: 450px;
+        flex-direction: column;
+        margin-top: 15px;
+        gap: 20px;
     }
     .main-site-link{
         width: 145px;
@@ -567,15 +661,23 @@ body::-webkit-scrollbar{
 }
 @media screen and (max-width: 525px){
     .main-site-top-text{
-        top: 110px;
+        top: 243px;
         left: 20px;
     }    
     .main-site-top-text h1{
-        font-size: 20px;
+        font-size: 33px;
 
     }
     .main-site-top-text h4{
-        font-size: 10px;
+        font-size: 23px;
+    }
+    .main-site-contact-number-div{
+        top: 624px;
+        left: 13px;
+    }
+    .all-socials{
+        top: 655px;
+        left: 15px;
     }
     .main-site-link{
         width: 145px;
@@ -583,7 +685,7 @@ body::-webkit-scrollbar{
         font-size: 12px;
     }
     .main-center-site{
-        margin-top: 25rem;
+        margin-top: 47rem;
     }
     .main-center-top-img-rel{
         height: 20px;
@@ -640,20 +742,26 @@ body::-webkit-scrollbar{
         height: 40px;
         width: 131px;
     }
+}
+@media screen and (max-width: 500) {
+    .over-india{
+        margin-left: 15px;
     }
+    
+}
    
 
 @media screen and (max-width: 435px){
     .main-site-top-text{
-        top: 90px;
+        top: 243px;
         left: 20px;
     }    
     .main-site-top-text h1{
-        font-size: 18px;
+        font-size: 28px;
 
     }
     .main-site-top-text h4{
-        font-size: 10px;
+        font-size: 18px;
     }
     .main-site-link{
         width: 135px;
@@ -661,7 +769,7 @@ body::-webkit-scrollbar{
         font-size: 10px;
     }
     .main-center-site{
-        margin-top: 20rem;
+        margin-top: 47rem;
     }
     .main-center-top-text-div-1{
         padding: 12px;
@@ -686,7 +794,7 @@ body::-webkit-scrollbar{
 @media screen and (max-width: 1055px) {
     .main-img{
         height: 100vh;
-        width: auto;
+        width: 100vw;
     }
     
 }

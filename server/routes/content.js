@@ -73,4 +73,7 @@ router.get('/about', contentControllers.aboutpage);
 // contact pages
 router.get('/contact', contentControllers.contactpage);
 
+// blogs page
+router.get('/blogs', contentControllers.blogsPage)
+
 module.exports = router;

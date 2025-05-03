@@ -12,20 +12,25 @@
             <li><a class="red-link-top" href="/Services">Services</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
+            <li><a href="/blogs">Blogs</a></li>
             <li><a href="/admin/login">Admin</a></li>
         </ul>
         </div>
        
         <div class="my-acc">
             <% if (user) { %>
-                <!-- Code to be executed if the condition is true -->
-                <li class="user-li"><a href="/user/profile/"><img class="user-ico" src="/<%= user.profilePicFile %>" alt="My Account"></a></li>
+            <% if (user.profilePicFile && user.profilePicFile.trim() !== '') { %>
+<li class="user-li"><a href="/user/profile/"><img class="user-ico" src="/<%= user.profilePicFile %>" alt="My Account" onerror="this.onerror=null;this.src='/photos/user-reg.svg';"></a></li>
+
+                <% } else { %>
+                    <li class="user-li"><a href="/user/profile/"><img class="user-ico" src="/photos/user-reg.svg" alt="Default User"></a></li>
+                <% } %>
+                
               <% } else { %>
                 <a href="/user/login" class="login-link-header in-header">Sign in</a>
                 <a href="/user/register" class="login-link-header up-header">Sign Up</a>
               <% } %>
-            <!-- <a href="/user/profile/"><img class="side-user" src="/photos/user.svg" alt="My Account"></a>
-           <a href=""><h2>My Account</h2></a>  -->
+            
         </div>
     </div>
     <a href="/" class="logo-link"> <img class="logo-img" src="/photos/logo.png" alt="Aadiology"></a>
@@ -35,7 +40,7 @@
         <li><a href="/services">Services</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
-        <li><a href="/contact">Blogs</a></li>
+        <li><a href="/blogs">Blogs</a></li>
         
     </ul>
     
@@ -45,7 +50,11 @@
 <div class="in-up-div">
     <% if (user) { %>
         <!-- Code to be executed if the condition is true -->
-        <li class="user-li"><a href="/user/profile/"><img class="user-ico" src="/<%= user.profilePicFile %>" alt="My Account"></a></li>
+        <% if (user.profilePicFile && user.profilePicFile.trim() !== '') { %>
+            <li class="user-li"><a href="/user/profile/"><img class="user-ico" src="/<%= user.profilePicFile %>" alt="<%= user.username %>" onerror="this.onerror=null;this.src='/photos/user-reg.svg';"></a></li>
+        <% } else { %>
+            <li class="user-li"><a href="/user/profile/"><img class="user-ico" src="/photos/user-reg.svg" alt="Default User"></a></li>
+        <% } %>
     <% } else { %>
         <!-- Code to be executed if the condition is false -->
 

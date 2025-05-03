@@ -12,6 +12,14 @@
     bottom: 5px;
     display: flex;
     align-content: last baseline;
+    flex-direction: column;
+}
+.user-ico-info{
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+    padding: 5px;
+    border: rgb(243 48 6) solid 2px;
 }
 .user-side-name {
     color: rgb(243 48 6); 

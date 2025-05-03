@@ -1,3 +1,4 @@
+
 console.log("Starting")
 
 
@@ -54,6 +55,7 @@ stars.forEach(star => {
 });
 
 
+/*
 const texts = ["A Perfect Source!", "You are already hired..."]; // Sentences to display
 const textContainer = document.querySelector(".discription"); // Use class name
 
@@ -88,11 +90,7 @@ function startAnimation() {
 }
 
 startAnimation();
-
-
-
-
-
+*/
 
 
 
@@ -154,4 +152,48 @@ document.addEventListener('click', function(e) {
             edidel.style.display = 'none';
         });
     }
+});
+
+// Added code for fast counting animation on .trust-number
+
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.bottom >= 0 &&
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight)
+    );
+}
+
+function fastCount(element, start, end, duration) {
+    let current = start;
+    const range = end - start;
+    const stepTime = Math.max(Math.floor(duration / range), 10);
+    const timer = setInterval(() => {
+        current++;
+        if (current > end) {
+            clearInterval(timer);
+            element.textContent = end >= 1000 ? (end / 1000).toFixed(1) + 'k' : end;
+            console.log("Counting finished:", element.textContent);
+        } else {
+            element.textContent = current >= 1000 ? (current / 1000).toFixed(1) + 'k' : current;
+            console.log("Counting:", element.textContent);
+        }
+    }, stepTime);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const trustNumber = document.querySelector('.trust-number');
+    let counted = false;
+
+    function onScroll() {
+        if (!counted && isInViewport(trustNumber)) {
+            console.log("Element in viewport, starting count");
+            fastCount(trustNumber, 800, 1300, 1000);
+            counted = true;
+            window.removeEventListener('scroll', onScroll);
+        }
+    }
+
+    window.addEventListener('scroll', onScroll);
+    onScroll();
 });

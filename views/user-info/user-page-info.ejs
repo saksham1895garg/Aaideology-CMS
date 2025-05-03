@@ -2,9 +2,11 @@
     <div class="user-side-top">
         <div class="user-top">
             <% if (user) { %>
+                <li class="user-li"><a href="/user/profile/"><img class="user-ico-info" src="/<%= user.profilePicFile %>" alt="<%= user.username %>" onerror="this.onerror=null;this.src='/photos/user-reg.svg';"></a></li>
                 <h1 class="wel-user">Welcome, <span class="user-side-name" id="user-name"><%= user.username %></span> </h1>
 
               <% } else { %>
+
                 <h1 class="wel-user">Welcome, <span class="user-side-name" id="user-name">User</span> </h1>
               <% } %>
              

@@ -534,3 +534,13 @@ exports.contactpage = async(req, res) => {
     };
     res.render('contact/contact', locals);
 }
+
+
+// blogs page
+
+exports.blogsPage = async(req, res) => {
+    const locals = {
+        title: 'Blogs by Aaideology'
+    }
+    res.render('blogs/blogs', locals)
+}

@@ -1,0 +1,15 @@
+.blogs-main{
+    height: 110vh;
+}
+.blogs-main-rel{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.blogs-main-ab{
+    top: 200px;
+    position: absolute;
+    width: 100vw;
+    padding: 20px;
+    border: 2px black solid;
+}

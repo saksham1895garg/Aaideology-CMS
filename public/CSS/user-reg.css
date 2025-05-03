@@ -248,6 +248,19 @@
 .warning-box{
     width: 90%;
 }
+.dont{
+    text-decoration: none;
+    color:black;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-top: 20px;
+    align-self: flex-end;
+    opacity: 0.5;
+    font-family: var(--main-font);
+}
+.dont:hover{
+    text-decoration: underline;
+}
 @media screen and (max-width: 1400px) {
     .user-reg{
         height: 180vh;

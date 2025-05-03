@@ -13,9 +13,32 @@
                 <a href="/services" class="main-site-link">Find Opportunity
                 <img class="arrow-btn" width="24px" src="/photos/right-arrow.svg" alt="" /></a>
             </div>
+            <div class="main-site-contact-number-div">
+                <div class="main-number">
+                    <h1>+91 9461642064 | Aaideology@gmail.com</h1> 
+
+                </div>
+            </div>
+            <div class="all-socials">
+                <div class="main-all-socials-container">
+                    <a target="_blank" href="https://www.linkedin.com/in/aaideology-the-perfect-source-25213631b/"><img class="main-page-linkdin" src="/photos/linkdin.png" alt=""></a>
+                </div>
+            </div>
         </div>
 
         <div class="main-center-site">
+            <div class="main-top-top-container">
+                <h1 class="trust-head">Trust over:</h1>
+                <div class="trust">
+                    <h1 class="trust-number"></h1>
+                    <h1 class="hired-number">Hired peoples</h1>
+                </div>
+                <div class="over-india">
+                    <h1 class="over">Over</h1>
+                    <img src="/photos/india.svg" width="100px" alt="">
+                    <h2 class="over">Pan India</h2>
+                </div>
+            </div>
             <div class="main-center-top-container">
                 <div class="main-center-top-img-rel">
                     <div class="main-center-top-red-box-ab"></div>
@@ -154,7 +177,7 @@
                                 <h3>Stars Given: <span class="stars-given">
                                         <%= element.rating %>
                                     </span></h3>
-                                <p>
+                                <p> 
                                     <%= element.comment %>
                                 </p>
                             </div>
@@ -165,3 +188,41 @@
         </div>
     </div>
 </main>
+
+<script src="/Javascript/index.js"></script>
+<script>
+    const trustNumber = document.querySelector('.trust-number');
+    let animated = false;
+
+    function animateValue(start, end, duration) {
+        if (animated) return;
+        animated = true;
+        
+        const range = end - start;
+        const startTime = performance.now();
+        
+        function update(currentTime) {
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1);
+            
+            const currentValue = Math.floor(progress * range + start);
+            trustNumber.textContent = currentValue >= 1300 ? '1.3k' : currentValue;
+            
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            }
+        }
+        
+        requestAnimationFrame(update);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateValue(800, 1300, 2000); // Start at 800, end at 1300, duration 2000ms
+            }
+        });
+    }, { threshold: 0.5 });
+
+    observer.observe(trustNumber);
+</script>
