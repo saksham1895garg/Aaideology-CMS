@@ -498,6 +498,52 @@ exports.userInfoProfile = async(req, res) => {
         res.status(404).send('Internal Server Error');
     }
 }
+exports.userInfoEdit = async(req, res) => {
+    try {
+        let username = req.body.username;
+        let profilePicFile = req.body.filename;
+
+        if (!username || username.trim() === "") {
+            const user = await User.findById(req.params.id);
+            username = user.username;
+        }
+
+        const user = await User.findById(req.params.id);
+
+        if (req.file) {
+            profilePicFile = req.file.filename;
+
+            // Delete old profile pic file if exists and is different from new file
+            if (user.profilePicFile && user.profilePicFile !== profilePicFile) {
+                const oldFilePath = path.join(__dirname, '../../profilepic', user.profilePicFile);
+                if (fs.existsSync(oldFilePath)) {
+                    try {
+                        fs.unlinkSync(oldFilePath);
+                        console.log('Old profile picture deleted:', oldFilePath);
+                    } catch (err) {
+                        console.error('Error deleting old profile picture:', err);
+                    }
+                } else {
+                    console.log('Old profile picture file not found:', oldFilePath);
+                }
+            }
+        }
+
+        const updateUser = {
+            username: username,
+            profilePicFile: profilePicFile
+        };
+
+        await User.findByIdAndUpdate(req.params.id, updateUser);
+        res.redirect("/user/profile");
+
+    } catch (error) {
+        console.log("Error Editing", error);
+        // Send error response or redirect, but not both
+        // Here, redirecting with a flash message or query param could be better
+        return res.redirect("/user/profile?error=edit_failed");
+    }
+}
 exports.userAdminInfoProfileDelete = async(req, res) => {
     try {
         const user = await User.findById(req.params.id);

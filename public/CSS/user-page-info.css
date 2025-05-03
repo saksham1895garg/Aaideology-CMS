@@ -66,6 +66,9 @@
 .logout-btn {
     margin-left: 29px;
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 .logout-btn-inner {
     width: 415px;
@@ -82,6 +85,102 @@
 .logout-btn-inner:hover {
     background-color: rgb(128, 0, 0);
     filter: drop-shadow(0px 0px 7px rgb(128, 0, 0));
+}
+.edit-user-info{
+    width: 415px;
+    height: 30px;
+    color: white;
+    font-weight: 900;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(8, 202, 56);
+    filter: drop-shadow(0px 0px 3px rgb(8, 202, 56));
+    font-family: var(--main-font);
+}
+.edit-user-info-main-outer{
+    padding: 20px;
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    /* border: #000000 solid 2px; */
+    width: 40%;
+    background-color: rgb(244 48 6);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(244 48 6);
+    display: none;
+}
+.edit-user-info-main-inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.edit-head{
+    font-family: var(--main-font);
+    font-weight: 800;
+    color: white;
+    
+}
+.div-cross-user-side{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+}
+.common-user-info-input{
+    border: white 2px solid;
+    border-radius: 10px;
+    width: 100%;
+    padding: 5px;
+    margin-top: 10px;
+    display: flex;
+    
+}
+.common-user-info-input input{
+    width: 80%;
+    outline: none;
+    border: none;
+    background-color: rgb(244 48 6);
+    color: white;
+    padding-left: 5px;
+    font-weight: 800;
+    
+}
+.common-user-info-input input:focus{
+    outline: none;
+    font-weight: 800;
+    font-family: var(--main-font);
+}
+.common-user-info-input label{
+    font-family: var(--main-font);
+    font-weight: 800;
+    color: white;
+    width: 130px;
+    display: flex;
+    justify-content: end;
+}
+.user-side-btn-div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.edit-user-side-btn{
+    color: white;
+    background-color: rgb(7, 189, 7);
+    font-weight: 800;
+    font-size: 22px;
+    font-family: var(--main-font);
+    width: 70%;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(7, 189, 7);
+    
+}
+.edit-user-side-btn:hover{
+    box-shadow: 0px 0px 15px rgb(7, 189, 7);
 }
 .user-btns {
     margin-left: 29px;

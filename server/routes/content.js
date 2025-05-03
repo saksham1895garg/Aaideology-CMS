@@ -50,7 +50,7 @@ const { checkUser } = require('../middlewares/authMiddleware'); // Import the ch
 
 // user info profile
 router.get('/user/profile', checkUser, contentControllers.userInfo); // Apply authentication middleware
-
+router.post('/user-info/edit/:id', checkUser, userpic.single('profilepic'), contentControllers.userInfoEdit);
 
 router.post('/user/profile', authControllers.userInfoProfilePost);
 router.get('/user/logout', authControllers.userInfoProfileLogout);

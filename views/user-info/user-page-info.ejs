@@ -24,6 +24,8 @@
         </div>
     </div>
     <div class="logout-btn">
+        <button class="edit-user-info">Edit</button>
+        
         <button class="logout-btn-inner"><a href="/user/logout" style="color: white; text-decoration: none">Logout</a></button>
     </div>
     <div class="info-resumes">
@@ -88,6 +90,40 @@
         <button type="submit" class="user-btn-inner delete-user-btn">Delete</button>
     </div> -->
 </div>
+
+
+<div class="edit-user-info-main-outer">
+    <div class="div-cross-user-side">
+        <img class="user-side-cross" style="align-self: flex-end; margin: 5px 10px; cursor: pointer;" width="25px" height="auto" src="/photos/cross.svg" alt="">
+    </div>
+    <div class="edit-user-info-main-inner">
+        <h1 class="edit-head">Edit your info</h1>
+        <form action="/user-info/edit/<%= user._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <div class="name-change-div-user common-user-info-input">
+                <label for="username">Full Name: </label>
+                <input type="text" name="username" class="user-name-user-side" autofocus>
+            </div>
+            <div class="profile-pic-change-div-user common-user-info-input">
+                <label for="profilepic">Profile Pic</label>
+                <input type="file" name="profilepic" class="user-profilepic-user-side">
+            </div>
+            <div class="user-side-btn-div">
+                <button class="edit-user-side-btn" type="submit">Edit</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
 <div class="password-change">
     <div class="password-change-top">
         <h1>Change Password</h1>
@@ -110,13 +146,34 @@
     </div>
 </div>
 
-<script>
+    <script>
     
-
-    const passwordChangeForm = document.querySelector('.password-change');
+    const editBtn = document.querySelector(".edit-user-info");
+    const editForm = document.querySelector(".edit-user-info-main-outer");
+    const editCross = document.querySelector(".user-side-cross");
     const mainUser = document.querySelector('.user-side');
 
-    passwordChangeButton.addEventListener('click', () => {
+    editBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        editForm.style.display = "block";
+        mainUser.style.filter = 'blur(5px)';
+    });
+
+    editCross.addEventListener("click", (event) => {
+        event.preventDefault();
+        editForm.style.display = "none";
+        mainUser.style.filter = 'none';
+    });
+
+
+
+
+
+    const passwordChangeForm = document.querySelector('.password-change');
+    const passwordChangeButton = document.querySelector('.password-submit-btn');
+    
+    passwordChangeButton.addEventListener('click', (event) => {
+        event.preventDefault();
         console.log("Change password button clicked"); // Log for debugging
 
         passwordChangeForm.style.display = 'block';
