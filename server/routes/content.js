@@ -3,6 +3,7 @@ const router = express.Router();
 const contentControllers = require('../controllers/contentControllers');
 const authControllers = require('../controllers/authControllers');
 const { userpic } = require('../controllers/authControllers');
+const { blogUpload } = require('../controllers/contentControllers');
 const { uploadLogo, uploadResume } = contentControllers;
 const { adminAuth } = require('../middlewares/authMiddleware');
 
@@ -74,6 +75,10 @@ router.get('/about', contentControllers.aboutpage);
 router.get('/contact', contentControllers.contactpage);
 
 // blogs page
-router.get('/blogs', contentControllers.blogsPage)
+router.get('/blogs', contentControllers.blogsPage);
+router.get('/admin/blogs/post', adminAuth, contentControllers.adminBlogsPagePost)
+router.post('/admin/blogs/post',  blogUpload.single('blogImage'), contentControllers.adminBlogsPagePostData);
+router.get('/admin/blogs',adminAuth, contentControllers.adminBlogsPage);
+router.post('/admin/blog/delete/:id', contentControllers.adminBlogsPageDelete);
 
 module.exports = router;

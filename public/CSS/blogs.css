@@ -1,15 +1,111 @@
-.blogs-main{
-    height: 110vh;
+.blogs-main {
+  height: 110vh;
 }
-.blogs-main-rel{
+.blogs-main-rel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.blogs-main-ab {
+  top: 100px;
+  position: absolute;
+  width: 100vw;
+  height: 97vh;
+  /* border: 2px black solid; */
+  
+}
+.blogs-head-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.blogs-h1 {
+  font-family: var(--main-font);
+  background: linear-gradient(to right, #f73105 34%, #ff6736 50%, #c8563a 93%);
+  background: #F73105;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  font-size: 90px;
+}
+.blogs-container{
+    /* border: 2px solid black; */
+    padding: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    /* flex-wrap: wrap-reverse; */
+    margin-top: 50px;
+    gap: 40px;
+    overflow-y: scroll;
+    height: 600px;
+    width: 100%;
+}
+.blog-cards{
+    /* border: black solid 2px; */
+    border-radius: 10px;
+    width: 360px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    object-fit: cover;
+    box-shadow: 0px 0px 10px black;
+    cursor: pointer;
     position: relative;
+    transition: all .2s ease-in-out;
+    height: 260px;
+    &:hover{
+        box-shadow: 0px 0px 15px black;
+        transform: scale(1.05)
+        
+    }
+}
+.blog-image-div{
+  /* border: #c8563a solid 2px; */
+  object-fit: contain;
+  height: 214px;
+  width: 360px;
+  border-radius: 10px;
+}
+.blogs-image{
+    /* border: 2px green solid; */
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom: black 2px solid;
 }
-.blogs-main-ab{
-    top: 200px;
+.blogs-news-heading{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.blogs-link{
+    color: black;
+    font-weight: 800;
+    font-size: 11px;
+    font-family: var(--main-font);
+    margin: 10px;
+}
+.blogs-discription-overview{
+    background-color: rgba(0, 0, 0, 0.311);
+    color: white;
+    font-family: var(--main-font);
     position: absolute;
-    width: 100vw;
-    padding: 20px;
-    border: 2px black solid;
+    top: 0;
+    height: 215px;
+    width: 360px;
+    overflow: inherit;
+    border-radius: 10px;
+    padding: 5px;
+    display: none;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    text-align: start;
 }
+

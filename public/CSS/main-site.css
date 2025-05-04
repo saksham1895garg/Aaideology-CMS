@@ -187,6 +187,7 @@ body::-webkit-scrollbar{
     justify-content: space-between;
     width: 100%;
     padding: 20px 152px;
+    background-color: #292929;
 }
 .main-center-top-img-rel{
     position: relative;
@@ -222,8 +223,9 @@ body::-webkit-scrollbar{
     width: 500px;
     height: 390px;
     margin-right: 100px;
-    background-color: rgb(210, 210, 210);
+    background-color: #292929;
     border-radius: 10px;
+    /* border: white 1px solid; */
 }
 .main-center-top-text-div-2{
     margin-top: 27px;
@@ -231,7 +233,8 @@ body::-webkit-scrollbar{
 .main-center-top-text-div-2 h2{
     font-family: var(--main-font);
     font-size: 45px;
-    font-weight: 600;
+    font-weight: 900;
+    color: white;
 }
 .main-center-top-text-div-2 p{
     font-family: var(--main-font);
@@ -239,6 +242,7 @@ body::-webkit-scrollbar{
     margin-top: 20px;
     margin-left: 10px;
     font-weight: bold;
+    color: white;
 }
 .main-center-top-text-div-2 p::first-line{
     color: rgb(246 47 4);

@@ -1,0 +1,68 @@
+<main class="admin-blog-post-page">
+    <div class="admin-blog-post-page-rel">
+        <div class="admin-blog-post-page-ab">
+            <div class="blog-post-form-div">
+                <form class="from-blog" action="/admin/blogs/post" method="post" enctype="multipart/form-data">
+                    <div class="blog-image-post">
+                        
+                        <div class="image-pre-shown-div">
+                                <img class="pre-image-blog" src="/photos/logo.png" alt="">
+                                
+                        </div>
+                        <div class="blog-post-plus-ab">
+                            <div class="blog-post-plus-rel">
+                                <div class="blog-vertical"></div>
+                                <div class="blog-horizontal"></div>
+                            </div>
+                        </div>
+                        <div class="blog-image-input-div">
+                            <input type="file" name="blogImage" id="blogImage">
+                        </div>
+
+                        
+                        
+                    </div>
+                    <div class="blog-head-post-div">
+                        <label for="post-blog">Main News: </label>
+                        <input type="text" name="blogHead" class="blogHead" autofocus required>
+                    </div>
+                    <div class="blog-head-post-div">
+                        <label for="post-blog">News Overview: </label>
+                        <textarea type="text" name="blogoverview" class="blogoverview" required></textarea>
+                        
+                    </div>
+                    <div class="blog-post-btn">
+                        <button type="submit">Post</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    const blogImage = document.querySelector(".pre-image-blog");
+    const blogPlus = document.querySelector(".blog-post-plus-ab");
+    const blogInput = document.querySelector("#blogImage");
+
+    blogInput.addEventListener('mouseenter', ()=>{
+        blogPlus.style.display = "block";
+        blogImage.style.opacity = "0.7";
+    })
+    blogInput.addEventListener('mouseleave', ()=>{
+        blogPlus.style.display = "none";
+        blogImage.style.opacity = "1";
+    })
+
+    blogInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                blogImage.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+</script>

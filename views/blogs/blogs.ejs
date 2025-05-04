@@ -1,7 +1,45 @@
 <main class="blogs-main">
         <div class="blogs-main-rel">
             <div class="blogs-main-ab">
-                
+                <div class="blogs-head-div">
+                    <h1 class="blogs-h1">Blogs</h1>
+                </div>
+                <div class="blogs-container">
+                    <% if (blogs && blogs.length > 0) { %>
+                    <% blogs.forEach((blog) => { %>
+                    <div class="blog-cards">
+                        <a href="/blogs/<%= blog._id %>">
+                        <div class="blog-image-div">
+
+                            <img class="blogs-image" src="/blogupload/<%= blog.blogImage %>" alt="" srcset="">
+                        </div>
+                        <div class="blogs-news-heading">
+                            <a href="/blogs/id" class="blogs-link"><h1><%= blog.blogHead %></h1></a>
+                        </div>
+                        </a>
+                        <div class="blogs-discription-overview">
+                            <p class="blogs-overview"><%= blog.blogoverview %></p>
+                        </div>
+                    </div>
+                    <% }); %>
+                    <% } else { %>
+                        <div style="width: 100%; height: 50%; display: flex; justify-content:center; align-items: center;" class="div-blog-not">
+                            <h1 style="font-size: 50px; font-weight: 900; font-family: var(--main-font); color: grey;">No Blogs posted yet...</h1>
+                        </div>
+                    <% } %>
+                </div>
             </div>
         </div>
 </main>
+<script>
+    const blogCards = document.querySelectorAll(".blog-cards");
+    blogCards.forEach(card => {
+        const overview = card.querySelector('.blogs-discription-overview');
+        card.addEventListener('mouseenter', () => {
+            overview.style.display = "block";
+        });
+        card.addEventListener('mouseleave', () => {
+            overview.style.display = "none";
+        });
+    });
+</script>

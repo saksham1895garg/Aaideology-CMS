@@ -5,6 +5,7 @@ const Admin = require('../models/adminSchema');
 const UserRes = require('../models/resumes')
 const Review = require('../models/review');
 const User = require('../models/userSchema');
+const Blogs = require('../models/adminblogs');
 const mongoose = require('mongoose'); 
 
 // Storage for company logos
@@ -25,6 +26,15 @@ var resumeStorage = multer.diskStorage({
     filename: (req, file, cb) => { 
         cb(null, Date.now() + '-' + file.originalname);
     } 
+});
+// storage for blogs post
+var blogStorage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, path.join(__dirname, '../../public/blogupload')); // Ensure this path exists
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + '-' + file.originalname);
+    }
 });
 
 exports.uploadLogo = multer({
@@ -53,6 +63,22 @@ exports.uploadResume = multer({
         cb(null, true);
     }
 });
+exports.blogUpload = multer({ 
+    storage: blogStorage,  
+    limits: { fileSize: 1000000 * 5 }, // Limit file size to 5MB
+    fileFilter: function (req, file, cb) {
+        const allowedExtensions = /\.(png|jpe?g|gif)$/i;
+        const allowedMimeTypes = ['image/png', 'image/jpeg', 'image/gif'];
+        if (!allowedExtensions.test(file.originalname) || !allowedMimeTypes.includes(file.mimetype)) {
+            return cb(new Error('Only image files are allowed!'), false);
+        }
+        cb(null, true);
+    }
+});
+
+
+
+
 
 // main site page for displaying
 exports.getMainPage = async(req, res) => {
@@ -588,5 +614,71 @@ exports.blogsPage = async(req, res) => {
     const locals = {
         title: 'Blogs by Aaideology'
     }
-    res.render('blogs/blogs', locals)
+    try {
+        const blogs = await Blogs.find({});
+        res.render('blogs/blogs', {locals, blogs});
+    } catch (error) {
+        
+    }
+    
+}
+exports.adminBlogsPagePost = async(req, res) => {
+    const locals = {
+        title: 'Admin || Blogs Page'
+    }
+    res.render('admin/adminpostblogs', {locals})
+}
+exports.adminBlogsPagePostData = async(req, res) => {
+    if (!req.file) {
+        return res.status(400).json({
+            success: false,
+            message: 'No file uploaded. Please upload a blog image.'
+        });
+    }
+
+    const blogData = {
+        blogImage: req.file.filename,
+        blogHead: req.body.blogHead,
+        blogoverview: req.body.blogoverview
+    }
+    try {
+        await Blogs.create(blogData);
+        res.redirect('/admin/blogs');
+    } catch (error) {
+        console.error('Error saving blog data:', error);
+        res.status(500).send('Error saving blog data');
+    }
+}
+exports.adminBlogsPage = async(req, res) => {
+    const locals = {
+        title: 'Admin || Posted Blogs'
+    }
+    try {
+        const blogs = await Blogs.find({});
+        res.render('admin/admin-blogs', {locals, blogs})
+    } catch (error) {
+        console.log("Something went wrong", error);
+        res.status(500).json({success: false, message: "Internal Server Error", alert: "Try after sometime"});
+        return res.redirect("/admin")
+    }
+    
+}
+exports.adminBlogsPageDelete = async(req, res) => {
+    try {
+        const blogs = await Blogs.findById(req.params.id);
+        if (!blogs) {
+            return res.status(404).json({ success: false, message: 'No Blog found' });
+        }
+
+        const filePath = path.join(__dirname, '../../public/blogupload', blogs.blogImage);
+        if (fs.existsSync(filePath)) {
+            fs.unlinkSync(filePath);
+        }
+
+        await Blogs.findByIdAndDelete(req.params.id);
+        res.redirect('/admin/blogs');
+    } catch (error) {
+        console.error('Error deleting blog:', error);
+        res.status(500).json({ success: false, message: 'Error deleting blog' });
+    }
 }

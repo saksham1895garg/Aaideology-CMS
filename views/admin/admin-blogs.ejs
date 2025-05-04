@@ -1,0 +1,38 @@
+<main class="admin-blog">
+    <div class="main-admin-rel">
+        <div class="main-admin-ab">
+            <div class="blog-head-div">
+
+                <h1 style="align-self: center; font-weight: 800; font-size: 70px;" class="edit-blogs-page">Edit Blogs</h1>
+            </div>
+            <div class="blogs-page-admin">
+                <% blogs.forEach((blog) => { %>
+                <div class="blog-cards admin-blog-card">
+                    <a href="/blogs/<%= blog._id %>">
+                        <div class="blog-image-div">
+
+                            <img class="blogs-image" src="/blogupload/<%= blog.blogImage %>" alt="" srcset="">
+                        </div>
+                    <div class="blogs-news-heading">
+                        <a href="/blogs/<%= blog._id %>" class="blogs-link"><h1><%= blog.blogHead %></h1></a>
+                    </div>
+                    
+                    </a>
+                    <div class="delete-btn-blog-card">
+                        <form action="/admin/blog/delete/<%= blog._id %>?_method=DELETE" method="post">
+                            <button class="blogs-delete-card-link">Delete</button>
+                        </form>
+                    </div>
+                    <div class="blogs-discription-overview">
+                        <p class="blogs-overview"><%= blog.blogoverview %></p>
+                    </div>
+                    
+                </div>
+                <% }); %>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</main>
