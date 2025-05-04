@@ -622,6 +622,7 @@ body::-webkit-scrollbar{
         flex-direction: column;
         align-items: center;
         padding: 20px 0px;
+        height: max-content;
     }
     .why-aadi-inner{
         height: 400px;
@@ -693,12 +694,12 @@ body::-webkit-scrollbar{
     }
     .main-center-top-img-rel{
         height: 20px;
-        height: 412px;
+        height: 311px;
     }
     .main-center-top-red-box-ab{
         left: 67px;
         width: 55%;
-        height: 69%;
+        height: 281px;
     }
     .main-center-top-img-ab-div{
         left: 53px;
@@ -710,6 +711,7 @@ body::-webkit-scrollbar{
     }
     .main-center-top-text-div-1{
         height: 280px;
+        width: 100%;
     }
     .main-center-top-text-div-2{
         margin-top: 0px;
@@ -719,10 +721,11 @@ body::-webkit-scrollbar{
         justify-content: center;
     }
     .main-center-top-text-div-2 h2{
-        font-size: 30px;
+        font-size: 35px;
     }
     .main-center-top-text-div-2 p{
-        font-size: 16px;
+        margin-top: 5px;
+        font-size: 21px;
     }
     .reviews-head{
         font-size: 24px;
@@ -777,18 +780,25 @@ body::-webkit-scrollbar{
     }
     .main-center-top-text-div-1{
         padding: 12px;
+        height: 184px;
     }
     .main-center-top-img-rel{
         width: 330px;
     }
-    .main-center-top-text-div-1{
+    /* .main-center-top-text-div-1{
         width: 300px;
-    }
+    } */
     .main-center-top-red-box-ab{
         left: 88px;
     }
     .main-center-top-text-div-2 h2{
-        font-size: 27px;
+        margin-top: 10px;
+        font-size: 30px;
+        font-weight: 900;
+    }
+    .main-center-top-text-div-2 p{
+        margin-top: 10px;
+        font-size: 15px;
     }
     .why-aadi-inner{
         width: 85%;
