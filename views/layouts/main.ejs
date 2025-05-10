@@ -32,8 +32,14 @@
     <link rel="stylesheet" href="/CSS/blogs.css">
     <link rel="stylesheet" href="/CSS/adminpostblogs.css">
     <link rel="stylesheet" href="/CSS/admin-blogs.css">
-    
 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    
     <style>
         .main-1{
             background-image: url(/photos/hr-illu.svg);
@@ -53,17 +59,20 @@
     </style>
 </head>
 <body>
+  <div class="page-container" style="display: flex; flex-direction: column; min-height: 100vh;">
     <!-- header  -->
-     <%- include("../partials/header.ejs") %>
+    <%- include("../partials/header.ejs") %>
 
-
-    <%- body %>
+    <div style="flex: 1;">
+      <%- body %>
+    </div>
 
     <%- include("../partials/footer.ejs") %>
+  </div>
 
-    <script src="/Javascript/index.js"></script>
-    <script src="/Javascript/details.js"></script>
-    <script src="/Javascript/main.js"></script> <!-- Added main.js -->
+  <script src="/Javascript/index.js"></script>
+  <script src="/Javascript/details.js"></script>
+  <script src="/Javascript/main.js"></script> <!-- Added main.js -->
 
 </body>
 </html>

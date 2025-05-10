@@ -1,12 +1,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 body::-webkit-scrollbar{
     display: none;
 
 }
 :root{
     --main-font: "Roboto", sans-serif;
+    --main-color: rgb(246 47 4);
 }
 .main-site-main{
     height: 120vh;
@@ -41,6 +44,7 @@ body::-webkit-scrollbar{
     width: 100vw;
     object-fit: fill;
     filter: drop-shadow(0px 0px 3px black);
+    opacity: 0.5;
 }
 .main-site-top-text{
     position: absolute;
@@ -53,6 +57,8 @@ body::-webkit-scrollbar{
     font-family: var(--main-font);
     font-size: 50px;
     font-weight: 900;
+    /* color: var(--main-color); */
+    color: #B71C1C;
 }
 .main-site-top-text h4{
     margin-top: 7px;
@@ -60,6 +66,7 @@ body::-webkit-scrollbar{
     font-size: 24px;
     margin-left: 5px;
     font-weight: 700;
+    color: #B71C1C;
     
 }
 .main-site-contact-number-div{
@@ -72,9 +79,12 @@ body::-webkit-scrollbar{
 
 }
 .main-number h1{
-    color: rgb(255, 255, 255);
+    color: grey;
     font-size: 18px;
     opacity: 0.7;
+    &:hover{
+        text-decoration: underline;
+    }
 }
 .all-socials{
     position: absolute;
@@ -253,23 +263,30 @@ body::-webkit-scrollbar{
 }
 .industries-div{
     padding: 10px;
-    background-color: whitesmoke;
+    background-color: #363635;
 }
 .industries-head{
     font-family: var(--main-font);
-    font-size: 22px;
-    font-weight: 800;
-    margin-top: 50px;
+    font-size: 44px;
+    font-weight: 900;
     margin-left: 20px;
+    color: white;
+    align-self: center;
 }
 .industries-container{
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 292px 292px 292px;
+    grid-template-rows: 292px 292px 292px;
+    gap: 20px;
+    /* align-items: center; */
     margin-top: -7px;
     width: 100%;
-    /* border: black solid 2px; */
     padding: 10px;
-    overflow-x: scroll;
+    /* background-color: #a58e80; */
+    align-content: space-evenly;
+    justify-content: space-evenly;
+    justify-items: center;
+    margin-top: 20px;
 }
 .firm-card{
     display: flex;
@@ -280,7 +297,13 @@ body::-webkit-scrollbar{
     filter: drop-shadow(0px 0px 3px black);
     /* border: 2px solid black; */
     border-radius: 10px;
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
+    background-color: #363635;
+    width: 250px;
+    &:hover{
+        filter: drop-shadow(0px 0px 7px black);
+        scale: 1.02;
+    }
 
 }
 .firm-img{
@@ -292,25 +315,91 @@ body::-webkit-scrollbar{
 .firm-name{
     font-family: var(--main-font);
     font-size: 20px;
+    font-weight: 800;
+    color: white;
 }
-.why-with-us{
-    /* border: black solid 2px; */
+
+
+.why-choose-us-section{
     padding: 10px;
-    background-color: whitesmoke;
+    background-color: #292929;
+    width: 100%;
+
+}
+.why-choose-us-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    width: 100%;
+    padding: 10px;
+    /* background-color: #a58e80; */
+    margin-top: 20px;
+    /* border: black solid 2px; */
+}
+.why-choose-us-container h1{
+ color: #f62f04;
+  font-size: 2.5rem;
+   margin-bottom: 1rem;
+}
+.why-choose-us-container p{
+    font-size: 1.2rem;
+    color: #e0e0e0;
+     margin-bottom: 2rem;
+     max-width: 800px;
+     margin-inline: auto;
+}
+.why-choose-us-container-2{
+    display: flex;
+     flex-wrap: wrap;
+      justify-content: center;
+       gap: 2rem;
+        margin-top: 2rem;
+}
+.why-card {
+    color:#f62f04;
+     margin-bottom: 1rem;
+    background: #363635;
+    padding: 2rem;
+    border-radius: 16px;
+    width: 300px;
+    border: 1px solid #444;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .why-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(246, 47, 4, 0.2);
+  }
+
+  .why-card h3 {
+    color: #f62f04;
+    margin-bottom: 0.5rem;
+  }
+
+  .why-card p {
+    color: #ccc;
+  }
+
+/* .why-with-us{
+    
+    padding: 10px;
+    background-color: #f62f04;
     width: 100%;
 }
 .why-head{
     font-family: var(--main-font);
-    font-size: 25px;  
-    font-weight: 800;
+    font-size: 34px;  
+    font-weight: 900;
+    color: white;
     margin-top: 10px;
     margin-left: 20px;
-    text-decoration: underline;
 }
 .why-with-us-text{
     font-family: var(--main-font);
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
+    color: white;
 }
 .why-with-us-text-span{
     font-size: 22px;
@@ -320,33 +409,131 @@ body::-webkit-scrollbar{
     margin-top: 10px;
 }
 .why-choose-us{
-    /* border: black solid 2px; */
     padding: 10px;
-    background-color: whitesmoke;
+    background-color: #f62f04;
     width: 100%;
 }
 .why-choose-us-text{
     font-family: var(--main-font);
     font-size: 20px;
     font-weight: 600;
-}
-.how-we-work{
-    /* border: black solid 2px; */
+    color: white;
+ } */
+
+
+
+
+  
+
+ /* chat gpt 1  */
+
+ /* .timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .timeline-step {
+    background: #363635;
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid #444;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .timeline-step:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .timeline-step .circle {
+    width: 50px;
+    height: 50px;
+    background: #f62f04;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.1rem;
+  }
+
+  .timeline-step h3 {
+    color: #f62f04;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-step p {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 600px) {
+    .timeline-step {
+      padding: 1.5rem 1rem;
+    }
+
+    .timeline-step .circle {
+      width: 40px;
+      height: 40px;
+      font-size: 1rem;
+    }
+  } */
+
+/* chat gpt 2 section  */
+
+.hover-box:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(255, 69, 0, 0.6);
+    filter: brightness(1.1);
+  }
+  .hover-box {
+    transition: all 0.4s ease;
+  }
+  .hover-button {
+    font-weight: 800;
+    box-shadow: 0px 0px 10px #e03e00;
+  }
+  .hover-button:hover {
+    background: #e03e00 !important;
+    filter: brightness(1.2);
+    box-shadow: 0px 0px 15px #e03e00;
+    transform: translateY(-2px);
+    
+  }
+  
+
+
+
+
+
+
+
+
+/* .how-we-work{
     padding: 10px;
-    background-color: whitesmoke;
+    background-color: #f62f04;
     width: 100%;
 }
 .how-head{
     font-family: var(--main-font);
-    font-size: 25px;  
-    font-weight: 800;
+    font-size: 34px;  
+    font-weight: 900;
     margin-top: 10px;
     margin-left: 20px;
-    text-decoration: underline;
+    color: white;
 }
 .how-we-work-container{
     margin-left: 15px;
     margin-top: 5px;
+    color: white;
 }
 .how-we-work-text{
     font-family: var(--main-font);
@@ -383,7 +570,7 @@ body::-webkit-scrollbar{
     font-family: var(--main-font);
     font-size: 18px;
     font-weight: 600;
-}
+}  */
 .skill-text{
     font-family: var(--main-font);
     font-size: 22px;
@@ -587,6 +774,10 @@ body::-webkit-scrollbar{
         margin-right: 20px;
         width: 400px;
     }
+    .industries-container {
+        grid-template-columns: 292px 292px;
+        grid-template-rows: 292px 292px 292px 292px;
+    }
     
 }
 @media screen and (max-width: 983px) {
@@ -661,6 +852,19 @@ body::-webkit-scrollbar{
     .why-aadi-inner{
         /* height: 350px; */
         width: 85%;
+    }
+    .industries-container{
+        grid-template-columns: 537px;
+        grid-template-rows: 292px 292px 292px 292px 292px;
+    }
+    .firm-card{
+        width: 500px;
+    }
+
+    .firm-img {
+        height: 249px;
+        width: auto;
+        border-radius: 10px;
     }
     
 }
