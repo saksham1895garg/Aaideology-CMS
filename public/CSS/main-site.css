@@ -868,6 +868,15 @@ body::-webkit-scrollbar{
     }
     
 }
+@media screen and (max-width: 550px){
+ .industries-container{
+    grid-template-columns: 337px;
+ }
+ .firm-card {
+    width: 389px;
+}
+
+}
 @media screen and (max-width: 525px){
     .main-site-top-text{
         top: 243px;
@@ -1008,6 +1017,13 @@ body::-webkit-scrollbar{
         width: 85%;
         height: 410px;;
     }
+    .firm-card {
+        width: 340px;
+    }
+    .firm-img{
+        height: 213px;
+    }
+    
 }
 @media screen and (max-width: 1055px) {
     .main-img{
