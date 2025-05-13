@@ -1,23 +1,27 @@
 <main class="main">
 <div class="main-1"></div>
 <div class="main-2">
-    <div class="discription" id="discription"><h1 style="font-size: 32px;">Our Jobs</h1></div>
-    <div class="hiring-content">
-        <% admin.forEach((item) => { %>
-            
-        
-        <div class="cards">
-           <a href="/aaideology/<%= item._id %>" class="company-page"><div class="company-logo-div"><img class="company-logo" src="/uploads/<%= item.companylogo %>" alt="<%= item.companyname %>"></div>
-            <div class="card-line"></div>
-            <div class="info">
-                 <h1><%= item.companyname %></h1>
-                <h2><%= item.jobname %></h2>
-                <p><%= item.jobdescription %></p>
-            </div> </a>
-        </div> 
-        <% }); %>
-        <!-- Additional cards can be added here -->
+   
+     <h1 class="section-title">🚀 Our Jobs</h1>
+    <% admin.forEach((item) => { %>
+    <div class="job-card">
+      <img src="/uploads/<%= item.companylogo %>" alt="<%= item.companylogo %>" class="company-logo" />
+      <div class="job-details-main">
+        <h2><%= item.companyname %></h2>
+        <p class="position"><%= item.jobname %></p>
+        <p class="description">
+          <%= item.jobdescription %>
+        </p>
+        <button class="view-btn" onclick="location.href='/aaideology/<%= item._id %>'">View Details →</button>
+      </div>
     </div>
+
+
+    
+
+    
+    <% }); %>
+    
 </div>
 
 </main>
